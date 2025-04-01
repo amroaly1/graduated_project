@@ -1,0 +1,47 @@
+import 'package:flutter/material.dart';
+import 'package:graduate_project/core/resource/color_manager.dart';
+import 'package:graduate_project/core/resource/font_size_manager.dart';
+import 'package:graduate_project/core/resource/font_weight_manager.dart';
+
+abstract class FontStyleManager {
+  static TextStyle medium24({
+    String? fontFamily,
+    Color color = ColorManager.primaryColor,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.meduim,
+        fontSize: FontSizeManager.s24,
+        color: color,
+      );
+  static TextStyle regular24({
+    String? fontFamily,
+    Color color = ColorManager.purple1Color,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.regular,
+        fontSize: FontSizeManager.s24,
+        color: color,
+      );
+  static TextStyle light32({
+    String? fontFamily,
+    Color color = ColorManager.whight,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.light,
+        fontSize: FontSizeManager.s32,
+        color: color,
+      );
+  static TextStyle bold32({
+    String? fontFamily,
+    Color color = ColorManager.black1Color,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.bold,
+        fontSize: FontSizeManager.s32,
+        color: color,
+      );
+}
