@@ -15,27 +15,14 @@ abstract class TextStyleManager {
         color: color,
       );
 
-  static TextStyle regular17({
-    String? fontFamily,
-    Color? color,
-    List<Shadow>? shadows,
-  }) =>
-      TextStyle(
-        fontFamily: fontFamily,
-        fontWeight: FontWeightManager.regular,
-        fontSize: FontSizeManager.s17,
-        color: color ?? ColorManager.blackwithOpacity70,
-        shadows: shadows,
-      );
-
-  static TextStyle regular24({
+  static TextStyle meduim24({
     String? fontFamily,
     Color color = ColorManager.purple1Color,
     List<Shadow>? shadows,
   }) =>
       TextStyle(
         fontFamily: fontFamily,
-        fontWeight: FontWeightManager.regular,
+        fontWeight: FontWeightManager.meduim,
         fontSize: FontSizeManager.s24,
         color: color,
         shadows: shadows,
@@ -64,13 +51,13 @@ abstract class TextStyleManager {
         color: color,
         height: height,
       );
-  static TextStyle bold32({
+  static TextStyle black32({
     String? fontFamily,
     Color color = ColorManager.black1Color,
   }) =>
       TextStyle(
         fontFamily: fontFamily,
-        fontWeight: FontWeightManager.bold,
+        fontWeight: FontWeightManager.black,
         fontSize: FontSizeManager.s32,
         color: color,
       );

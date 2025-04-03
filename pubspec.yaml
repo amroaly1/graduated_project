@@ -66,46 +66,72 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Inter
+    - family: HvDTrial_Brandon_Grotesque
       fonts:
-        - asset: assets/fonts/Inter/Inter_28pt-Thin.ttf
+        - asset: assets/fonts/HvDTrial_Brandon_Grotesque/HvDTrial_Brandon_Grotesque_thin-BF64a625c9034b9.otf
           weight: 100
-        - asset: assets/fonts/Inter/Inter_28pt-ExtraLight.ttf
-          weight: 200
-        - asset: assets/fonts/Inter/Inter_28pt-Light.ttf
+        - asset: assets/fonts/HvDTrial_Brandon_Grotesque/HvDTrial_Brandon_Grotesque_light-BF64a625c93e709.otf
           weight: 300
-        - asset: assets/fonts/Inter/Inter_28pt-Regular.ttf
+        - asset: assets/fonts/HvDTrial_Brandon_Grotesque/HvDTrial_Brandon_Grotesque_regular-BF64a625c9311e1.otf
           weight: 400
-        - asset: assets/fonts/Inter/Inter_28pt-Medium.ttf
+        - asset: assets/fonts/HvDTrial_Brandon_Grotesque/HvDTrial_Brandon_Grotesque_medium-BF64a625c84a521.otf
           weight: 500
-        - asset: assets/fonts/Inter/Inter_28pt-SemiBold.ttf
-          weight: 600
-        - asset: assets/fonts/Inter/Inter_28pt-Bold.ttf
+        - asset: assets/fonts/HvDTrial_Brandon_Grotesque/HvDTrial_Brandon_Grotesque_bold-BF64a625c9151d5.otf
           weight: 700
-        - asset: assets/fonts/Inter/Inter_28pt-ExtraBold.ttf
-          weight: 800
-        - asset: assets/fonts/Inter/Inter_28pt-Black.ttf
+        - asset: assets/fonts/HvDTrial_Brandon_Grotesque/HvDTrial_Brandon_Grotesque_black-BF64a625c944b08.otf
           weight: 900
-    - family: Poppins
+    - family: AvenirLTStd
       fonts:
-        - asset: assets/fonts/Poppins/Poppins-Thin.ttf
-          weight: 100
-        - asset: assets/fonts/Poppins/Poppins-ExtraLight.ttf
-          weight: 200
-        - asset: assets/fonts/Poppins/Poppins-Light.ttf
+        - asset: assets/fonts/AvenirLTStd/AvenirLTStd-Light.otf
           weight: 300
-        - asset: assets/fonts/Poppins/Poppins-Regular.ttf
+        - asset: assets/fonts/AvenirLTStd/AvenirLTStd-Regular.otf
           weight: 400
-        - asset: assets/fonts/Poppins/Poppins-Medium.ttf
+        - asset: assets/fonts/AvenirLTStd/AvenirLTStd-Medium.otf
           weight: 500
-        - asset: assets/fonts/Poppins/Poppins-SemiBold.ttf
-          weight: 600
-        - asset: assets/fonts/Poppins/Poppins-Bold.ttf
-          weight: 700
-        - asset: assets/fonts/Poppins/Poppins-ExtraBold.ttf
+        - asset: assets/fonts/AvenirLTStd/AvenirLTStd-ExtraBold.otf
           weight: 800
-        - asset: assets/fonts/Poppins/Poppins-Black.ttf
+        - asset: assets/fonts/AvenirLTStd/AvenirLTStd-Black.otf
           weight: 900
+    # - family: Inter
+    #   fonts:
+    #     - asset: assets/fonts/Inter/Inter_28pt-Thin.ttf
+    #       weight: 100
+    #     - asset: assets/fonts/Inter/Inter_28pt-ExtraLight.ttf
+    #       weight: 200
+    #     - asset: assets/fonts/Inter/Inter_28pt-Light.ttf
+    #       weight: 300
+    #     - asset: assets/fonts/Inter/Inter_28pt-Regular.ttf
+    #       weight: 400
+    #     - asset: assets/fonts/Inter/Inter_28pt-Medium.ttf
+    #       weight: 500
+    #     - asset: assets/fonts/Inter/Inter_28pt-SemiBold.ttf
+    #       weight: 600
+    #     - asset: assets/fonts/Inter/Inter_28pt-Bold.ttf
+    #       weight: 700
+    #     - asset: assets/fonts/Inter/Inter_28pt-ExtraBold.ttf
+    #       weight: 800
+    #     - asset: assets/fonts/Inter/Inter_28pt-Black.ttf
+    #       weight: 900
+    # - family: Poppins
+    #   fonts:
+    #     - asset: assets/fonts/Poppins/Poppins-Thin.ttf
+    #       weight: 100
+    #     - asset: assets/fonts/Poppins/Poppins-ExtraLight.ttf
+    #       weight: 200
+    #     - asset: assets/fonts/Poppins/Poppins-Light.ttf
+    #       weight: 300
+    #     - asset: assets/fonts/Poppins/Poppins-Regular.ttf
+    #       weight: 400
+    #     - asset: assets/fonts/Poppins/Poppins-Medium.ttf
+    #       weight: 500
+    #     - asset: assets/fonts/Poppins/Poppins-SemiBold.ttf
+    #       weight: 600
+    #     - asset: assets/fonts/Poppins/Poppins-Bold.ttf
+    #       weight: 700
+    #     - asset: assets/fonts/Poppins/Poppins-ExtraBold.ttf
+    #       weight: 800
+    #     - asset: assets/fonts/Poppins/Poppins-Black.ttf
+    #       weight: 900
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

@@ -7,6 +7,8 @@ import 'package:graduate_project/core/resource/image_manager.dart';
 import 'package:graduate_project/core/resource/padding_manager.dart';
 import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
+import 'package:graduate_project/core/route/navigation_manager.dart';
+import 'package:graduate_project/core/route/screen_manager.dart';
 import 'package:graduate_project/core/widget/default_button.dart';
 
 class WelcomeBody extends StatelessWidget {
@@ -43,8 +45,7 @@ class WelcomeBody extends StatelessWidget {
           SizedBox(height: HeightManager.h20),
           Text(
             StringManager.welcomeTohandTalk,
-            style: TextStyleManager.bold32(
-              fontFamily: FontFamilyManger.poppins,
+            style: TextStyleManager.black32(
               color: ColorManager.black,
             ),
             textAlign: TextAlign.center,
@@ -54,19 +55,32 @@ class WelcomeBody extends StatelessWidget {
             padding: PaddingManager.paddingHorizontal24,
             child: Text(
               StringManager.subTitlewelcomeTohandTalk,
-              style: TextStyleManager.regular17(),
+              style: TextStyleManager.meduim24(
+                fontFamily: FontFamilyManger.avenirLTStd,
+                color: ColorManager.blackwithOpacity70,
+              ),
               textAlign: TextAlign.center,
             ),
           ),
           SizedBox(height: HeightManager.h38),
           DefaultButton(
             text: StringManager.signIn,
-            onPressed: () {},
+            onPressed: () {
+              NavigationManager.push(
+                context: context,
+                screen: ScreenManager.loginView,
+              );
+            },
           ),
           SizedBox(height: HeightManager.h13),
           DefaultButton(
             text: StringManager.createAccount,
-            onPressed: () {},
+            onPressed: () {
+              NavigationManager.push(
+                context: context,
+                screen: ScreenManager.siginUpView,
+              );
+            },
           ),
         ],
       ),

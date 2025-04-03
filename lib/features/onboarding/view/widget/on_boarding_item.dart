@@ -3,9 +3,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graduate_project/core/resource/color_manager.dart';
 import 'package:graduate_project/core/resource/device_height_width_manager.dart';
 import 'package:graduate_project/core/resource/distance_manager.dart';
+import 'package:graduate_project/core/resource/font_family_manger.dart';
 import 'package:graduate_project/core/resource/icon_manager.dart';
 import 'package:graduate_project/core/resource/padding_manager.dart';
-import 'package:graduate_project/core/resource/shadow_manager.dart';
 import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
 import 'package:graduate_project/core/widget/default_button.dart';
@@ -65,7 +65,7 @@ class OnBoardingItem extends StatelessWidget {
                 context,
                 WidthOfDesign.w378,
               ),
-              fit: BoxFit.fill,
+              // fit: BoxFit.fill,
             ),
           ),
           Spacer(
@@ -73,7 +73,7 @@ class OnBoardingItem extends StatelessWidget {
           ),
           Text(
             item.title,
-            style: TextStyleManager.bold32(),
+            style: TextStyleManager.black32(),
             textAlign: TextAlign.center,
           ),
           SizedBox(height: HeightManager.h32),
@@ -81,10 +81,8 @@ class OnBoardingItem extends StatelessWidget {
             padding: PaddingManager.paddingHorizontal24,
             child: Text(
               item.subTitle,
-              style: TextStyleManager.regular24(
-                shadows: [
-                  ShadowManager.textShadow,
-                ],
+              style: TextStyleManager.meduim24(
+                fontFamily: FontFamilyManger.avenirLTStd,
               ),
               textAlign: TextAlign.center,
             ),

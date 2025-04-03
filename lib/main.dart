@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'HandTalk',
         theme: ThemeData(
-          fontFamily: FontFamilyManger.inter,
+          fontFamily: FontFamilyManger.hvDTrialBrandonGrotesque,
           scaffoldBackgroundColor: ColorManager.scaffoldBackground,
           useMaterial3: true,
         ),

@@ -1,6 +1,6 @@
 abstract class StringManager {
   // onBoarding text
-  static const String onBoardingTitle1 = "Welcome To  HandTalk";
+  static const String onBoardingTitle1 = "Welcome To  HandTalk App";
   static const String onBoardingSubTitle1 =
       '“ Real-time translation from speech to sign language – bridging communication gaps ”';
   static const String onBoardingTitle2 = "Instant Translation";
@@ -12,7 +12,7 @@ abstract class StringManager {
 
   // welcome page
   static const String handTalk = "HandTalk";
-  static const String welcomeTohandTalk = "Welcome to \nHandTalk !";
+  static const String welcomeTohandTalk = "Welcome to HandTalk !";
   static const String subTitlewelcomeTohandTalk =
       "Let's make communication simple and accessible for everyone.";
   // error page

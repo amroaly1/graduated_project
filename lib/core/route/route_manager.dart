@@ -4,6 +4,8 @@ import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
 import 'package:graduate_project/core/resource/time_manager.dart';
 import 'package:graduate_project/core/route/screen_manager.dart';
+import 'package:graduate_project/features/auth/login/presentation/login_view.dart';
+import 'package:graduate_project/features/auth/signUp/presentation/sigin_up_view.dart';
 import 'package:graduate_project/features/auth/welcome/presentation/welcome_view.dart';
 import 'package:graduate_project/features/onboarding/view/on_boarding_view.dart';
 
@@ -15,12 +17,16 @@ abstract class RouteManager {
 
       case ScreenManager.welcomeView:
         return customPageBuilder(WelcomeView());
+      case ScreenManager.loginView:
+        return customPageBuilder(LoginView());
+      case ScreenManager.siginUpView:
+        return customPageBuilder(SiginUpView());
       default:
         return customPageBuilder(
           Scaffold(
             body: Text(
               StringManager.noPage,
-              style: TextStyleManager.bold32(color: ColorManager.red),
+              style: TextStyleManager.black32(color: ColorManager.red),
             ),
           ),
         );
