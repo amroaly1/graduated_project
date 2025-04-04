@@ -10,7 +10,11 @@ abstract class ColorManager {
   static const Color black1Color = Color(0xff2D0567);
   static const Color black = Color(0xff000000);
   static Color blackwithOpacity70 = Color(0xff000000).withValues(alpha: 0.7);
+  static Color blackwithOpacity50 = Color(0xff000000).withValues(alpha: 0.5);
   static const Color whight = Color(0xffFFFFFF);
   static const Color whight1 = Color(0xffFFFDFD);
   static const Color red = Colors.red;
+  static const Color green = Colors.green;
+  static const Color blue = Colors.blue;
+  static const Color gray = Color(0xffD8DADC);
 }

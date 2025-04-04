@@ -45,7 +45,7 @@ class OnBoardingItem extends StatelessWidget {
                     ),
                     child: Text(
                       StringManager.skip,
-                      style: TextStyleManager.medium24(),
+                      style: TextStyleManager.light24(),
                     ),
                   ),
                 ),
@@ -81,7 +81,7 @@ class OnBoardingItem extends StatelessWidget {
             padding: PaddingManager.paddingHorizontal24,
             child: Text(
               item.subTitle,
-              style: TextStyleManager.meduim24(
+              style: TextStyleManager.medium24(
                 fontFamily: FontFamilyManger.avenirLTStd,
               ),
               textAlign: TextAlign.center,

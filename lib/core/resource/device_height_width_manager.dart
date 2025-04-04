@@ -31,3 +31,8 @@ abstract class WidthOfDesign {
   static const double w299 = 299;
   static const double w378 = 378;
 }
+
+abstract class HeightExternal {
+  static double keyBoardHeight(BuildContext context) =>
+      MediaQuery.of(context).viewInsets.bottom;
+}

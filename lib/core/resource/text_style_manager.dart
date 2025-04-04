@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graduate_project/core/resource/color_manager.dart';
+import 'package:graduate_project/core/resource/font_family_manger.dart';
 import 'package:graduate_project/core/resource/font_size_manager.dart';
 import 'package:graduate_project/core/resource/font_weight_manager.dart';
 
@@ -15,14 +16,26 @@ abstract class TextStyleManager {
         color: color,
       );
 
-  static TextStyle meduim24({
-    String? fontFamily,
+  static TextStyle bold19({
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+    Color color = ColorManager.black,
+    List<Shadow>? shadows,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.bold,
+        fontSize: FontSizeManager.s19,
+        color: color,
+        shadows: shadows,
+      );
+  static TextStyle light24({
+    String? fontFamily = FontFamilyManger.avenirLTStd,
     Color color = ColorManager.purple1Color,
     List<Shadow>? shadows,
   }) =>
       TextStyle(
         fontFamily: fontFamily,
-        fontWeight: FontWeightManager.meduim,
+        fontWeight: FontWeightManager.light,
         fontSize: FontSizeManager.s24,
         color: color,
         shadows: shadows,
@@ -59,6 +72,56 @@ abstract class TextStyleManager {
         fontFamily: fontFamily,
         fontWeight: FontWeightManager.black,
         fontSize: FontSizeManager.s32,
+        color: color,
+      );
+  static TextStyle black16({
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+    Color color = ColorManager.primaryColor,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.black,
+        fontSize: FontSizeManager.s16,
+        color: color,
+      );
+  static TextStyle black36({
+    String? fontFamily,
+    Color color = ColorManager.black,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.black,
+        fontSize: FontSizeManager.s36,
+        color: color,
+      );
+  static TextStyle bold16({
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+    Color color = ColorManager.black,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.bold,
+        fontSize: FontSizeManager.s16,
+        color: color,
+      );
+  static TextStyle bold14({
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+    Color color = ColorManager.black,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.bold,
+        fontSize: FontSizeManager.s14,
+        color: color,
+      );
+  static TextStyle regular14({
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+    Color color = ColorManager.black,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.regular,
+        fontSize: FontSizeManager.s14,
         color: color,
       );
 }

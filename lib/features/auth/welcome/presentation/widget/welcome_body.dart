@@ -55,7 +55,7 @@ class WelcomeBody extends StatelessWidget {
             padding: PaddingManager.paddingHorizontal24,
             child: Text(
               StringManager.subTitlewelcomeTohandTalk,
-              style: TextStyleManager.meduim24(
+              style: TextStyleManager.medium24(
                 fontFamily: FontFamilyManger.avenirLTStd,
                 color: ColorManager.blackwithOpacity70,
               ),
