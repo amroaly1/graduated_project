@@ -19,7 +19,7 @@ class CustomNavigationBetweenAuth extends StatelessWidget {
       children: [
         Text(
           hint,
-          style: TextStyleManager.regular14(
+          style: TextStyleManager.bold14(
             color: ColorManager.blackwithOpacity70,
           ),
         ),
@@ -27,7 +27,7 @@ class CustomNavigationBetweenAuth extends StatelessWidget {
           onTap: onTap,
           child: Text(
             pageTitle,
-            style: TextStyleManager.regular14(),
+            style: TextStyleManager.bold14(),
           ),
         ),
       ],

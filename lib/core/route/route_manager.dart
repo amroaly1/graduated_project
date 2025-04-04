@@ -4,6 +4,7 @@ import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
 import 'package:graduate_project/core/resource/time_manager.dart';
 import 'package:graduate_project/core/route/screen_manager.dart';
+import 'package:graduate_project/features/auth/forget_password/presentation/forget_password_view.dart';
 import 'package:graduate_project/features/auth/login/presentation/login_view.dart';
 import 'package:graduate_project/features/auth/signUp/presentation/sigin_up_view.dart';
 import 'package:graduate_project/features/auth/welcome/presentation/welcome_view.dart';
@@ -21,6 +22,8 @@ abstract class RouteManager {
         return customPageBuilder(LoginView());
       case ScreenManager.siginUpView:
         return customPageBuilder(SiginUpView());
+      case ScreenManager.forgetPasswordView:
+        return customPageBuilder(ForgetPasswordView());
       default:
         return customPageBuilder(
           Scaffold(

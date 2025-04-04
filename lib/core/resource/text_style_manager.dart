@@ -114,14 +114,4 @@ abstract class TextStyleManager {
         fontSize: FontSizeManager.s14,
         color: color,
       );
-  static TextStyle regular14({
-    String? fontFamily = FontFamilyManger.avenirLTStd,
-    Color color = ColorManager.black,
-  }) =>
-      TextStyle(
-        fontFamily: fontFamily,
-        fontWeight: FontWeightManager.regular,
-        fontSize: FontSizeManager.s14,
-        color: color,
-      );
 }

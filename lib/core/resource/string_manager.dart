@@ -23,6 +23,7 @@ abstract class StringManager {
   static const String createaPassword = "Create a password";
   static const String confirmPassword = "Confirm password";
   static const String hintPassword = "******";
+  static const String hintConfirmPassword = "repeat password";
   static const String orRegisterWith = "Or Register with";
   static const String alreadyhaveanaccount = "Already have an account? ";
 
@@ -33,6 +34,12 @@ abstract class StringManager {
   static const String orLoginwith = "Or Login with";
   static const String donthaveanaccount = "Don’t have an account? ";
 
+  // forget password
+  static const String forgetPassowrdHint =
+      "Don’t worry! It happens. Please enter the email associated with your account.";
+  static const String forgetPassowrdEmailHint = "Enter your email address";
+  static const String forgetPassowrdNavigationHint = "Remember password? ";
+
   // error page
   static const String noPage = "No Page";
   // button text
@@ -42,4 +49,5 @@ abstract class StringManager {
   static const String createAccount = "Create  Account";
   static const String signUpbutton = "Sign Up";
   static const String forgotpassword = "Forgot password?";
+  static const String sendCode = "Send Code";
 }

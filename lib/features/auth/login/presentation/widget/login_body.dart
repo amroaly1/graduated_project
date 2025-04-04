@@ -52,7 +52,11 @@ class LoginBody extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   padding: PaddingManager.paddingHorizontal24,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  NavigationManager.push(
+                      context: context,
+                      screen: ScreenManager.forgetPasswordView);
+                },
                 child: Text(
                   StringManager.forgotpassword,
                   style: TextStyleManager.black16(),

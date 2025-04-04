@@ -43,7 +43,7 @@ class SiginUpBody extends StatelessWidget {
                     ),
                     CustomTextFieldAuth(
                       labelText: StringManager.confirmPassword,
-                      hintText: StringManager.hintPassword,
+                      hintText: StringManager.hintConfirmPassword,
                       isPassword: true,
                     ),
                   ],

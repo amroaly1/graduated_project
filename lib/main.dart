@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: ColorManager.scaffoldBackground,
           useMaterial3: true,
         ),
-        initialRoute: ScreenManager.onBoardingView,
+        initialRoute: ScreenManager.forgetPasswordView,
         onGenerateRoute: RouteManager.generateRoute,
       ),
     );
