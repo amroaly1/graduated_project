@@ -31,6 +31,7 @@ abstract class HeightManager {
 }
 
 abstract class WidthManager {
+  static double w6 = 6.w;
   static double w9_28 = 9.28.w;
   static double w10 = 10.w;
   static double w12 = 12.w;
@@ -47,6 +48,7 @@ abstract class WidthManager {
 abstract class RaduisValueManager {
   static double r10 = 10.r;
   static double r18 = 18.r;
+  static double r20 = 20.r;
   static double r29 = 29.r;
   static double r30 = 30.r;
 }

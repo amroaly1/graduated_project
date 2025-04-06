@@ -50,6 +50,21 @@ abstract class StringManager {
   static const String videotoAudio = "Video to Audio";
   static const String videotoText = "Video to Text";
 
+  // uplaod screen
+  static const String uploadVideo = "Upload Video";
+  static const String videos = "Videos";
+  static const String dateofVideo = "Mp4, 4:3, Up to  24 \nSeconds";
+  static const String selectOrCaptureVideo =
+      "Select or Capture video to begin translation...";
+
+  // translate
+  static const String filename = "file name :";
+  static const String deuration = "deuration :";
+
+  // learn
+
+  static const String search = "Search";
+
   // bottom navigation bar
   static const String home = "Home";
   static const String upload = "Upload";
@@ -67,4 +82,6 @@ abstract class StringManager {
   static const String signUpbutton = "Sign Up";
   static const String forgotpassword = "Forgot password?";
   static const String sendCode = "Send Code";
+  static const String selectVideo = "Select Video";
+  static const String cancel = "Cancel";
 }

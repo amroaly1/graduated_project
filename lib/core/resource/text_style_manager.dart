@@ -15,6 +15,16 @@ abstract class TextStyleManager {
         fontSize: FontSizeManager.s24,
         color: color,
       );
+  static TextStyle medium20({
+    String? fontFamily,
+    Color color = ColorManager.black,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.meduim,
+        fontSize: FontSizeManager.s20,
+        color: color,
+      );
   static TextStyle semiBold16({
     String? fontFamily = FontFamilyManger.avenirLTStd,
     Color color = ColorManager.gray2,
@@ -47,6 +57,42 @@ abstract class TextStyleManager {
         fontFamily: fontFamily,
         fontWeight: FontWeightManager.bold,
         fontSize: FontSizeManager.s20,
+        color: color,
+        shadows: shadows,
+      );
+  static TextStyle light13({
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+    Color color = ColorManager.black,
+    List<Shadow>? shadows,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.light,
+        fontSize: FontSizeManager.s13,
+        color: color,
+        shadows: shadows,
+      );
+  static TextStyle light14({
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+    Color color = ColorManager.gray3,
+    List<Shadow>? shadows,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.light,
+        fontSize: FontSizeManager.s14,
+        color: color,
+        shadows: shadows,
+      );
+  static TextStyle light16({
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+    Color color = ColorManager.gray3,
+    List<Shadow>? shadows,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.light,
+        fontSize: FontSizeManager.s16,
         color: color,
         shadows: shadows,
       );

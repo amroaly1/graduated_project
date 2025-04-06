@@ -6,4 +6,6 @@ abstract class ImageManager {
   static const String forgetPasswordImage =
       "${_baseUrl}forget_password_image.svg";
   static const String welcomeLogo = "${_baseUrl}welcome_logo.png";
+  static const String uploadvideoimage = "${_baseUrl}upload_video_image.svg";
+  static const String translateImage = "${_baseUrl}translate_image.png";
 }

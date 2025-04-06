@@ -6,7 +6,7 @@ import 'package:graduate_project/core/resource/icon_manager.dart';
 import 'package:graduate_project/core/resource/padding_manager.dart';
 import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
-import 'package:graduate_project/core/widget/cutsom_app_bar_of_sub_page.dart';
+import 'package:graduate_project/core/widget/app_bar_of_home_pages.dart';
 import 'package:graduate_project/features/stream/presentation/widget/custom_navigation_card.dart';
 
 class StreamBody extends StatelessWidget {
@@ -17,20 +17,14 @@ class StreamBody extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          CutsomAppBarOfSubPage(
-            showArrow: false,
-            isSpacingBeforeLogo: false,
+          AppBarOfHomePages(
+            title: StringManager.liveTranslation,
           ),
           Padding(
             padding: PaddingManager.paddingHorizontal24,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text(
-                  StringManager.liveTranslation,
-                  textAlign: TextAlign.start,
-                  style: TextStyleManager.black40(),
-                ),
                 SizedBox(height: HeightManager.h20),
                 Padding(
                   padding: EdgeInsets.symmetric(
