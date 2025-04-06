@@ -15,6 +15,16 @@ abstract class TextStyleManager {
         fontSize: FontSizeManager.s24,
         color: color,
       );
+  static TextStyle semiBold16({
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+    Color color = ColorManager.gray2,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.semiBold,
+        fontSize: FontSizeManager.s16,
+        color: color,
+      );
 
   static TextStyle bold19({
     String? fontFamily = FontFamilyManger.avenirLTStd,
@@ -25,6 +35,18 @@ abstract class TextStyleManager {
         fontFamily: fontFamily,
         fontWeight: FontWeightManager.bold,
         fontSize: FontSizeManager.s19,
+        color: color,
+        shadows: shadows,
+      );
+  static TextStyle bold20({
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+    Color color = ColorManager.gray2,
+    List<Shadow>? shadows,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.bold,
+        fontSize: FontSizeManager.s20,
         color: color,
         shadows: shadows,
       );
@@ -74,6 +96,16 @@ abstract class TextStyleManager {
         fontSize: FontSizeManager.s32,
         color: color,
       );
+  static TextStyle black40({
+    String? fontFamily,
+    Color color = ColorManager.primaryColor,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.black,
+        fontSize: FontSizeManager.s40,
+        color: color,
+      );
   static TextStyle black16({
     String? fontFamily = FontFamilyManger.avenirLTStd,
     Color color = ColorManager.primaryColor,
@@ -112,6 +144,16 @@ abstract class TextStyleManager {
         fontFamily: fontFamily,
         fontWeight: FontWeightManager.bold,
         fontSize: FontSizeManager.s14,
+        color: color,
+      );
+  static TextStyle bold12({
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+    Color color = ColorManager.gray1,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.bold,
+        fontSize: FontSizeManager.s12,
         color: color,
       );
 }

@@ -2,16 +2,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 abstract class HeightManager {
   static double h6 = 6.h;
+  static double h10 = 10.h;
   static double h11 = 11.h;
   static double h12 = 12.h;
   static double h13 = 13.h;
   static double h13_78 = 13.78.h;
   static double h15 = 15.0.h;
+  static double h16 = 16.0.h;
   static double h18 = 18.0.h;
   static double h19 = 19.0.h;
   static double h20 = 20.0.h;
   static double h22 = 22.0.h;
   static double h24 = 24.0.h;
+  static double h26 = 26.0.h;
   static double h29 = 29.0.h;
   static double h32 = 32.0.h;
   static double h34 = 34.0.h;

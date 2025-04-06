@@ -4,4 +4,5 @@ abstract class ScreenManager {
   static const String loginView = "/loginView";
   static const String siginUpView = "/siginUpView";
   static const String forgetPasswordView = "/forgetPasswordView";
+  static const String homeView = "/homeView";
 }

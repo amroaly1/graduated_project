@@ -1,0 +1,31 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduate_project/features/home/manager/home_cubit/cubit/home_state.dart';
+import 'package:graduate_project/features/home/presentation/widget/learn_body.dart';
+import 'package:graduate_project/features/home/presentation/widget/stream_body.dart';
+import 'package:graduate_project/features/home/presentation/widget/upload_body.dart';
+import 'package:graduate_project/features/home/presentation/widget/home_body.dart';
+import 'package:graduate_project/features/home/presentation/widget/translate_body.dart';
+
+class HomeCubit extends Cubit<HomeState> {
+  HomeCubit() : super(HomeInitial());
+  static HomeCubit get(context) => BlocProvider.of(context);
+  int currentIndex = 0;
+
+  void chnageCurrentIndex(int index) {
+    currentIndex = index;
+    emit(HomeChangeCurrentIndex());
+  }
+
+  List<Widget> screens = [
+    HomeBody(),
+    UploadBody(),
+    StreamBody(),
+    TranslateBody(),
+    LearnBody(),
+  ];
+
+  Widget myBody() {
+    return screens[currentIndex];
+  }
+}

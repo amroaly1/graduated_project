@@ -66,7 +66,10 @@ class LoginBody extends StatelessWidget {
             SizedBox(height: HeightManager.h20),
             DefaultButton(
               text: StringManager.login,
-              onPressed: () {},
+              onPressed: () {
+                NavigationManager.pushNameAndReplaseUnti(
+                    context: context, screen: ScreenManager.homeView);
+              },
             ),
             SizedBox(height: HeightManager.h52),
             SocialAuthSection(

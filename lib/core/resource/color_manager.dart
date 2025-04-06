@@ -13,8 +13,12 @@ abstract class ColorManager {
   static Color blackwithOpacity50 = Color(0xff000000).withValues(alpha: 0.5);
   static const Color whight = Color(0xffFFFFFF);
   static const Color whight1 = Color(0xffFFFDFD);
+  static const Color whight2 = Color(0xffE8E2F0);
   static const Color red = Colors.red;
   static const Color green = Colors.green;
   static const Color blue = Colors.blue;
+  static const Color blue1 = Color(0xff321260);
   static const Color gray = Color(0xffD8DADC);
+  static const Color gray1 = Color(0xff9C9C9C);
+  static const Color gray2 = Color(0xff676363);
 }

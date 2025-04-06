@@ -40,6 +40,23 @@ abstract class StringManager {
   static const String forgetPassowrdEmailHint = "Enter your email address";
   static const String forgetPassowrdNavigationHint = "Remember password? ";
 
+  // home
+
+  // stream screen
+  static const String liveTranslation = "Live Translation";
+  static const String liveTranslationDescription =
+      "Breaking the silence has never been easier! With this app, you can translate hand signals into text or speech in real-time, thanks to advanced AI technology. Communicate effortlessly and bridge the gap like never before! ";
+  static const String clickhertotranslate = "Click her to translate";
+  static const String videotoAudio = "Video to Audio";
+  static const String videotoText = "Video to Text";
+
+  // bottom navigation bar
+  static const String home = "Home";
+  static const String upload = "Upload";
+  static const String stream = "Stream";
+  static const String translate = "Translate";
+  static const String learn = "Learn";
+
   // error page
   static const String noPage = "No Page";
   // button text
