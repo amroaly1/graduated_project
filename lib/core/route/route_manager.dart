@@ -8,8 +8,13 @@ import 'package:graduate_project/features/auth/forget_password/presentation/forg
 import 'package:graduate_project/features/auth/login/presentation/login_view.dart';
 import 'package:graduate_project/features/auth/signUp/presentation/sigin_up_view.dart';
 import 'package:graduate_project/features/auth/welcome/presentation/welcome_view.dart';
+import 'package:graduate_project/features/chat/presentation/chat_view.dart';
+import 'package:graduate_project/features/dictionary/presentation/word_details_view.dart';
 import 'package:graduate_project/features/home/presentation/home_view.dart';
 import 'package:graduate_project/features/onboarding/view/on_boarding_view.dart';
+import 'package:graduate_project/features/stream/presentation/video_to_audio_view.dart';
+import 'package:graduate_project/features/stream/presentation/video_to_text_view.dart';
+import 'package:graduate_project/features/upload/presentation/translate_video_view.dart';
 
 abstract class RouteManager {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -27,6 +32,16 @@ abstract class RouteManager {
         return customPageBuilder(ForgetPasswordView());
       case ScreenManager.homeView:
         return customPageBuilder(HomeView());
+      case ScreenManager.translatevideoView:
+        return customPageBuilder(TranslateVideoView());
+      case ScreenManager.videotoaudioview:
+        return customPageBuilder(VideoToAudioView());
+      case ScreenManager.videototextview:
+        return customPageBuilder(VideoToTextView());
+      case ScreenManager.worddetailsview:
+        return customPageBuilder(WordDetailsView());
+      case ScreenManager.chatView:
+        return customPageBuilder(ChatView());
       default:
         return customPageBuilder(
           Scaffold(
@@ -42,7 +57,8 @@ abstract class RouteManager {
   static PageRouteBuilder<dynamic> customPageBuilder(Widget screen) {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => screen,
-      transitionDuration: TimeManager.mill250,
+      // transitionDuration: Duration(milliseconds: 500),
+      transitionDuration: TimeManager.mill500,
       transitionsBuilder: (_, animation, __, child) {
         return FadeTransition(
           opacity: animation,

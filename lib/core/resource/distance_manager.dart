@@ -2,6 +2,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 abstract class HeightManager {
   static double h6 = 6.h;
+  static double h7 = 7.h;
   static double h10 = 10.h;
   static double h11 = 11.h;
   static double h12 = 12.h;
@@ -28,6 +29,11 @@ abstract class HeightManager {
   static double h52 = 52.0.h;
   static double h55 = 55.0.h;
   static double h70 = 70.0.h;
+  static double h100 = 100.0.h;
+  static double h200 = 200.0.h;
+  static double h300 = 300.0.h;
+  static double h319 = 319.0.h;
+  static double h335 = 335.0.h;
 }
 
 abstract class WidthManager {
@@ -43,6 +49,8 @@ abstract class WidthManager {
   static double w35 = 35.w;
   static double w46 = 46.w;
   static double w48 = 48.w;
+  static double w70 = 70.w;
+  static double w200 = 200.w;
 }
 
 abstract class RaduisValueManager {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:graduate_project/core/resource/padding_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
 import 'package:graduate_project/core/widget/cutsom_app_bar_of_sub_page.dart';
 
@@ -15,10 +14,7 @@ class AppBarOfHomePages extends StatelessWidget {
           CutsomAppBarOfSubPage(
             showArrow: false,
             isSpacingBeforeLogo: false,
-          ),
-          Padding(
-            padding: PaddingManager.paddingHorizontal24,
-            child: Text(
+            title: Text(
               title,
               textAlign: TextAlign.start,
               style: TextStyleManager.black40(),

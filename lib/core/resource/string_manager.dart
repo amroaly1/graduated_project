@@ -1,6 +1,6 @@
 abstract class StringManager {
   // onBoarding text
-  static const String onBoardingTitle1 = "Welcome To  HandTalk App";
+  static const String onBoardingTitle1 = "Welcome To  HandTalk";
   static const String onBoardingSubTitle1 =
       '“ Real-time translation from speech to sign language – bridging communication gaps ”';
   static const String onBoardingTitle2 = "Instant Translation";
@@ -56,21 +56,29 @@ abstract class StringManager {
   static const String dateofVideo = "Mp4, 4:3, Up to  24 \nSeconds";
   static const String selectOrCaptureVideo =
       "Select or Capture video to begin translation...";
+  static const String uploadvideo = "Upload video";
 
   // translate
-  static const String filename = "file name :";
-  static const String deuration = "deuration :";
+  static const String filename = "File name :";
+  static const String duration = "Duration :";
+  static const String enterText = "Enter Text";
 
   // learn
 
   static const String search = "Search";
+  static const String searchforWords = "Search for Words";
+  static const String share = "Share";
+  static const String pause = "Pause";
+  static const String save = "Save";
 
   // bottom navigation bar
   static const String home = "Home";
   static const String upload = "Upload";
   static const String stream = "Stream";
   static const String translate = "Translate";
-  static const String learn = "Learn";
+  static const String signDictionary = "Sign Dictionary";
+  static const String handTalkApp = "HandTalk App";
+  static const String forSignLanguage = "For Sign Language";
 
   // error page
   static const String noPage = "No Page";
@@ -84,4 +92,17 @@ abstract class StringManager {
   static const String sendCode = "Send Code";
   static const String selectVideo = "Select Video";
   static const String cancel = "Cancel";
+  static const String goToChat = "Go To Chat";
+
+  // validation
+  static const String pleaseEnterYourEmail = "please enter your email";
+  static const String emailnotgoodformate =
+      "email not correct please enter good formate";
+  static const String pleaseEnterYourPassword = "please enter your password";
+  static const String pleaseEnterValidatePasswod =
+      "Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character (@\$!%*?&).";
+  static const String pleaseEnterConfirmPassword =
+      "please enter your confirm password";
+  static const String confirmPasswordnotMatch =
+      "confirm password not match with password";
 }

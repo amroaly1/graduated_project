@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduate_project/features/home/manager/home_cubit/cubit/home_state.dart';
-import 'package:graduate_project/features/home/presentation/widget/learn_body.dart';
+import 'package:graduate_project/features/dictionary/presentation/sign_dictionary_body.dart';
 import 'package:graduate_project/features/stream/presentation/stream_body.dart';
 import 'package:graduate_project/features/upload/presentation/upload_body.dart';
 import 'package:graduate_project/features/home/presentation/widget/home_body.dart';
-import 'package:graduate_project/features/translate/presentation/translate_body.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(HomeInitial());
@@ -21,8 +20,8 @@ class HomeCubit extends Cubit<HomeState> {
     HomeBody(),
     UploadBody(),
     StreamBody(),
-    TranslateBody(),
-    LearnBody(),
+    // ChatBody(),
+    SignDictionaryBody(),
   ];
 
   Widget myBody() {

@@ -15,4 +15,18 @@ abstract class IconManager {
   static const String translate = "${_baseUrl}translate.svg";
   static const String learn = "${_baseUrl}learn.svg";
   static const String streamPageCamera = "${_baseUrl}stream_page_camera.svg";
+  static const String arrowrightarrowleft =
+      "${_baseUrl}arrow-right-arrow-left.svg";
+  static const String arrowtop = "${_baseUrl}arrow_top.svg";
+  static const String soundtrack = "${_baseUrl}sound_track.svg";
+  static const String share = "${_baseUrl}share.svg";
+  static const String undow10 = "${_baseUrl}undow10.svg";
+  static const String redow10 = "${_baseUrl}redow10.svg";
+  static const String pausecircle = "${_baseUrl}pause_circle.svg";
+  static const String save = "${_baseUrl}save.svg";
+  static const String send = "${_baseUrl}send.svg";
+  static const String uploadvideo = "${_baseUrl}upload_video.svg";
+  static const String livechat = "${_baseUrl}live_chat.svg";
+  static const String dictionary = "${_baseUrl}dictionary.svg";
+  static const String chat = "${_baseUrl}chat.svg";
 }

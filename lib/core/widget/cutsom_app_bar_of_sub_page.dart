@@ -7,14 +7,17 @@ import 'package:graduate_project/core/resource/padding_manager.dart';
 import 'package:graduate_project/core/route/navigation_manager.dart';
 
 class CutsomAppBarOfSubPage extends StatelessWidget {
-  const CutsomAppBarOfSubPage(
-      {super.key,
-      this.showLogo = true,
-      this.showArrow = true,
-      this.isSpacingBeforeLogo = true});
+  const CutsomAppBarOfSubPage({
+    super.key,
+    this.showLogo = true,
+    this.showArrow = true,
+    this.isSpacingBeforeLogo = true,
+    this.title = const SizedBox(),
+  });
   final bool showLogo;
   final bool showArrow;
   final bool isSpacingBeforeLogo;
+  final Widget title;
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +53,7 @@ class CutsomAppBarOfSubPage extends StatelessWidget {
                         ),
                       ),
                     )
-                  : SizedBox(),
+                  : title,
               showLogo
                   ? Padding(
                       padding: EdgeInsets.only(

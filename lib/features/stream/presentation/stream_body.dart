@@ -6,6 +6,8 @@ import 'package:graduate_project/core/resource/icon_manager.dart';
 import 'package:graduate_project/core/resource/padding_manager.dart';
 import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
+import 'package:graduate_project/core/route/navigation_manager.dart';
+import 'package:graduate_project/core/route/screen_manager.dart';
 import 'package:graduate_project/core/widget/app_bar_of_home_pages.dart';
 import 'package:graduate_project/features/stream/presentation/widget/custom_navigation_card.dart';
 
@@ -36,6 +38,7 @@ class StreamBody extends StatelessWidget {
                     style: TextStyleManager.semiBold16(),
                   ),
                 ),
+                SizedBox(height: HeightManager.h40),
                 Container(
                   padding: EdgeInsets.only(
                     bottom: HeightManager.h15,
@@ -54,20 +57,22 @@ class StreamBody extends StatelessWidget {
                     IconManager.streamPageCamera,
                   ),
                 ),
-                SizedBox(
-                  height: HeightManager.h26,
-                ),
-                Text(
-                  StringManager.clickhertotranslate,
-                  style: TextStyleManager.bold20(),
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(height: HeightManager.h26),
+                // SizedBox(
+                //   height: HeightManager.h26,
+                // ),
+                // Text(
+                //   StringManager.clickhertotranslate,
+                //   style: TextStyleManager.bold20(),
+                //   textAlign: TextAlign.center,
+                // ),
+                SizedBox(height: HeightManager.h40),
                 CustomNavigationCard(
                   title: StringManager.videotoAudio,
                   icon: Icons.play_circle,
                   onTap: () {
-                    // go to screen video to audio
+                    NavigationManager.push(
+                        context: context,
+                        screen: ScreenManager.videotoaudioview);
                   },
                 ),
                 SizedBox(
@@ -77,7 +82,10 @@ class StreamBody extends StatelessWidget {
                   title: StringManager.videotoText,
                   icon: Icons.article_outlined,
                   onTap: () {
-                    // go to screen video to text
+                    NavigationManager.push(
+                      context: context,
+                      screen: ScreenManager.videototextview,
+                    );
                   },
                 ),
               ],

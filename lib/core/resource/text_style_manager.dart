@@ -192,6 +192,17 @@ abstract class TextStyleManager {
         fontSize: FontSizeManager.s14,
         color: color,
       );
+
+  static TextStyle bold24({
+    String? fontFamily,
+    Color color = ColorManager.black,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.bold,
+        fontSize: FontSizeManager.s24,
+        color: color,
+      );
   static TextStyle bold12({
     String? fontFamily = FontFamilyManger.avenirLTStd,
     Color color = ColorManager.gray1,

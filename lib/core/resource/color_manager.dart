@@ -9,6 +9,7 @@ abstract class ColorManager {
   static const Color light2purpleColor = Color(0xffDFD7F1);
   static const Color light3purpleColor = Color(0xffDCD5E6);
   static const Color light4purpleColor = Color(0xffEBE2FF);
+
   static const Color black1Color = Color(0xff2D0567);
   static const Color black = Color(0xff000000);
   static const Color black1 = Color(0xff010101);
@@ -21,8 +22,11 @@ abstract class ColorManager {
   static const Color green = Colors.green;
   static const Color blue = Colors.blue;
   static const Color blue1 = Color(0xff321260);
+  static const Color blue2 = Color(0xff2E0071);
   static const Color gray = Color(0xffD8DADC);
   static const Color gray1 = Color(0xff9C9C9C);
   static const Color gray2 = Color(0xff676363);
   static const Color gray3 = Color(0xff887878);
+  static const Color gray4 = Color(0xffBEBDBD);
+  static Color gray5 = Color(0xffD9D9D9).withValues(alpha: 0.3);
 }

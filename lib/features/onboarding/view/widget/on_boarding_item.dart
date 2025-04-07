@@ -20,117 +20,125 @@ class OnBoardingItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          SizedBox(height: HeightManager.h49),
-          Padding(
-            padding: PaddingManager.paddingHorizontal24,
-            child: Visibility(
-              visible: OnBoardingCubit.get(context).skipVisibility(),
-              maintainSize: true,
-              maintainState: true,
-              maintainAnimation: true,
-              child: Align(
-                alignment: Alignment.centerRight,
-                child: InkWell(
-                  onTap: () => OnBoardingCubit.get(context)
-                      .navigatToWelcomeView(context),
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: WidthManager.w21),
-                    decoration: BoxDecoration(
-                      borderRadius:
-                          BorderRadius.circular(RaduisValueManager.r30),
-                      color: ColorManager.whight1,
-                    ),
-                    child: Text(
-                      StringManager.skip,
-                      style: TextStyleManager.light24(),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            SizedBox(height: HeightManager.h20),
+            Padding(
+              padding: PaddingManager.paddingHorizontal24,
+              child: Visibility(
+                visible: OnBoardingCubit.get(context).skipVisibility(),
+                maintainSize: true,
+                maintainState: true,
+                maintainAnimation: true,
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: InkWell(
+                    onTap: () => OnBoardingCubit.get(context)
+                        .navigatToWelcomeView(context),
+                    child: Container(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: WidthManager.w21),
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            BorderRadius.circular(RaduisValueManager.r30),
+                        color: ColorManager.whight1,
+                      ),
+                      child: Text(
+                        StringManager.skip,
+                        style: TextStyleManager.light24(),
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
-          SizedBox(height: HeightManager.h29),
-          Padding(
-            padding: PaddingManager.paddingHorizontal24,
-            child: SvgPicture.asset(
-              item.image,
-              height: DeviceHeightWidthManager.subOfHeight(
-                context,
-                HeightOfDesign.h309,
+            SizedBox(height: HeightManager.h29),
+            Padding(
+              padding: PaddingManager.paddingHorizontal24,
+              child: SvgPicture.asset(
+                item.image,
+                height: DeviceHeightWidthManager.subOfHeight(
+                  context,
+                  HeightOfDesign.h309,
+                ),
+                width: DeviceHeightWidthManager.subOfWidth(
+                  context,
+                  WidthOfDesign.w378,
+                ),
+                // fit: BoxFit.fill,
               ),
-              width: DeviceHeightWidthManager.subOfWidth(
-                context,
-                WidthOfDesign.w378,
-              ),
-              // fit: BoxFit.fill,
             ),
-          ),
-          Spacer(
-            flex: 2,
-          ),
-          Text(
-            item.title,
-            style: TextStyleManager.black32(),
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(height: HeightManager.h32),
-          Padding(
-            padding: PaddingManager.paddingHorizontal24,
-            child: Text(
-              item.subTitle,
-              style: TextStyleManager.medium24(
-                fontFamily: FontFamilyManger.avenirLTStd,
-              ),
+            // Spacer(
+            //   flex: 2,
+            // ),
+            SizedBox(height: HeightManager.h10),
+            Text(
+              item.title,
+              style: TextStyleManager.black32(),
               textAlign: TextAlign.center,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
-          ),
-          SizedBox(height: HeightManager.h42),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Visibility(
-                visible: OnBoardingCubit.get(context).arrowBackVisisble(),
-                maintainSize: true,
-                maintainState: true,
-                maintainAnimation: true,
-                child: BackgroundOfArrow(
-                  pathArrow: IconManager.arrowLeft,
-                  onTap: OnBoardingCubit.get(context).goToPrevPage,
+            SizedBox(height: HeightManager.h20),
+            Padding(
+              padding: PaddingManager.paddingHorizontal24,
+              child: Text(
+                item.subTitle,
+                style: TextStyleManager.medium24(
+                  fontFamily: FontFamilyManger.avenirLTStd,
                 ),
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 3,
               ),
-              CustomCircleIndecator(
-                lenght: OnBoardingCubit.get(context).repo.list.length,
-                currentIndex: OnBoardingCubit.get(context).currentIndex,
-              ),
-              Visibility(
-                visible: OnBoardingCubit.get(context).arrowForwardVisisble(),
-                maintainSize: true,
-                maintainState: true,
-                maintainAnimation: true,
-                child: BackgroundOfArrow(
-                  pathArrow: IconManager.arrowRight,
-                  onTap: OnBoardingCubit.get(context).goToNextPage,
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: HeightManager.h37),
-          Visibility(
-            visible: OnBoardingCubit.get(context).buttonVisisble(),
-            maintainSize: true,
-            maintainState: true,
-            maintainAnimation: true,
-            child: DefaultButton(
-              text: StringManager.getStarted,
-              onPressed: () =>
-                  OnBoardingCubit.get(context).navigatToWelcomeView(context),
             ),
-          ),
-          Spacer(),
-        ],
+            SizedBox(height: HeightManager.h42),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Visibility(
+                  visible: OnBoardingCubit.get(context).arrowBackVisisble(),
+                  maintainSize: true,
+                  maintainState: true,
+                  maintainAnimation: true,
+                  child: BackgroundOfArrow(
+                    pathArrow: IconManager.arrowLeft,
+                    onTap: OnBoardingCubit.get(context).goToPrevPage,
+                  ),
+                ),
+                CustomCircleIndecator(
+                  lenght: OnBoardingCubit.get(context).repo.list.length,
+                  currentIndex: OnBoardingCubit.get(context).currentIndex,
+                ),
+                Visibility(
+                  visible: OnBoardingCubit.get(context).arrowForwardVisisble(),
+                  maintainSize: true,
+                  maintainState: true,
+                  maintainAnimation: true,
+                  child: BackgroundOfArrow(
+                    pathArrow: IconManager.arrowRight,
+                    onTap: OnBoardingCubit.get(context).goToNextPage,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: HeightManager.h37),
+            Visibility(
+              visible: OnBoardingCubit.get(context).buttonVisisble(),
+              maintainSize: true,
+              maintainState: true,
+              maintainAnimation: true,
+              child: DefaultButton(
+                text: StringManager.getStarted,
+                onPressed: () =>
+                    OnBoardingCubit.get(context).navigatToWelcomeView(context),
+              ),
+            ),
+            // Spacer(),
+          ],
+        ),
       ),
     );
   }

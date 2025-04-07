@@ -21,6 +21,7 @@ class HomeView extends StatelessWidget {
         child: BlocBuilder<HomeCubit, HomeState>(
           builder: (context, state) {
             return Scaffold(
+              resizeToAvoidBottomInset: true,
               bottomNavigationBar: BottomNavigationBar(
                 currentIndex: HomeCubit.get(context).currentIndex,
                 onTap: HomeCubit.get(context).chnageCurrentIndex,
@@ -61,20 +62,20 @@ class HomeView extends StatelessWidget {
                       icon: IconManager.stream,
                     ),
                   ),
-                  BottomNavigationBarItem(
-                    icon: unSelectedIcon(
-                      icon: IconManager.translate,
-                    ),
-                    label: StringManager.translate,
-                    activeIcon: selectedIcon(
-                      icon: IconManager.translate,
-                    ),
-                  ),
+                  // BottomNavigationBarItem(
+                  //   icon: unSelectedIcon(
+                  //     icon: IconManager.translate,
+                  //   ),
+                  //   label: StringManager.translate,
+                  //   activeIcon: selectedIcon(
+                  //     icon: IconManager.translate,
+                  //   ),
+                  // ),
                   BottomNavigationBarItem(
                     icon: unSelectedIcon(
                       icon: IconManager.learn,
                     ),
-                    label: StringManager.learn,
+                    label: StringManager.signDictionary,
                     activeIcon: selectedIcon(
                       icon: IconManager.learn,
                     ),
