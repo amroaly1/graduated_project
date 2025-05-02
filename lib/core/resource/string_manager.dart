@@ -19,6 +19,10 @@ abstract class StringManager {
   // sigin in
   static const String signUp = "Sign up";
   static const String email = "Email";
+  static const String firstName = "First Name";
+  static const String firstNameHint = "First Name";
+  static const String lastName = "Last Name";
+  static const String lastNameHint = "Last Name";
   static const String emailHintText = "example@gmail.com";
   static const String createaPassword = "Create a password";
   static const String confirmPassword = "Confirm password";
@@ -26,6 +30,9 @@ abstract class StringManager {
   static const String hintConfirmPassword = "repeat password";
   static const String orRegisterWith = "Or Register with";
   static const String alreadyhaveanaccount = "Already have an account? ";
+
+  // confirm your email
+  static const String verifycode = "Verify code";
 
   // login
   static const String login = "Log in";
@@ -96,6 +103,9 @@ abstract class StringManager {
 
   // validation
   static const String pleaseEnterYourEmail = "please enter your email";
+  static const String pleaseEnterYourName = "please enter your ";
+  static const String yourNameShouldBe4Ch =
+      "the name character should be more or equal 3";
   static const String emailnotgoodformate =
       "email not correct please enter good formate";
   static const String pleaseEnterYourPassword = "please enter your password";
@@ -105,4 +115,9 @@ abstract class StringManager {
       "please enter your confirm password";
   static const String confirmPasswordnotMatch =
       "confirm password not match with password";
+
+  // error message
+  static const String noInternetError =
+      "No Internet , please connect to internet";
+  static const String unExperctedError = "UnExpected Error";
 }
