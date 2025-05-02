@@ -98,8 +98,10 @@ class SiginUpBody extends StatelessWidget {
             BlocConsumer<SiginUpCubit, SiginUpState>(
               listener: (context, state) {
                 if (state is SiginUpSuccess) {
-                  NavigationManager.pushReplace(
-                      context: context, screen: ScreenManager.loginView);
+                  NavigationManager.push(
+                      context: context,
+                      screen: ScreenManager.confirmEmail,
+                      arguments: state.email);
                 } else if (state is SiginUpFailing) {
                   showSnackBar(context, message: state.errMessage);
                 }
@@ -136,6 +138,9 @@ class SiginUpBody extends StatelessWidget {
             ),
             SizedBox(
               height: HeightExternal.keyBoardHeight(context),
+            ),
+            SizedBox(
+              height: HeightManager.h29,
             ),
           ],
         ),

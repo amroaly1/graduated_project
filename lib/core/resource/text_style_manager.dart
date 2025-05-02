@@ -175,12 +175,20 @@ abstract class TextStyleManager {
   static TextStyle bold16({
     String? fontFamily = FontFamilyManger.avenirLTStd,
     Color color = ColorManager.black,
+    TextDecoration? decoration,
+    Color? decorationColor,
+    double? decorationThickness,
+    double? height,
   }) =>
       TextStyle(
+        height: height,
         fontFamily: fontFamily,
         fontWeight: FontWeightManager.bold,
         fontSize: FontSizeManager.s16,
         color: color,
+        decoration: decoration,
+        decorationColor: decorationColor,
+        decorationThickness: decorationThickness,
       );
   static TextStyle bold14({
     String? fontFamily = FontFamilyManger.avenirLTStd,

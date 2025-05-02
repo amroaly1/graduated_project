@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 abstract class NavigationManager {
-  static void push({required BuildContext context, required String screen}) {
-    Navigator.pushNamed(context, screen);
+  static void push(
+      {required BuildContext context,
+      required String screen,
+      Object? arguments}) {
+    Navigator.pushNamed(context, screen, arguments: arguments);
   }
 
   static void pushReplace(

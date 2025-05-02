@@ -10,4 +10,5 @@ abstract class ScreenManager {
   static const String videototextview = "/videototext";
   static const String worddetailsview = "/worddetailsview";
   static const String chatView = "/chatView";
+  static const String confirmEmail = "/confirmEmail";
 }

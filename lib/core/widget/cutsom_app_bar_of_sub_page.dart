@@ -57,14 +57,14 @@ class CutsomAppBarOfSubPage extends StatelessWidget {
               showLogo
                   ? Padding(
                       padding: EdgeInsets.only(
-                        right: isSpacingBeforeLogo ? WidthManager.w48 : 0,
-                      ),
+                          // right: isSpacingBeforeLogo ? WidthManager.w48 : 0,
+                          ),
                       child: Align(
                         alignment: Alignment.centerRight,
                         child: SvgPicture.asset(
                           IconManager.starIcon,
-                          width: WidthManager.w46,
-                          height: HeightManager.h44,
+                          width: WidthManager.w62,
+                          height: HeightManager.h60,
                         ),
                       ),
                     )

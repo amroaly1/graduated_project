@@ -33,6 +33,11 @@ abstract class StringManager {
 
   // confirm your email
   static const String verifycode = "Verify code";
+  static const String sendcodeagain = "Send code again   ";
+  static const String idontreceivecode = "I didn’t receive a code , ";
+  static const String reset = "Resend";
+  static const String verifycodedesc =
+      "please enter the code that we just send to your email";
 
   // login
   static const String login = "Log in";

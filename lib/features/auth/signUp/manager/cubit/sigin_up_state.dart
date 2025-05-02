@@ -4,7 +4,11 @@ final class SiginUpInitial extends SiginUpState {}
 
 final class SiginUpLoading extends SiginUpState {}
 
-final class SiginUpSuccess extends SiginUpState {}
+final class SiginUpSuccess extends SiginUpState {
+  final String email;
+
+  SiginUpSuccess({required this.email});
+}
 
 final class SiginUpFailing extends SiginUpState {
   final String errMessage;

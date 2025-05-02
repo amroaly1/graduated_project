@@ -45,7 +45,9 @@ class SiginUpCubit extends Cubit<SiginUpState> {
           errMessage: error,
         ));
       }, (r) {
-        emit(SiginUpSuccess());
+        emit(SiginUpSuccess(
+          email: emailCotroller.text,
+        ));
       });
     } else {
       autovalidateMode = AutovalidateMode.always;
