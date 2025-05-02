@@ -26,71 +26,84 @@ class ConfirmEmailBody extends StatefulWidget {
 class _ConfirmEmailBodyState extends State<ConfirmEmailBody> {
   @override
   void dispose() {
-    di<ConfirmEmailCubit>().disposeControllers();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            CutsomAppBarOfSubPage(),
-            SizedBox(
-              height: HeightManager.h43,
-            ),
-            Padding(
-              padding: PaddingManager.paddingHorizontal24,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Text(
-                    StringManager.verifycode,
-                    style: TextStyleManager.black36(),
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(height: HeightManager.h16),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: WidthManager.w46),
-                    child: Text(
-                      StringManager.verifycodedesc,
-                      style: TextStyleManager.semiBold16(
-                        color: ColorManager.blackwithOpacity70,
-                      ),
+    return PopScope(
+      canPop: true,
+      onPopInvokedWithResult: (didPop, result) {
+        BlocProvider.of<ConfirmEmailCubit>(context).disposeControllers();
+      },
+      child: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              CutsomAppBarOfSubPage(
+                onTap: () {
+                  BlocProvider.of<ConfirmEmailCubit>(context)
+                      .disposeControllers();
+                  NavigationManager.pop(context: context);
+                },
+              ),
+              SizedBox(
+                height: HeightManager.h43,
+              ),
+              Padding(
+                padding: PaddingManager.paddingHorizontal24,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      StringManager.verifycode,
+                      style: TextStyleManager.black36(),
                       textAlign: TextAlign.center,
                     ),
-                  ),
-                  SizedBox(height: HeightManager.h42),
-                  BlocConsumer<ConfirmEmailCubit, ConfirmEmailState>(
-                    listener: (context, state) {
-                      if (state is SendConfirmEmailFailing) {
-                        showSnackBar(context, message: state.errorMessage);
-                      }
-                    },
-                    builder: (context, state) {
-                      if (state is SendConfirmEmailFirstTimeFailingNoInternet) {
-                        return ErrorConfirmScreen(
-                          icon: Icons.wifi_off,
-                          errMessage: state.errorMessage,
-                        );
-                      } else if (state is SendConfirmEmailFirstTimeFailing) {
-                        return ErrorConfirmScreen(
-                          icon: Icons.error_outline_rounded,
-                          errMessage: state.errorMessage,
-                        );
-                      }
-                      return ConfirmEmailBodyData();
-                    },
-                  ),
-                ],
+                    SizedBox(height: HeightManager.h16),
+                    Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: WidthManager.w46),
+                      child: Text(
+                        StringManager.verifycodedesc,
+                        style: TextStyleManager.semiBold16(
+                          color: ColorManager.blackwithOpacity70,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    SizedBox(height: HeightManager.h42),
+                    BlocConsumer<ConfirmEmailCubit, ConfirmEmailState>(
+                      listener: (context, state) {
+                        if (state is SendConfirmEmailFailing) {
+                          showSnackBar(context, message: state.errorMessage);
+                        }
+                      },
+                      builder: (context, state) {
+                        if (state
+                            is SendConfirmEmailFirstTimeFailingNoInternet) {
+                          return ErrorConfirmScreen(
+                            icon: Icons.wifi_off,
+                            errMessage: state.errorMessage,
+                          );
+                        } else if (state is SendConfirmEmailFirstTimeFailing) {
+                          return ErrorConfirmScreen(
+                            icon: Icons.error_outline_rounded,
+                            errMessage: state.errorMessage,
+                          );
+                        }
+                        return ConfirmEmailBodyData();
+                      },
+                    ),
+                  ],
+                ),
               ),
-            ),
-            SizedBox(height: HeightManager.h40),
-            SizedBox(
-              height: MediaQuery.of(context).viewInsets.bottom,
-            ),
-          ],
+              SizedBox(height: HeightManager.h40),
+              SizedBox(
+                height: MediaQuery.of(context).viewInsets.bottom,
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -205,18 +218,24 @@ class ConfirmEmailBodyData extends StatelessWidget {
         BlocConsumer<ConfirmEmailCubit, ConfirmEmailState>(
           listener: (context, state) {
             if (state is ConfirmEmailSuccess) {
-              AwesomeDialog(
-                context: context,
-                dialogType: DialogType.success,
-                animType: AnimType.rightSlide,
-                title: 'Success',
-                desc: 'Your Email Confirm Success',
-                btnOkOnPress: () {
-                  NavigationManager.pushReplace(
-                      context: context, screen: ScreenManager.loginView);
-                },
-                dismissOnTouchOutside: false,
-              ).show();
+              BlocProvider.of<ConfirmEmailCubit>(context).disposeControllers();
+              if (Navigator.canPop(context)) {
+                // Show dialog only if the current screen hasn't been popped
+                AwesomeDialog(
+                  context: context,
+                  dialogType: DialogType.success,
+                  animType: AnimType.rightSlide,
+                  title: 'Success',
+                  desc: 'Your Email Confirm Success',
+                  btnOkOnPress: () {
+                    NavigationManager.pushReplace(
+                      context: context,
+                      screen: ScreenManager.loginView,
+                    );
+                  },
+                  dismissOnTouchOutside: false,
+                ).show();
+              }
             } else if (state is SendConfirmEmailFailing) {
               showSnackBar(context, message: state.errorMessage);
             } else if (state is ConfirmEmailNoValidate) {

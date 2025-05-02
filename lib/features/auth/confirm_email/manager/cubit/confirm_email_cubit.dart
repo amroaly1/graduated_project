@@ -37,14 +37,15 @@ class ConfirmEmailCubit extends Cubit<ConfirmEmailState> {
   int scale = 5;
   bool sendMessage = false;
   void disposeControllers() {
-    c1.dispose();
-    c2.dispose();
-    c3.dispose();
-    c4.dispose();
-    c5.dispose();
-    c6.dispose();
     timer?.cancel();
-    autovalidateMode = AutovalidateMode.disabled;
+    // if (c1 != null) c1.dispose();
+    // if (c2 != null) c2.dispose();
+    // if (c3 != null) c3.dispose();
+    // if (c4 != null) c4.dispose();
+    // if (c5 != null) c5.dispose();
+    // if (c6 != null) c6.dispose();
+
+    // autovalidateMode = AutovalidateMode.disabled;
   }
 
   void init({required String email}) async {
@@ -67,31 +68,48 @@ class ConfirmEmailCubit extends Cubit<ConfirmEmailState> {
       timer = Timer.periodic(Duration(seconds: 1), (time) {
         if (secondTime == 0) {
           time.cancel();
-          emit(ConfirmEmailEndFirstCountCount());
+          if (!isClosed) {
+            emit(ConfirmEmailEndFirstCountCount());
+          }
         } else {
           secondTime--;
           timeSTring = formatDuration(secondTime);
-          emit(ConfirmEmailChangeCount());
+          if (!isClosed) {
+            emit(ConfirmEmailChangeCount());
+          }
         }
       });
     }
+  }
+
+  @override
+  Future<void> close() {
+    timer?.cancel();
+    return super.close();
   }
 
   Future<void> sendEmailConfirm(
       {required String email, bool isFirst = false}) async {
     var response = await repo.sendEmailConfirm(email: email);
     response.fold((ifLeft) {
-      if (sendMessage) {
-        emit(SendConfirmEmailFailing(errorMessage: ifLeft.errMessage));
-      }
-      if (ifLeft.isConnectInternet) {
-        emit(SendConfirmEmailFirstTimeFailing(errorMessage: ifLeft.errMessage));
-      } else {
-        emit(SendConfirmEmailFirstTimeFailingNoInternet(
-            errorMessage: StringManager.noInternetError));
+      if (!isClosed) {
+        // Check if Cubit is still open
+        if (sendMessage) {
+          emit(SendConfirmEmailFailing(errorMessage: ifLeft.errMessage));
+        }
+        if (ifLeft.isConnectInternet) {
+          emit(SendConfirmEmailFirstTimeFailing(
+              errorMessage: ifLeft.errMessage));
+        } else {
+          emit(SendConfirmEmailFirstTimeFailingNoInternet(
+              errorMessage: StringManager.noInternetError));
+        }
       }
     }, (ifRight) {
-      sendMessage = true;
+      if (!isClosed) {
+        // Check if Cubit is still open
+        sendMessage = true;
+      }
     });
   }
 

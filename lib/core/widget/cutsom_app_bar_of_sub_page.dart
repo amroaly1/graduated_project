@@ -13,12 +13,13 @@ class CutsomAppBarOfSubPage extends StatelessWidget {
     this.showArrow = true,
     this.isSpacingBeforeLogo = true,
     this.title = const SizedBox(),
+    this.onTap,
   });
   final bool showLogo;
   final bool showArrow;
   final bool isSpacingBeforeLogo;
   final Widget title;
-
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -31,9 +32,10 @@ class CutsomAppBarOfSubPage extends StatelessWidget {
             children: [
               showArrow
                   ? InkWell(
-                      onTap: () {
-                        NavigationManager.pop(context: context);
-                      },
+                      onTap: onTap ??
+                          () {
+                            NavigationManager.pop(context: context);
+                          },
                       child: Container(
                         padding: EdgeInsets.symmetric(
                           horizontal: WidthManager.w16,

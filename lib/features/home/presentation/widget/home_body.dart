@@ -119,7 +119,7 @@ class HomeBody extends StatelessWidget {
                         ),
                         padding: EdgeInsets.symmetric(
                           horizontal: WidthManager.w19,
-                          vertical: HeightManager.h20,
+                          // vertical: HeightManager.h20,
                         ),
                         child: Column(
                           children: [
@@ -127,6 +127,8 @@ class HomeBody extends StatelessWidget {
                             Text(
                               "Dictionary",
                               style: TextStyleManager.medium20(
+                                // size: MediaQuery.sizeOf(context).width *
+                                //     (20 / 390),
                                 color: ColorManager.primaryColor,
                               ),
                             )
@@ -152,8 +154,8 @@ class HomeBody extends StatelessWidget {
                           children: [
                             SvgPicture.asset(
                               IconManager.chat,
-                              // height: HeightManager.h100,
-                              // // width: WidthManager.w200,
+                              height: HeightManager.h160,
+                              // width: WidthManager.w200,
                               fit: BoxFit.scaleDown,
                             ),
                             Text(

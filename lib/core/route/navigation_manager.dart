@@ -9,8 +9,10 @@ abstract class NavigationManager {
   }
 
   static void pushReplace(
-      {required BuildContext context, required String screen}) {
-    Navigator.pushReplacementNamed(context, screen);
+      {required BuildContext context,
+      required String screen,
+      Object? argumants}) {
+    Navigator.pushReplacementNamed(context, screen, arguments: argumants);
   }
 
   static void pop({required BuildContext context}) {

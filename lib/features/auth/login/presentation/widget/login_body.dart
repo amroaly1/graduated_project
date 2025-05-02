@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduate_project/core/helper/app_validator.dart';
+import 'package:graduate_project/core/helper/show_snack_bar.dart';
 import 'package:graduate_project/core/resource/device_height_width_manager.dart';
 import 'package:graduate_project/core/resource/distance_manager.dart';
 import 'package:graduate_project/core/resource/padding_manager.dart';
@@ -82,18 +83,31 @@ class LoginBody extends StatelessWidget {
               ),
             ),
             SizedBox(height: HeightManager.h20),
-            BlocListener<LoginCubit, LoginState>(
-              listener: (context, state) {
-                if (state is LoginSuccess) {
-                  NavigationManager.pushNameAndReplaseUnti(
-                      context: context, screen: ScreenManager.homeView);
-                }
-              },
-              child: DefaultButton(
+            BlocConsumer<LoginCubit, LoginState>(listener: (context, state) {
+              if (state is LoginSuccess) {
+                NavigationManager.pushNameAndReplaseUnti(
+                    context: context, screen: ScreenManager.homeView);
+              } else if (state is LoginFailing) {
+                showSnackBar(context, message: state.errMessage);
+              } else if (state is LoginEmailNotConfirm) {
+                // showSnackBar(context, message: state.errMessage);
+                NavigationManager.pushReplace(
+                  context: context,
+                  screen: ScreenManager.confirmEmail,
+                  argumants: state.email,
+                );
+              }
+            }, builder: (context, state) {
+              if (state is LoginLoading) {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+              return DefaultButton(
                 text: StringManager.login,
                 onPressed: LoginCubit.get(context).onTap,
-              ),
-            ),
+              );
+            }),
             SizedBox(height: HeightManager.h52),
             SocialAuthSection(
               title: StringManager.orLoginwith,

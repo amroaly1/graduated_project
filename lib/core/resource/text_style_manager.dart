@@ -18,11 +18,12 @@ abstract class TextStyleManager {
   static TextStyle medium20({
     String? fontFamily,
     Color color = ColorManager.black,
+    double? size,
   }) =>
       TextStyle(
         fontFamily: fontFamily,
         fontWeight: FontWeightManager.meduim,
-        fontSize: FontSizeManager.s20,
+        fontSize: size ?? FontSizeManager.s20,
         color: color,
       );
   static TextStyle semiBold16({

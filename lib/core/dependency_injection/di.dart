@@ -4,6 +4,8 @@ import 'package:graduate_project/core/helper/connect_internet_helper.dart';
 import 'package:graduate_project/core/network/api_helper.dart';
 import 'package:graduate_project/features/auth/confirm_email/data/repo/confirm_email_repo.dart';
 import 'package:graduate_project/features/auth/confirm_email/manager/cubit/confirm_email_cubit.dart';
+import 'package:graduate_project/features/auth/login/data/repo/login_repo.dart';
+import 'package:graduate_project/features/auth/login/manager/cubit/login_cubit.dart';
 import 'package:graduate_project/features/auth/signUp/data/repo/sigin_up_repo.dart';
 import 'package:graduate_project/features/auth/signUp/manager/cubit/sigin_up_cubit.dart';
 
@@ -28,7 +30,10 @@ Future<void> setUp() async {
     connectInternetHelper: di<ConnectInternetHelper>(),
   ));
 
-  di.registerSingleton<ConfirmEmailCubit>(ConfirmEmailCubit(
-    di<ConfirmEmailRepo>(),
+  di.registerSingleton<LoginRepo>(LoginRepo(
+    api: di<ApiHelper>(),
+    connectInternetHelper: di<ConnectInternetHelper>(),
   ));
+
+  // di.registerSingleton<LoginCubit>(LoginCubit(di<LoginRepo>()));
 }
