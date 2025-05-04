@@ -4,6 +4,7 @@ import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
 import 'package:graduate_project/core/resource/time_manager.dart';
 import 'package:graduate_project/core/route/screen_manager.dart';
+import 'package:graduate_project/features/auth/reset_password/presentation/reset_password_view.dart';
 import 'package:graduate_project/features/auth/confirm_email/presentation/confirm_email_view.dart';
 import 'package:graduate_project/features/auth/forget_password/presentation/forget_password_view.dart';
 import 'package:graduate_project/features/auth/login/presentation/login_view.dart';
@@ -43,6 +44,10 @@ abstract class RouteManager {
         return customPageBuilder(WordDetailsView());
       case ScreenManager.chatView:
         return customPageBuilder(ChatView());
+      case ScreenManager.resetPassowrdView:
+        return customPageBuilder(ResetPasswordView(
+          email: settings.arguments as String,
+        ));
       case ScreenManager.confirmEmail:
         return customPageBuilder(ConfirmEmailView(
           email: settings.arguments as String,

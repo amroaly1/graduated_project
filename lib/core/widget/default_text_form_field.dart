@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduate_project/core/manager/text_form_field_cubit/text_form_field_cubit.dart';
 import 'package:graduate_project/core/manager/text_form_field_cubit/text_form_field_state.dart';
@@ -15,12 +16,14 @@ class DefaultTextFormField extends StatelessWidget {
     this.controller,
     this.validator,
     this.keyboardType,
+    this.inputFormatters,
   });
   final String hintText;
   final bool isPassword;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
+  final List<TextInputFormatter>? inputFormatters;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -33,6 +36,7 @@ class DefaultTextFormField extends StatelessWidget {
             style: TextStyleManager.bold16(
               fontFamily: FontFamilyManger.avenirLTStd,
             ),
+            inputFormatters: inputFormatters,
             obscureText: TextFormFieldCubit.get(context).isHiddern(),
             obscuringCharacter: "*",
             keyboardType: keyboardType,

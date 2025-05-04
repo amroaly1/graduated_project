@@ -6,19 +6,21 @@ import 'package:graduate_project/core/route/screen_manager.dart';
 void showAwesonDialog(
     {required BuildContext context,
     required String title,
-    required String subtitle}) {
+    required String subtitle,
+    void Function()? btnOkOnPress}) {
   AwesomeDialog(
     context: context,
     dialogType: DialogType.success,
     animType: AnimType.rightSlide,
     title: title,
     desc: subtitle,
-    btnOkOnPress: () {
-      NavigationManager.pushReplace(
-        context: context,
-        screen: ScreenManager.loginView,
-      );
-    },
+    btnOkOnPress: btnOkOnPress ??
+        () {
+          NavigationManager.pushReplace(
+            context: context,
+            screen: ScreenManager.loginView,
+          );
+        },
     dismissOnTouchOutside: false,
   ).show();
 }

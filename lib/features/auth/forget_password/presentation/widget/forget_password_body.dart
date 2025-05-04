@@ -104,7 +104,11 @@ class _ForgetPasswordBodyState extends State<ForgetPasswordBody> {
                 if (state is ForgetPasswordSendFailing) {
                   showSnackBar(context, message: state.errorMessage);
                 } else if (state is ForgetPasswordSendSuccess) {
-                  showSnackBar(context, message: state.email);
+                  NavigationManager.pushReplace(
+                    context: context,
+                    screen: ScreenManager.resetPassowrdView,
+                    arguments: state.email,
+                  );
                 }
               },
               builder: (context, state) {

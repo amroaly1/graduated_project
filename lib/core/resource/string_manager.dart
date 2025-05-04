@@ -55,6 +55,19 @@ abstract class StringManager {
   static const String entercodehint =
       "We’ve sent an activation code to your email please , enter this code here";
 
+// reset password
+  static const String resetpassword = "Reset password";
+  static const String resetpasswordhint =
+      "Please type something you’ll remember";
+  static const String enterCode = "Enter Code";
+  static const String enterCodehint = "123456";
+  static const String newpassword = "New password";
+  static const String newpasswordhint = "new password";
+  static const String confirmNewpassword = "Confirm New password";
+  static const String confirmNewpasswordhint = "confirm new password";
+  static const String pleaseEnterCode = "Please Enter Code";
+  static const String codeMustBe6 = "Code Must Be Equal 6";
+
   // home
 
   // stream screen
@@ -108,6 +121,7 @@ abstract class StringManager {
   static const String selectVideo = "Select Video";
   static const String cancel = "Cancel";
   static const String goToChat = "Go To Chat";
+  static const String resetPassword = "Reset Password";
 
   // validation
   static const String pleaseEnterYourEmail = "please enter your email";

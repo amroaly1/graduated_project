@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:graduate_project/core/helper/connect_internet_helper.dart';
 import 'package:graduate_project/core/network/api_helper.dart';
+import 'package:graduate_project/features/auth/reset_password/data/repo/reset_password_repo.dart';
+import 'package:graduate_project/features/auth/reset_password/manager/cubit/reset_password_cubit.dart';
 import 'package:graduate_project/features/auth/confirm_email/data/repo/confirm_email_repo.dart';
 import 'package:graduate_project/features/auth/confirm_email/manager/cubit/confirm_email_cubit.dart';
 import 'package:graduate_project/features/auth/forget_password/data/repo/forget_password_repo.dart';
@@ -48,4 +50,11 @@ Future<void> setUp() async {
 
   di.registerSingleton<ForgetPasswordCubit>(
       ForgetPasswordCubit(repo: di<ForgetPasswordRepo>()));
+
+  di.registerSingleton<ResetPasswordRepo>(ResetPasswordRepo(
+      api: di<ApiHelper>(),
+      connectInternetHelper: di<ConnectInternetHelper>()));
+
+  di.registerSingleton<ResetPasswordCubit>(
+      ResetPasswordCubit(repo: di<ResetPasswordRepo>()));
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:graduate_project/core/resource/distance_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
 import 'package:graduate_project/core/widget/default_text_form_field.dart';
@@ -12,6 +13,7 @@ class CustomTextFieldAuth extends StatelessWidget {
     this.controller,
     this.validator,
     this.keyboardType,
+    this.inputFormatters,
   });
   final String labelText;
   final String hintText;
@@ -19,6 +21,7 @@ class CustomTextFieldAuth extends StatelessWidget {
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
+  final List<TextInputFormatter>? inputFormatters;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -33,6 +36,7 @@ class CustomTextFieldAuth extends StatelessWidget {
           height: HeightManager.h6,
         ),
         DefaultTextFormField(
+          inputFormatters: inputFormatters,
           hintText: hintText,
           isPassword: isPassword,
           controller: controller,

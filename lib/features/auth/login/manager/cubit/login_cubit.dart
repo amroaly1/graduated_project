@@ -8,13 +8,14 @@ class LoginCubit extends Cubit<LoginState> {
   final LoginRepo repo;
   static LoginCubit get(context) => BlocProvider.of(context);
 
-  GlobalKey<FormState> globalKey = GlobalKey();
+  late GlobalKey<FormState> globalKey;
   late AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   late TextEditingController emailCotroller;
   late TextEditingController passwordCotroller;
 
   void init() {
+    globalKey = GlobalKey();
     emailCotroller = TextEditingController();
     passwordCotroller = TextEditingController();
     autovalidateMode = AutovalidateMode.disabled;

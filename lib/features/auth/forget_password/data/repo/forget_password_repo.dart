@@ -8,7 +8,7 @@ import 'package:graduate_project/core/network/api_end_point.dart';
 import 'package:graduate_project/core/network/api_helper.dart';
 import 'package:graduate_project/core/network/api_keys.dart';
 import 'package:graduate_project/core/resource/string_manager.dart';
-import 'package:graduate_project/features/auth/forget_password/data/model/response_from_api.dart';
+import 'package:graduate_project/core/model/response_from_api.dart';
 
 class ForgetPasswordRepo {
   final ApiHelper api;
