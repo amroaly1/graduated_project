@@ -9,8 +9,8 @@ class SiginUpView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => di<SiginUpCubit>(),
+    return BlocProvider.value(
+      value: di<SiginUpCubit>()..init(),
       child: const Scaffold(
         body: SiginUpBody(),
       ),

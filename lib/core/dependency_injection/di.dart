@@ -4,6 +4,8 @@ import 'package:graduate_project/core/helper/connect_internet_helper.dart';
 import 'package:graduate_project/core/network/api_helper.dart';
 import 'package:graduate_project/features/auth/confirm_email/data/repo/confirm_email_repo.dart';
 import 'package:graduate_project/features/auth/confirm_email/manager/cubit/confirm_email_cubit.dart';
+import 'package:graduate_project/features/auth/forget_password/data/repo/forget_password_repo.dart';
+import 'package:graduate_project/features/auth/forget_password/manager/cubit/forget_password_cubit.dart';
 import 'package:graduate_project/features/auth/login/data/repo/login_repo.dart';
 import 'package:graduate_project/features/auth/login/manager/cubit/login_cubit.dart';
 import 'package:graduate_project/features/auth/signUp/data/repo/sigin_up_repo.dart';
@@ -35,5 +37,15 @@ Future<void> setUp() async {
     connectInternetHelper: di<ConnectInternetHelper>(),
   ));
 
-  // di.registerSingleton<LoginCubit>(LoginCubit(di<LoginRepo>()));
+  di.registerSingleton<LoginCubit>(LoginCubit(di<LoginRepo>()));
+
+  di.registerSingleton<ConfirmEmailCubit>(
+      ConfirmEmailCubit(di<ConfirmEmailRepo>()));
+
+  di.registerSingleton<ForgetPasswordRepo>(ForgetPasswordRepo(
+      api: di<ApiHelper>(),
+      connectInternetHelper: di<ConnectInternetHelper>()));
+
+  di.registerSingleton<ForgetPasswordCubit>(
+      ForgetPasswordCubit(repo: di<ForgetPasswordRepo>()));
 }

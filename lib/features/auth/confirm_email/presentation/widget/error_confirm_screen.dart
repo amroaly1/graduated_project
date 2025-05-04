@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduate_project/core/resource/color_manager.dart';
 import 'package:graduate_project/core/resource/distance_manager.dart';
 import 'package:graduate_project/core/resource/font_family_manger.dart';
@@ -36,7 +35,7 @@ class ErrorConfirmScreen extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         TextButton(
-            onPressed: BlocProvider.of<ConfirmEmailCubit>(context).resentCode,
+            onPressed: ConfirmEmailCubit.get(context).resentCode,
             // onPressed: () {},
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,

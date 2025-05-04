@@ -13,13 +13,30 @@ class SiginUpCubit extends Cubit<SiginUpState> {
   GlobalKey<FormState> globalKey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
-  TextEditingController emailCotroller = TextEditingController();
-  TextEditingController firstNameCotroller = TextEditingController();
-  TextEditingController lastNameCotroller = TextEditingController();
-  TextEditingController passwordCotroller = TextEditingController();
-  TextEditingController confirmPasswordCotroller = TextEditingController();
+  late TextEditingController emailCotroller;
+  late TextEditingController firstNameCotroller;
+  late TextEditingController lastNameCotroller;
+  late TextEditingController passwordCotroller;
+  late TextEditingController confirmPasswordCotroller;
 
   final SiginUpRepo repo;
+
+  void init() {
+    autovalidateMode = AutovalidateMode.disabled;
+    emailCotroller = TextEditingController();
+    firstNameCotroller = TextEditingController();
+    lastNameCotroller = TextEditingController();
+    passwordCotroller = TextEditingController();
+    confirmPasswordCotroller = TextEditingController();
+  }
+
+  void dispose() {
+    emailCotroller.dispose();
+    firstNameCotroller.dispose();
+    lastNameCotroller.dispose();
+    passwordCotroller.dispose();
+    confirmPasswordCotroller.dispose();
+  }
 
   String? confirmPasswordValidator(String? message) {
     return AppValidator.confirmPasswordValidator(

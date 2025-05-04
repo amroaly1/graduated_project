@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduate_project/core/dependency_injection/di.dart';
 import 'package:graduate_project/core/helper/app_validator.dart';
 import 'package:graduate_project/core/helper/show_snack_bar.dart';
 import 'package:graduate_project/core/resource/device_height_width_manager.dart';
@@ -17,8 +18,19 @@ import 'package:graduate_project/core/widget/top_section_of_auth.dart';
 import 'package:graduate_project/features/auth/login/manager/cubit/login_cubit.dart';
 import 'package:graduate_project/features/auth/login/manager/cubit/login_state.dart';
 
-class LoginBody extends StatelessWidget {
+class LoginBody extends StatefulWidget {
   const LoginBody({super.key});
+
+  @override
+  State<LoginBody> createState() => _LoginBodyState();
+}
+
+class _LoginBodyState extends State<LoginBody> {
+  @override
+  void dispose() {
+    di<LoginCubit>().disposeControllers();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +106,7 @@ class LoginBody extends StatelessWidget {
                 NavigationManager.pushReplace(
                   context: context,
                   screen: ScreenManager.confirmEmail,
-                  argumants: state.email,
+                  arguments: state.email,
                 );
               }
             }, builder: (context, state) {

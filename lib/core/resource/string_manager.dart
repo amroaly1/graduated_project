@@ -51,6 +51,9 @@ abstract class StringManager {
       "Don’t worry! It happens. Please enter the email associated with your account.";
   static const String forgetPassowrdEmailHint = "Enter your email address";
   static const String forgetPassowrdNavigationHint = "Remember password? ";
+  static const String entercode = "Enter code";
+  static const String entercodehint =
+      "We’ve sent an activation code to your email please , enter this code here";
 
   // home
 

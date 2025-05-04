@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduate_project/core/dependency_injection/di.dart';
 import 'package:graduate_project/core/helper/app_validator.dart';
 import 'package:graduate_project/core/helper/show_snack_bar.dart';
 import 'package:graduate_project/core/resource/device_height_width_manager.dart';
@@ -16,8 +17,19 @@ import 'package:graduate_project/core/widget/top_section_of_auth.dart';
 import 'package:graduate_project/features/auth/signUp/manager/cubit/sigin_up_cubit.dart';
 import 'package:graduate_project/features/auth/signUp/manager/cubit/sigin_up_state.dart';
 
-class SiginUpBody extends StatelessWidget {
+class SiginUpBody extends StatefulWidget {
   const SiginUpBody({super.key});
+
+  @override
+  State<SiginUpBody> createState() => _SiginUpBodyState();
+}
+
+class _SiginUpBodyState extends State<SiginUpBody> {
+  @override
+  void dispose() {
+    di<SiginUpCubit>().dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -98,7 +110,7 @@ class SiginUpBody extends StatelessWidget {
             BlocConsumer<SiginUpCubit, SiginUpState>(
               listener: (context, state) {
                 if (state is SiginUpSuccess) {
-                  NavigationManager.push(
+                  NavigationManager.pushReplace(
                       context: context,
                       screen: ScreenManager.confirmEmail,
                       arguments: state.email);

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/features/auth/confirm_email/data/repo/confirm_email_repo.dart';
-// ignore: depend_on_referenced_packages
+// ignore: depend_on_referenced_packages, unnecessary_import
 import 'package:meta/meta.dart';
 
 part 'confirm_email_state.dart';
@@ -14,6 +14,8 @@ class ConfirmEmailCubit extends Cubit<ConfirmEmailState> {
   ConfirmEmailCubit(this.repo) : super(ConfirmEmailInitial());
 
   final ConfirmEmailRepo repo;
+
+  static ConfirmEmailCubit get(context) => BlocProvider.of(context);
 
   // form
   late GlobalKey<FormState> globalKey;
@@ -32,23 +34,23 @@ class ConfirmEmailCubit extends Cubit<ConfirmEmailState> {
   // timer
   Timer? timer;
 
-  String timeSTring = "02:00";
+  late String timeSTring;
   int secondTime = 1;
   int scale = 5;
   bool sendMessage = false;
+
   void disposeControllers() {
     timer?.cancel();
-    // if (c1 != null) c1.dispose();
-    // if (c2 != null) c2.dispose();
-    // if (c3 != null) c3.dispose();
-    // if (c4 != null) c4.dispose();
-    // if (c5 != null) c5.dispose();
-    // if (c6 != null) c6.dispose();
-
-    // autovalidateMode = AutovalidateMode.disabled;
+    c1.dispose();
+    c2.dispose();
+    c3.dispose();
+    c4.dispose();
+    c5.dispose();
+    c6.dispose();
   }
 
   void init({required String email}) async {
+    timeSTring = "02:00";
     secondTime = 1;
     scale = 5;
     globalKey = GlobalKey();
@@ -113,31 +115,6 @@ class ConfirmEmailCubit extends Cubit<ConfirmEmailState> {
     });
   }
 
-  // make validation
-  String? validate(String? value) {
-    if (value == null || value.isEmpty) {
-      return "";
-    }
-
-    return null;
-  }
-
-  // make onChnage
-  void onChnage(
-      {required String value,
-      required bool isFirst,
-      required bool isLast,
-      required BuildContext context}) {
-    {
-      if (value.isNotEmpty && isLast == false) {
-        FocusScope.of(context).nextFocus();
-      }
-      if (value.isEmpty && isFirst == false) {
-        FocusScope.of(context).previousFocus();
-      }
-    }
-  }
-
   String formatDuration(int seconds) {
     final minutes = (seconds ~/ 60).toString().padLeft(2, '0');
     final secs = (seconds % 60).toString().padLeft(2, '0');
@@ -146,8 +123,6 @@ class ConfirmEmailCubit extends Cubit<ConfirmEmailState> {
 
   // resent code
   void resentCode() async {
-    // resent code
-    // reset the timer
     if (secondTime == 1) {
       secondTime = 120;
     } else {

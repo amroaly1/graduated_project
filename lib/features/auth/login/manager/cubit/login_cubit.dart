@@ -11,19 +11,19 @@ class LoginCubit extends Cubit<LoginState> {
   GlobalKey<FormState> globalKey = GlobalKey();
   late AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
-  late TextEditingController emailCotroller = TextEditingController();
-  late TextEditingController passwordCotroller = TextEditingController();
+  late TextEditingController emailCotroller;
+  late TextEditingController passwordCotroller;
 
-  // void init() {
-  //   emailCotroller = TextEditingController();
-  //   passwordCotroller = TextEditingController();
-  //   autovalidateMode = AutovalidateMode.disabled;
-  // }
+  void init() {
+    emailCotroller = TextEditingController();
+    passwordCotroller = TextEditingController();
+    autovalidateMode = AutovalidateMode.disabled;
+  }
 
-  // void disposeControllers() {
-  //   emailCotroller.dispose();
-  //   passwordCotroller.dispose();
-  // }
+  void disposeControllers() {
+    emailCotroller.dispose();
+    passwordCotroller.dispose();
+  }
 
   void onTap() async {
     emit(LoginLoading());

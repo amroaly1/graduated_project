@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduate_project/core/helper/app_validator.dart';
+import 'package:graduate_project/core/helper/help_on_change_otp.dart';
 import 'package:graduate_project/core/resource/color_manager.dart';
 import 'package:graduate_project/core/resource/distance_manager.dart';
-import 'package:graduate_project/features/auth/confirm_email/manager/cubit/confirm_email_cubit.dart';
 
 class OTPTextFormField extends StatelessWidget {
   const OTPTextFormField({
@@ -22,14 +22,14 @@ class OTPTextFormField extends StatelessWidget {
       height: HeightManager.h60,
       child: TextFormField(
         controller: controller,
-        validator: BlocProvider.of<ConfirmEmailCubit>(context).validate,
+        validator: AppValidator.validate,
         maxLines: 1,
-        onChanged: (value) => BlocProvider.of<ConfirmEmailCubit>(context)
-            .onChnage(
-                value: value,
-                isFirst: isFirst,
-                isLast: isLast,
-                context: context),
+        onChanged: (value) => onChnageOtp(
+          value: value,
+          isFirst: isFirst,
+          isLast: isLast,
+          context: context,
+        ),
         keyboardType: TextInputType.number,
         inputFormatters: [
           FilteringTextInputFormatter.digitsOnly,
