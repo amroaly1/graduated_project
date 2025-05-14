@@ -47,4 +47,18 @@ class LoginCubit extends Cubit<LoginState> {
       emit(LoginNotValidate());
     }
   }
+
+  void loginUsingGoogle() async {
+    var response = await repo.loginGoogle();
+    response.fold((ifLeft) {
+      if (ifLeft.isEmailNoConfirm) {
+        emit(LoginEmailNotConfirm(
+            email: emailCotroller.text, errMessage: ifLeft.errMessage));
+      } else {
+        emit(LoginFailing(errMessage: ifLeft.errMessage));
+      }
+    }, (ifRight) {
+      emit(LoginSuccess());
+    });
+  }
 }

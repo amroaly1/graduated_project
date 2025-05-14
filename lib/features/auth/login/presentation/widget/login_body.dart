@@ -124,7 +124,9 @@ class _LoginBodyState extends State<LoginBody> {
             SocialAuthSection(
               title: StringManager.orLoginwith,
               onTapFaceBook: () {},
-              onTapGoogle: () {},
+              onTapGoogle: () {
+                LoginCubit.get(context).loginUsingGoogle();
+              },
               onTapApple: () {},
             ),
             SizedBox(

@@ -35,6 +35,8 @@ migrate_working_dir/
 api_keys.dart
 api_end_point.dart
 
+myKey.jks
+
 # Symbolication related
 app.*.symbols
 

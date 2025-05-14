@@ -53,7 +53,7 @@ class SocialAuthSection extends StatelessWidget {
               ),
               _customcardofsocial(
                 icon: IconManager.google,
-                onTap: () {},
+                onTap: onTapGoogle,
               ),
               _customcardofsocial(
                 icon: IconManager.apple,
