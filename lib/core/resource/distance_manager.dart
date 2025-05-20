@@ -30,6 +30,7 @@ abstract class HeightManager {
   static double h55 = 55.0.h;
   static double h60 = 60.0.h;
   static double h70 = 70.0.h;
+  static double h80 = 80.0.h;
   static double h100 = 100.0.h;
   static double h160 = 160.0.h;
   static double h200 = 200.0.h;

@@ -1,48 +1,52 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graduate_project/features/dictionary/data/model/word_model.dart';
 import 'package:graduate_project/features/dictionary/data/repo/sign_dictionary_repo.dart';
 import 'package:graduate_project/features/dictionary/manager/cubit/sign_dictionary_state.dart';
 
 class SignDictionaryCubit extends Cubit<SignDictionaryState> {
-  SignDictionaryCubit() : super(SignDictionaryInitial());
+  SignDictionaryCubit({required this.repo}) : super(SignDictionaryInitial());
 
   static SignDictionaryCubit get(context) => BlocProvider.of(context);
 
-  SignDictionaryRepo repo = SignDictionaryRepo();
+  final SignDictionaryRepo repo;
   TextEditingController controller = TextEditingController();
-  List<WordModel> searchData = [];
+  ScrollController controllerScroll = ScrollController();
 
-  void saveElement() {
-    if (searchData.isNotEmpty) {
-      search(controller.text);
-    } else {
-      emit(SignDictionarySaveEmelemt());
-    }
-  }
+  bool isFirst = true;
 
   void onchange(String? value) {
     if (value != null && value.isNotEmpty) {
-      search(value);
-    } else {
-      searchData = [];
-      emit(SignDictionaryNotSearch());
-    }
+    } else {}
   }
 
-  void search(String value) {
-    searchData = [];
-    for (var element in repo.data) {
-      for (int i = 0; i < element.words.length; i++) {
-        if (element.words[i].word.toUpperCase().contains(value.toUpperCase())) {
-          searchData.add(element.words[i]);
+  void inital() {
+    controllerScroll.addListener(() {
+      if (controllerScroll.position.atEdge) {
+        if (controllerScroll.position.pixels ==
+            controllerScroll.position.maxScrollExtent) {
+          getData();
         }
       }
-    }
-    if (searchData.isNotEmpty) {
-      emit(SignDictionarySearch());
-    } else {
-      emit(SignDictionaryNotSearch());
-    }
+    });
+
+    getData();
+  }
+
+  void getData() async {
+    isFirst == true ? emit(SignDictionaryGetAllDataLoading()) : null;
+
+    var response = await repo.getData();
+    response.fold((ifLeft) {
+      isFirst == true
+          ? emit(SignDictionaryGetAllDataFirstFailing(
+              fromInternet: ifLeft.problemFromInternrt,
+              errorMessage: ifLeft.message))
+          : emit(SignDictionaryGetAllDataFailing(errorMessage: ifLeft.message));
+    }, (ifRight) {
+      emit(SignDictionaryGetAllDataSuccess(
+          data: ifRight.data, canLoadMore: ifRight.canLoading));
+
+      isFirst = false;
+    });
   }
 }

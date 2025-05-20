@@ -61,4 +61,28 @@ class ApiHelper {
       return handelDioExeption(e: e);
     }
   }
+
+  Future<ApiResponse> get({
+    required String endpoint,
+    Map<String, dynamic>? data,
+    bool isForm = false,
+    Map<String, dynamic>? queryParameters,
+  }) async {
+    try {
+      var response = await _dio.get(
+        endpoint,
+        data: data == null
+            ? null
+            : isForm
+                ? FormData.fromMap(data)
+                : data,
+        queryParameters: queryParameters,
+        options: Options(),
+      );
+
+      return ApiReponseSuccess(data: response.data);
+    } on DioException catch (e) {
+      return handelDioExeption(e: e);
+    }
+  }
 }

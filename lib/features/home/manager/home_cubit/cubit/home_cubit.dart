@@ -10,10 +10,27 @@ class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(HomeInitial());
   static HomeCubit get(context) => BlocProvider.of(context);
   int currentIndex = 0;
+  bool isShowBottomNavigationBar = true;
 
   void chnageCurrentIndex(int index) {
     currentIndex = index;
     emit(HomeChangeCurrentIndex());
+  }
+
+  void onVerticalDragUpdate(DragUpdateDetails details) {
+    final double sensitivity = 3; // minimum movement threshold
+
+    if (details.delta.dy > sensitivity) {
+      if (isShowBottomNavigationBar) {
+        isShowBottomNavigationBar = false;
+        emit(HomeIsShowBottomNavigationBar());
+      }
+    } else if (details.delta.dy < -sensitivity) {
+      if (!isShowBottomNavigationBar) {
+        isShowBottomNavigationBar = true;
+        emit(HomeIsShowBottomNavigationBar());
+      }
+    }
   }
 
   List<Widget> screens = [

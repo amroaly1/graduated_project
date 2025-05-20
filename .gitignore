@@ -36,6 +36,8 @@ api_keys.dart
 api_end_point.dart
 
 myKey.jks
+strings.xml
+api_console_id.dart
 
 # Symbolication related
 app.*.symbols

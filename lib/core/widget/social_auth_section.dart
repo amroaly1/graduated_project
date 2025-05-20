@@ -49,7 +49,7 @@ class SocialAuthSection extends StatelessWidget {
             children: [
               _customcardofsocial(
                 icon: IconManager.facebook,
-                onTap: () {},
+                onTap: onTapFaceBook,
               ),
               _customcardofsocial(
                 icon: IconManager.google,

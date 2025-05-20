@@ -123,7 +123,9 @@ class _LoginBodyState extends State<LoginBody> {
             SizedBox(height: HeightManager.h52),
             SocialAuthSection(
               title: StringManager.orLoginwith,
-              onTapFaceBook: () {},
+              onTapFaceBook: () {
+                LoginCubit.get(context).loginUsingFacebook();
+              },
               onTapGoogle: () {
                 LoginCubit.get(context).loginUsingGoogle();
               },

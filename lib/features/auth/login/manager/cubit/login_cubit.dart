@@ -61,4 +61,18 @@ class LoginCubit extends Cubit<LoginState> {
       emit(LoginSuccess());
     });
   }
+
+  void loginUsingFacebook() async {
+    var response = await repo.loginWithFacebook();
+    response.fold((ifLeft) {
+      if (ifLeft.isEmailNoConfirm) {
+        emit(LoginEmailNotConfirm(
+            email: emailCotroller.text, errMessage: ifLeft.errMessage));
+      } else {
+        emit(LoginFailing(errMessage: ifLeft.errMessage));
+      }
+    }, (ifRight) {
+      emit(LoginSuccess());
+    });
+  }
 }

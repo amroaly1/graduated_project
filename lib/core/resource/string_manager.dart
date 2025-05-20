@@ -132,7 +132,8 @@ abstract class StringManager {
       "email not correct please enter good formate";
   static const String pleaseEnterYourPassword = "please enter your password";
   static const String pleaseEnterValidatePasswod =
-      "Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character (@\$!%*?&).";
+      "Min 8 chars with upper, lower, num & special char.";
+  // "Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character (@\$!%*?&).";
   static const String pleaseEnterConfirmPassword =
       "please enter your confirm password";
   static const String confirmPasswordnotMatch =
@@ -142,4 +143,5 @@ abstract class StringManager {
   static const String noInternetError =
       "No Internet , please connect to internet";
   static const String unExperctedError = "UnExpected Error";
+  static const String noDataMore = "No Data More";
 }
