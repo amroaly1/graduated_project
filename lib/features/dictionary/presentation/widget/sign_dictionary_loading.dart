@@ -19,7 +19,7 @@ class SignDictionaryLoading extends StatelessWidget {
               top: HeightManager.h20,
             ),
             child: Text(
-              "myKey",
+              "Chara",
               style: TextStyleManager.medium20(
                 color: ColorManager.black1,
               ),
@@ -47,7 +47,7 @@ class SignDictionaryLoading extends StatelessWidget {
                     Expanded(
                       child: SizedBox(
                         child: Text(
-                          "word.gloss",
+                          "word gloss",
                           style: TextStyleManager.light14(),
                         ),
                       ),

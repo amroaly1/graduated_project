@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduate_project/features/dictionary/data/repo/sign_dictionary_repo.dart';
-import 'package:graduate_project/features/dictionary/manager/cubit/sign_dictionary_state.dart';
+import 'package:graduate_project/features/dictionary/manager/sign_dictionary/sign_dictionary_state.dart';
 
 class SignDictionaryCubit extends Cubit<SignDictionaryState> {
   SignDictionaryCubit({required this.repo}) : super(SignDictionaryInitial());

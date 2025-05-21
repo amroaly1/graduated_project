@@ -5,14 +5,20 @@ import 'package:graduate_project/core/resource/distance_manager.dart';
 import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
 
-class CustomTextField extends StatelessWidget {
-  const CustomTextField({
+class CustomSearchTextField extends StatelessWidget {
+  const CustomSearchTextField({
     super.key,
     this.onChanged,
-    required this.controller,
+    this.controller,
+    this.onTap,
+    this.autofocus = false,
+    this.enable,
   });
   final void Function(String)? onChanged;
-  final TextEditingController controller;
+  final TextEditingController? controller;
+  final void Function()? onTap;
+  final bool autofocus;
+  final bool? enable;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -21,12 +27,15 @@ class CustomTextField extends StatelessWidget {
         HeightOfDesign.h51,
       ),
       child: TextField(
+        onTap: onTap,
+        enabled: enable,
+        autofocus: autofocus,
         controller: controller,
         onChanged: onChanged,
         style: TextStyleManager.light16(color: ColorManager.black),
-        cursorHeight: HeightManager.h18,
-        cursorColor: ColorManager.blue,
-        cursorWidth: 1,
+        cursorHeight: HeightManager.h20,
+        cursorColor: ColorManager.primaryColor,
+        cursorWidth: 1.5,
         textAlign: TextAlign.left,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.zero,

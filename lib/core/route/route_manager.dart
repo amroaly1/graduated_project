@@ -11,6 +11,8 @@ import 'package:graduate_project/features/auth/login/presentation/login_view.dar
 import 'package:graduate_project/features/auth/signUp/presentation/sigin_up_view.dart';
 import 'package:graduate_project/features/auth/welcome/presentation/welcome_view.dart';
 import 'package:graduate_project/features/chat/presentation/chat_view.dart';
+import 'package:graduate_project/features/dictionary/data/model/dictionary_item_model.dart';
+import 'package:graduate_project/features/dictionary/presentation/widget/dictionary_serach_view.dart';
 import 'package:graduate_project/features/dictionary/presentation/word_details_view.dart';
 import 'package:graduate_project/features/home/presentation/home_view.dart';
 import 'package:graduate_project/features/onboarding/view/on_boarding_view.dart';
@@ -41,9 +43,13 @@ abstract class RouteManager {
       case ScreenManager.videototextview:
         return customPageBuilder(VideoToTextView());
       case ScreenManager.worddetailsview:
-        return customPageBuilder(WordDetailsView());
+        return customPageBuilder(WordDetailsView(
+          word: settings.arguments as DictionaryItemModel,
+        ));
       case ScreenManager.chatView:
         return customPageBuilder(ChatView());
+      case ScreenManager.dictionarySearchView:
+        return customPageBuilder(DictionarySerachView());
       case ScreenManager.resetPassowrdView:
         return customPageBuilder(ResetPasswordView(
           email: settings.arguments as String,

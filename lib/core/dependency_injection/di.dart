@@ -12,8 +12,10 @@ import 'package:graduate_project/features/auth/login/data/repo/login_repo.dart';
 import 'package:graduate_project/features/auth/login/manager/cubit/login_cubit.dart';
 import 'package:graduate_project/features/auth/signUp/data/repo/sigin_up_repo.dart';
 import 'package:graduate_project/features/auth/signUp/manager/cubit/sigin_up_cubit.dart';
+import 'package:graduate_project/features/dictionary/data/repo/dictionary_search_repo.dart';
 import 'package:graduate_project/features/dictionary/data/repo/sign_dictionary_repo.dart';
-import 'package:graduate_project/features/dictionary/manager/cubit/sign_dictionary_cubit.dart';
+import 'package:graduate_project/features/dictionary/manager/dictionary_search/dictionary_search_cubit.dart';
+import 'package:graduate_project/features/dictionary/manager/sign_dictionary/sign_dictionary_cubit.dart';
 import 'package:graduate_project/features/home/manager/home_cubit/cubit/home_cubit.dart';
 
 final di = GetIt.instance;
@@ -69,4 +71,11 @@ Future<void> setUp() async {
       SignDictionaryCubit(repo: di<SignDictionaryRepo>()));
 
   di.registerSingleton<HomeCubit>(HomeCubit());
+
+  di.registerSingleton<DictionarySearchRepo>(DictionarySearchRepo(
+      api: di<ApiHelper>(),
+      connectInternetHelper: di<ConnectInternetHelper>()));
+
+  di.registerSingleton<DictionarySearchCubit>(
+      DictionarySearchCubit(repo: di<DictionarySearchRepo>()));
 }

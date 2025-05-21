@@ -7,7 +7,7 @@ import 'package:graduate_project/core/resource/distance_manager.dart';
 import 'package:graduate_project/core/resource/icon_manager.dart';
 import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
-import 'package:graduate_project/features/dictionary/manager/cubit/sign_dictionary_cubit.dart';
+import 'package:graduate_project/features/dictionary/manager/sign_dictionary/sign_dictionary_cubit.dart';
 import 'package:graduate_project/features/home/manager/home_cubit/cubit/home_cubit.dart';
 import 'package:graduate_project/features/home/manager/home_cubit/cubit/home_state.dart';
 

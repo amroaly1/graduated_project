@@ -94,6 +94,11 @@ abstract class StringManager {
   // learn
 
   static const String search = "Search";
+  static const String noWordFound = "No Word Found";
+  static const String searchproblem =
+      "Please try your search again once the issue is resolved.";
+  static const String getDictionaryDataProblem =
+      "Please try again once the issue is resolved.";
   static const String searchforWords = "Search for Words";
   static const String share = "Share";
   static const String pause = "Pause";
