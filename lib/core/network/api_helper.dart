@@ -24,14 +24,14 @@ class ApiHelper {
 
   Future<ApiResponse> post({
     required String endpoint,
-    required Map<String, dynamic> data,
+    Map<String, dynamic>? data,
     bool isForm = false,
     Map<String, dynamic>? queryParameters,
   }) async {
     try {
       var response = await _dio.post(
         endpoint,
-        data: isForm ? FormData.fromMap(data) : data,
+        data: isForm ? FormData.fromMap(data ?? {}) : data,
         queryParameters: queryParameters,
         options: Options(),
       );

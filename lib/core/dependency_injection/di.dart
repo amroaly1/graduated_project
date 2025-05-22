@@ -12,6 +12,7 @@ import 'package:graduate_project/features/auth/login/data/repo/login_repo.dart';
 import 'package:graduate_project/features/auth/login/manager/cubit/login_cubit.dart';
 import 'package:graduate_project/features/auth/signUp/data/repo/sigin_up_repo.dart';
 import 'package:graduate_project/features/auth/signUp/manager/cubit/sigin_up_cubit.dart';
+import 'package:graduate_project/features/dictionary/data/repo/dictionary_add_favorite_repo.dart';
 import 'package:graduate_project/features/dictionary/data/repo/dictionary_search_repo.dart';
 import 'package:graduate_project/features/dictionary/data/repo/sign_dictionary_repo.dart';
 import 'package:graduate_project/features/dictionary/manager/dictionary_search/dictionary_search_cubit.dart';
@@ -62,9 +63,15 @@ Future<void> setUp() async {
 
   di.registerSingleton<ResetPasswordCubit>(
       ResetPasswordCubit(repo: di<ResetPasswordRepo>()));
-
+  di.registerSingleton<DictionaryAddFavoriteRepo>(
+    DictionaryAddFavoriteRepo(
+      apiHelper: di<ApiHelper>(),
+      connectInternetHelper: di<ConnectInternetHelper>(),
+    ),
+  );
   di.registerSingleton<SignDictionaryRepo>(SignDictionaryRepo(
       apiHelper: di<ApiHelper>(),
+      dictionaryAddFavoriteRepo: di<DictionaryAddFavoriteRepo>(),
       connectInternetHelper: di<ConnectInternetHelper>()));
 
   di.registerSingleton<SignDictionaryCubit>(
@@ -76,6 +83,7 @@ Future<void> setUp() async {
       api: di<ApiHelper>(),
       connectInternetHelper: di<ConnectInternetHelper>()));
 
-  di.registerSingleton<DictionarySearchCubit>(
-      DictionarySearchCubit(repo: di<DictionarySearchRepo>()));
+  di.registerSingleton<DictionarySearchCubit>(DictionarySearchCubit(
+      repo: di<DictionarySearchRepo>(),
+      favoriteRepo: di<DictionaryAddFavoriteRepo>()));
 }

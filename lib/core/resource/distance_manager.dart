@@ -36,6 +36,7 @@ abstract class HeightManager {
   static double h200 = 200.0.h;
   static double h300 = 300.0.h;
   static double h319 = 319.0.h;
+  static double h317 = 317.0.h;
   static double h335 = 335.0.h;
 }
 
@@ -56,6 +57,7 @@ abstract class WidthManager {
   static double w62 = 62.w;
   static double w70 = 70.w;
   static double w200 = 200.w;
+  static double w363 = 363.w;
 }
 
 abstract class RaduisValueManager {

@@ -16,6 +16,7 @@ class CustomCardCharacterAndWord extends StatelessWidget {
   });
   final String myKey;
   final List<DictionaryItemModel> words;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -37,7 +38,11 @@ class CustomCardCharacterAndWord extends StatelessWidget {
           children: List.generate(words.length, (index) {
             return BlocBuilder<SignDictionaryCubit, SignDictionaryState>(
               builder: (context, state) {
-                return CustomCard(word: words[index]);
+                return CustomCard(
+                  word: words[index],
+                  onPressed: () => SignDictionaryCubit.get(context)
+                      .changeFavoriteOfItem(words[index].id),
+                );
               },
             );
           }),

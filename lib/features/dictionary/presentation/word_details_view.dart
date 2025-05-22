@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduate_project/core/dependency_injection/di.dart';
 import 'package:graduate_project/features/dictionary/data/model/dictionary_item_model.dart';
+import 'package:graduate_project/features/dictionary/data/repo/dictionary_add_favorite_repo.dart';
+import 'package:graduate_project/features/dictionary/manager/show_word/show_word_cubit.dart';
 import 'package:graduate_project/features/dictionary/presentation/widget/word_details_body.dart';
 
 class WordDetailsView extends StatelessWidget {
@@ -7,8 +11,15 @@ class WordDetailsView extends StatelessWidget {
   final DictionaryItemModel word;
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: WordDetailsBody(),
+    return BlocProvider(
+      create: (context) =>
+          ShowWordCubit(favoriteRepo: di<DictionaryAddFavoriteRepo>())
+            ..initial(url: word.videoUrl),
+      child: Scaffold(
+        body: WordDetailsBody(
+          word: word,
+        ),
+      ),
     );
   }
 }

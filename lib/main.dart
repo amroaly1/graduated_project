@@ -6,10 +6,13 @@ import 'package:graduate_project/core/resource/device_height_width_manager.dart'
 import 'package:graduate_project/core/resource/font_family_manger.dart';
 import 'package:graduate_project/core/route/route_manager.dart';
 import 'package:graduate_project/core/route/screen_manager.dart';
+import 'package:graduate_project/core/storage/shared_preference_helper.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await SharedPreferenceHelper().init();
   await setUp();
+  // await Future.wait([]);
   runApp(const MyApp());
 }
 
@@ -34,7 +37,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         // initialRoute: ScreenManager.onBoardingView,
-        initialRoute: ScreenManager.homeView,
+        initialRoute: ScreenManager.onBoardingView,
         onGenerateRoute: RouteManager.generateRoute,
       ),
     );

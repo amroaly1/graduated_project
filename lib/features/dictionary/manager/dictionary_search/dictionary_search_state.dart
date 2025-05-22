@@ -17,3 +17,8 @@ final class DictionarySearchSuccess extends DictionarySearchState {
   final List<DictionaryItemModel> data;
   DictionarySearchSuccess({required this.data});
 }
+
+final class DictionarySearchAddFavoriteFailing extends DictionarySearchState {
+  final String errMessage;
+  DictionarySearchAddFavoriteFailing({required this.errMessage});
+}

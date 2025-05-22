@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduate_project/core/constant/constant.dart';
 import 'package:graduate_project/core/dependency_injection/di.dart';
+import 'package:graduate_project/core/helper/show_snack_bar.dart';
 import 'package:graduate_project/core/resource/color_manager.dart';
 import 'package:graduate_project/core/resource/distance_manager.dart';
 import 'package:graduate_project/core/resource/font_family_manger.dart';
@@ -20,7 +21,7 @@ class DictionarySerachView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider.value(
-      value: di<DictionarySearchCubit>(),
+      value: di<DictionarySearchCubit>()..init(),
       child: Builder(builder: (context) {
         return Scaffold(
           body: SafeArea(
@@ -73,8 +74,13 @@ class DictionarySerachView extends StatelessWidget {
                 Expanded(
                   child: Padding(
                     padding: PaddingManager.paddingHorizontal24,
-                    child: BlocBuilder<DictionarySearchCubit,
+                    child: BlocConsumer<DictionarySearchCubit,
                         DictionarySearchState>(
+                      listener: (context, state) {
+                        if (state is DictionarySearchAddFavoriteFailing) {
+                          showSnackBar(context, message: state.errMessage);
+                        }
+                      },
                       builder: (context, state) {
                         if (state is DictionarySearchError) {
                           return ErorrBody(
@@ -120,6 +126,8 @@ class SearchDictionaryShowData extends StatelessWidget {
                 padding: EdgeInsets.symmetric(vertical: HeightManager.h6),
                 child: CustomCard(
                   word: data[index],
+                  onPressed: () => DictionarySearchCubit.get(context)
+                      .addFavoriteOrRemove(id: data[index].id),
                 ),
               );
             },

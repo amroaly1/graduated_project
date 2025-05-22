@@ -11,8 +11,10 @@ import 'package:graduate_project/core/network/api_end_point.dart';
 import 'package:graduate_project/core/network/api_helper.dart';
 import 'package:graduate_project/core/network/api_keys.dart';
 import 'package:graduate_project/core/resource/string_manager.dart';
+import 'package:graduate_project/core/storage/shared_preference_helper.dart';
 import 'package:graduate_project/features/auth/login/data/model/login_api_reponse.dart';
 import 'package:graduate_project/features/auth/login/data/model/login_error.dart';
+import 'package:graduate_project/features/auth/login/data/model/user_model.dart';
 
 class LoginRepo {
   final ApiHelper api;
@@ -36,6 +38,7 @@ class LoginRepo {
 
         if (res.isSuccess) {
           // store data in hive
+          await store(res.user!);
           return right(null);
         } else {
           if (res.error.code == 1001) {
@@ -121,6 +124,7 @@ class LoginRepo {
         LoginApiReponse res = LoginApiReponse.fromJson(response.data);
         if (res.isSuccess) {
           log(res.user?.email ?? "No Email");
+          await store(res.user!);
           return right(null);
         } else {
           if (res.error.code == 1001) {
@@ -201,6 +205,7 @@ class LoginRepo {
         LoginApiReponse res = LoginApiReponse.fromJson(response.data);
         if (res.isSuccess) {
           log(res.user?.email ?? "No Email");
+          await store(res.user!);
           return right(null);
         } else {
           if (res.error.code == 1001) {
@@ -228,5 +233,57 @@ class LoginRepo {
       return left(
           LoginError(errMessage: "UnExpected Error", isEmailNoConfirm: false));
     }
+  }
+
+  /*
+
+    "userId": 0,
+    "email": "string",
+    "token": "string",
+    "refreshToken": "string",
+    "createdOn": "2025-05-22T06:54:58.497Z",
+    "tokenExpiry": "2025-05-22T06:54:58.497Z",
+    "refreshTokenExpiry": "2025-05-22T06:54:58.497Z"
+
+  */
+
+  Future<void> store(UserModel userModel) async {
+    SharedPreferenceHelper sharedPreference = SharedPreferenceHelper();
+
+    log("Token : ${userModel.token}");
+    await Future.wait(
+      [
+        sharedPreference.saveData(
+          key: ApiKeys.userId,
+          value: userModel.userId,
+        ),
+        sharedPreference.saveData(
+          key: ApiKeys.email,
+          value: userModel.email,
+        ),
+        sharedPreference.saveData(
+          key: ApiKeys.token,
+          value: userModel.token,
+        ),
+        sharedPreference.saveData(
+          key: ApiKeys.refreshToken,
+          value: userModel.refreshToken,
+        ),
+        // sharedPreference.saveData(
+        //   key: ApiKeys.firstName,
+        //   value: userModel.firstName,
+        // ),
+        // sharedPreference.saveData(
+        //     key: ApiKeys.lastName, value: userModel.lastName),
+        sharedPreference.saveData(
+          key: ApiKeys.tokenExpiry,
+          value: userModel.tokenExpiry,
+        ),
+        sharedPreference.saveData(
+          key: ApiKeys.refreshTokenExpiry,
+          value: userModel.refreshTokenExpiry,
+        ),
+      ],
+    );
   }
 }

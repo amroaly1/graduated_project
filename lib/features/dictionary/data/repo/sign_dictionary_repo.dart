@@ -13,16 +13,19 @@ import 'package:graduate_project/features/dictionary/data/model/data_from_repo.d
 import 'package:graduate_project/features/dictionary/data/model/dictionary_item_model.dart';
 import 'package:graduate_project/features/dictionary/data/model/error_reponse.dart';
 import 'package:graduate_project/features/dictionary/data/model/map_of_character.dart';
+import 'package:graduate_project/features/dictionary/data/repo/dictionary_add_favorite_repo.dart';
 
 class SignDictionaryRepo {
   List<MapOfCharacter> data = [];
   final ApiHelper apiHelper;
   final ConnectInternetHelper connectInternetHelper;
+  final DictionaryAddFavoriteRepo dictionaryAddFavoriteRepo;
   int pageNumber = 1;
   final int pageSize = 100;
   bool canLoading = true;
 
   SignDictionaryRepo({
+    required this.dictionaryAddFavoriteRepo,
     required this.apiHelper,
     required this.connectInternetHelper,
   }) {
@@ -80,6 +83,10 @@ class SignDictionaryRepo {
     }
   }
 
+  Future<Either<String, void>> addOrRemoveFavorite({required int id}) async {
+    return dictionaryAddFavoriteRepo.favoriteAddOrRemove(id: id);
+  }
+
   bool noData() {
     for (int i = 0; i < 26; i++) {
       if (data[i].data.isNotEmpty) {
@@ -125,5 +132,21 @@ class SignDictionaryRepo {
       }
     }
     return result;
+  }
+
+  DataFromRepo changeIsFaoriteData({required int id}) {
+    List<MapOfCharacter> result = [];
+    for (int i = 0; i < 26; i++) {
+      if (data[i].data.isNotEmpty) {
+        for (int j = 0; j < data[i].data.length; j++) {
+          if (data[i].data[j].id == id) {
+            data[i].data[j].isFavorite = !data[i].data[j].isFavorite;
+            break;
+          }
+        }
+        result.add(data[i]);
+      }
+    }
+    return DataFromRepo(data: result, canLoading: canLoading);
   }
 }

@@ -102,6 +102,7 @@ abstract class StringManager {
   static const String searchforWords = "Search for Words";
   static const String share = "Share";
   static const String pause = "Pause";
+  static const String play = "play";
   static const String save = "Save";
 
   // bottom navigation bar

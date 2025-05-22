@@ -10,8 +10,10 @@ class CustomCard extends StatelessWidget {
   const CustomCard({
     super.key,
     required this.word,
+    this.onPressed,
   });
   final DictionaryItemModel word;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -45,7 +47,7 @@ class CustomCard extends StatelessWidget {
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: onPressed,
             icon: Icon(
               word.isFavorite ? Icons.bookmark : Icons.bookmark_outline,
               color: ColorManager.primaryColor,

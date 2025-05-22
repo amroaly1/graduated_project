@@ -49,4 +49,21 @@ class SignDictionaryCubit extends Cubit<SignDictionaryState> {
       isFirst = false;
     });
   }
+
+  void changeFavoriteOfItem(int id) async {
+    var reponse = await repo.addOrRemoveFavorite(id: id);
+
+    reponse.fold((ifLeft) {
+      emit(SignDictionaryGetAllDataFailing(errorMessage: ifLeft));
+    }, (right) {
+      changeIsFavoriteItemInRepo(id);
+    });
+  }
+
+  void changeIsFavoriteItemInRepo(int id) {
+    var response = repo.changeIsFaoriteData(id: id);
+
+    emit(SignDictionaryGetAllDataSuccess(
+        data: response.data, canLoadMore: response.canLoading));
+  }
 }
