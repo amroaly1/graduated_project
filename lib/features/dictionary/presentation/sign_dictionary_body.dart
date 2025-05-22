@@ -17,19 +17,8 @@ import 'package:graduate_project/features/dictionary/presentation/widget/custom_
 import 'package:graduate_project/features/dictionary/presentation/widget/custom_text_field.dart';
 import 'package:graduate_project/features/dictionary/presentation/widget/sign_dictionary_loading.dart';
 
-class SignDictionaryBody extends StatefulWidget {
+class SignDictionaryBody extends StatelessWidget {
   const SignDictionaryBody({super.key});
-
-  @override
-  State<SignDictionaryBody> createState() => _SignDictionaryBodyState();
-}
-
-class _SignDictionaryBodyState extends State<SignDictionaryBody> {
-  @override
-  void initState() {
-    di<SignDictionaryCubit>().inital();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +26,8 @@ class _SignDictionaryBodyState extends State<SignDictionaryBody> {
       controller: SignDictionaryCubit.get(context).controllerScroll,
       slivers: [
         SliverToBoxAdapter(
-            child: AppBarOfHomePages(title: StringManager.signDictionary)),
+          child: AppBarOfHomePages(title: StringManager.signDictionary),
+        ),
         SliverToBoxAdapter(
           child: Padding(
             padding: PaddingManager.paddingHorizontal24,
@@ -116,7 +106,7 @@ class _SignDictionaryBodyState extends State<SignDictionaryBody> {
                     : state.data.length,
               );
             }
-            return SizedBox();
+            return SliverToBoxAdapter(child: SizedBox());
           },
         ),
         SliverToBoxAdapter(child: SizedBox(height: HeightManager.h20)),

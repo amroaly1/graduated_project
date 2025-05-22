@@ -26,6 +26,17 @@ abstract class TextStyleManager {
         fontSize: size ?? FontSizeManager.s20,
         color: color,
       );
+  static TextStyle medium32({
+    String? fontFamily,
+    Color color = ColorManager.primaryColor,
+    double? size,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.meduim,
+        fontSize: size ?? FontSizeManager.s32,
+        color: color,
+      );
   static TextStyle semiBold16({
     String? fontFamily = FontFamilyManger.avenirLTStd,
     Color color = ColorManager.gray2,

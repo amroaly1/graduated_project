@@ -51,7 +51,13 @@ class SignDictionaryCubit extends Cubit<SignDictionaryState> {
   }
 
   void changeFavoriteOfItem(int id) async {
-    var reponse = await repo.addOrRemoveFavorite(id: id);
+/*************  ✨ Windsurf Command ⭐  *************/
+    /// This function is used to change the favorite of the item that has the given id
+    /// It emits [SignDictionaryGetAllDataFailing] if there is an error,
+    /// otherwise it emits [SignDictionaryGetAllDataSuccess] with the data and canLoadMore
+    /// after changing the favorite of the item in the repo
+/*******  73fab4a9-dba0-4b27-bdb9-f50b6a179e2d  *******/ var reponse =
+        await repo.addOrRemoveFavorite(id: id);
 
     reponse.fold((ifLeft) {
       emit(SignDictionaryGetAllDataFailing(errorMessage: ifLeft));

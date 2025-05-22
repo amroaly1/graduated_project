@@ -29,4 +29,5 @@ abstract class IconManager {
   static const String livechat = "${_baseUrl}live_chat.svg";
   static const String dictionary = "${_baseUrl}dictionary.svg";
   static const String chat = "${_baseUrl}chat.svg";
+  static const String deleteicon = "${_baseUrl}delete_icon.svg";
 }

@@ -14,6 +14,7 @@ import 'package:graduate_project/features/auth/signUp/data/repo/sigin_up_repo.da
 import 'package:graduate_project/features/auth/signUp/manager/cubit/sigin_up_cubit.dart';
 import 'package:graduate_project/features/dictionary/data/repo/dictionary_add_favorite_repo.dart';
 import 'package:graduate_project/features/dictionary/data/repo/dictionary_search_repo.dart';
+import 'package:graduate_project/features/dictionary/data/repo/dictionary_word_repo.dart';
 import 'package:graduate_project/features/dictionary/data/repo/sign_dictionary_repo.dart';
 import 'package:graduate_project/features/dictionary/manager/dictionary_search/dictionary_search_cubit.dart';
 import 'package:graduate_project/features/dictionary/manager/sign_dictionary/sign_dictionary_cubit.dart';
@@ -80,6 +81,9 @@ Future<void> setUp() async {
   di.registerSingleton<HomeCubit>(HomeCubit());
 
   di.registerSingleton<DictionarySearchRepo>(DictionarySearchRepo(
+      api: di<ApiHelper>(),
+      connectInternetHelper: di<ConnectInternetHelper>()));
+  di.registerSingleton<DictionaryWordRepo>(DictionaryWordRepo(
       api: di<ApiHelper>(),
       connectInternetHelper: di<ConnectInternetHelper>()));
 

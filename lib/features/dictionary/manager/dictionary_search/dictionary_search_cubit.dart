@@ -43,6 +43,13 @@ class DictionarySearchCubit extends Cubit<DictionarySearchState> {
     );
   }
 
+  void refreshSearch() {
+    if (!isClosed && searchController.text.isNotEmpty) {
+      search(
+          searchTerm: searchController.text, searchType: dictionarySearchType);
+    }
+  }
+
   void addFavoriteOrRemove({required int id}) async {
     var reponse = await favoriteRepo.favoriteAddOrRemove(id: id);
 

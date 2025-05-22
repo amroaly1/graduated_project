@@ -14,3 +14,10 @@ final class ShowWordFailingToAddOrRemoveFavorite extends ShowWordState {
 }
 
 final class ShowWordSuccessToAddOrRemoveFavorite extends ShowWordState {}
+
+final class ShowWordGetResentalySeachSuccess extends ShowWordState {}
+
+final class ShowWordGetResentalySeachFailing extends ShowWordState {
+  final String errMessage;
+  ShowWordGetResentalySeachFailing({required this.errMessage});
+}

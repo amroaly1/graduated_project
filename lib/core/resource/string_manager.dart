@@ -104,6 +104,7 @@ abstract class StringManager {
   static const String pause = "Pause";
   static const String play = "play";
   static const String save = "Save";
+  static const String recentsearches = "Recent searches";
 
   // bottom navigation bar
   static const String home = "Home";

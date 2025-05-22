@@ -19,7 +19,7 @@ class HomeView extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider.value(value: di<HomeCubit>()),
-        BlocProvider.value(value: di<SignDictionaryCubit>()),
+        BlocProvider.value(value: di<SignDictionaryCubit>()..inital()),
       ],
       child: PopScope(
         canPop: false,
