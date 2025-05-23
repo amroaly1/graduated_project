@@ -12,11 +12,15 @@ abstract class IconManager {
   static const String home = "${_baseUrl}home.svg";
   static const String cloudupload = "${_baseUrl}cloud_upload.svg";
   static const String stream = "${_baseUrl}stream.svg";
-  static const String translate = "${_baseUrl}translate.svg";
+  // static const String translate = "${_baseUrl}translate.svg";
+  static const String chatunselected = "${_baseUrl}chat_un_selected.svg";
+  static const String chatselected = "${_baseUrl}chat_selected.svg";
   static const String learn = "${_baseUrl}learn.svg";
   static const String streamPageCamera = "${_baseUrl}stream_page_camera.svg";
   static const String arrowrightarrowleft =
       "${_baseUrl}arrow-right-arrow-left.svg";
+  static const String unitedstate = "${_baseUrl}united_state.svg";
+  static const String asl = "${_baseUrl}asl.svg";
   static const String arrowtop = "${_baseUrl}arrow_top.svg";
   static const String soundtrack = "${_baseUrl}sound_track.svg";
   static const String share = "${_baseUrl}share.svg";

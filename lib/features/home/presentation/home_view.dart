@@ -19,7 +19,7 @@ class HomeView extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider.value(value: di<HomeCubit>()),
-        BlocProvider.value(value: di<SignDictionaryCubit>()..inital()),
+        BlocProvider.value(value: di<SignDictionaryCubit>()),
       ],
       child: PopScope(
         canPop: false,
@@ -80,15 +80,15 @@ class HomeView extends StatelessWidget {
                             icon: IconManager.stream,
                           ),
                         ),
-                        // BottomNavigationBarItem(
-                        //   icon: unSelectedIcon(
-                        //     icon: IconManager.translate,
-                        //   ),
-                        //   label: StringManager.translate,
-                        //   activeIcon: selectedIcon(
-                        //     icon: IconManager.translate,
-                        //   ),
-                        // ),
+                        BottomNavigationBarItem(
+                          icon: unSelectedIcon(
+                            icon: IconManager.chatunselected,
+                          ),
+                          label: StringManager.chat,
+                          activeIcon: selectedIcon(
+                            icon: IconManager.chatselected,
+                          ),
+                        ),
                         BottomNavigationBarItem(
                           icon: unSelectedIcon(
                             icon: IconManager.learn,

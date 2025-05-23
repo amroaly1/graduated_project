@@ -12,6 +12,8 @@ import 'package:graduate_project/features/auth/login/data/repo/login_repo.dart';
 import 'package:graduate_project/features/auth/login/manager/cubit/login_cubit.dart';
 import 'package:graduate_project/features/auth/signUp/data/repo/sigin_up_repo.dart';
 import 'package:graduate_project/features/auth/signUp/manager/cubit/sigin_up_cubit.dart';
+import 'package:graduate_project/features/chat/data/repo/chat_repo.dart';
+import 'package:graduate_project/features/chat/manager/cubit/chat_cubit.dart';
 import 'package:graduate_project/features/dictionary/data/repo/dictionary_add_favorite_repo.dart';
 import 'package:graduate_project/features/dictionary/data/repo/dictionary_search_repo.dart';
 import 'package:graduate_project/features/dictionary/data/repo/dictionary_word_repo.dart';
@@ -90,4 +92,13 @@ Future<void> setUp() async {
   di.registerSingleton<DictionarySearchCubit>(DictionarySearchCubit(
       repo: di<DictionarySearchRepo>(),
       favoriteRepo: di<DictionaryAddFavoriteRepo>()));
+
+  di.registerSingleton<ChatRepo>(
+    ChatRepo(
+      api: di<ApiHelper>(),
+      connectInternetHelper: di<ConnectInternetHelper>(),
+    ),
+  );
+
+  di.registerSingleton<ChatCubit>(ChatCubit(repo: di<ChatRepo>()));
 }

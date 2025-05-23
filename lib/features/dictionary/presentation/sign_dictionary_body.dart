@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graduate_project/core/dependency_injection/di.dart';
 import 'package:graduate_project/core/helper/show_snack_bar.dart';
 import 'package:graduate_project/core/resource/color_manager.dart';
 import 'package:graduate_project/core/resource/distance_manager.dart';
@@ -81,32 +80,30 @@ class SignDictionaryBody extends StatelessWidget {
                 ),
               );
             }
-            if (state is SignDictionaryGetAllDataSuccess) {
-              return SliverList.builder(
-                itemBuilder: (context, index) {
-                  if (index == state.data.length) {
-                    return Padding(
-                      padding: EdgeInsets.only(
-                          top: HeightManager.h15, bottom: HeightManager.h70),
-                      child: const Center(
-                        child: CircularProgressIndicator(),
-                      ),
-                    );
-                  }
+
+            return SliverList.builder(
+              itemBuilder: (context, index) {
+                if (index == SignDictionaryCubit.get(context).data.length) {
                   return Padding(
-                    padding: PaddingManager.paddingHorizontal24,
-                    child: CustomCardCharacterAndWord(
-                      myKey: state.data[index].key,
-                      words: state.data[index].data,
+                    padding: EdgeInsets.only(
+                        top: HeightManager.h15, bottom: HeightManager.h70),
+                    child: const Center(
+                      child: CircularProgressIndicator(),
                     ),
                   );
-                },
-                itemCount: state.canLoadMore
-                    ? state.data.length + 1
-                    : state.data.length,
-              );
-            }
-            return SliverToBoxAdapter(child: SizedBox());
+                }
+                return Padding(
+                  padding: PaddingManager.paddingHorizontal24,
+                  child: CustomCardCharacterAndWord(
+                    myKey: SignDictionaryCubit.get(context).data[index].key,
+                    words: SignDictionaryCubit.get(context).data[index].data,
+                  ),
+                );
+              },
+              itemCount: SignDictionaryCubit.get(context).canLoadMore
+                  ? SignDictionaryCubit.get(context).data.length + 1
+                  : SignDictionaryCubit.get(context).data.length,
+            );
           },
         ),
         SliverToBoxAdapter(child: SizedBox(height: HeightManager.h20)),

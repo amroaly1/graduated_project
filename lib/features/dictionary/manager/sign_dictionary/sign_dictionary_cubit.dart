@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduate_project/features/dictionary/data/model/map_of_character.dart';
 import 'package:graduate_project/features/dictionary/data/repo/sign_dictionary_repo.dart';
 import 'package:graduate_project/features/dictionary/manager/sign_dictionary/sign_dictionary_state.dart';
 
@@ -13,6 +14,8 @@ class SignDictionaryCubit extends Cubit<SignDictionaryState> {
   ScrollController controllerScroll = ScrollController();
 
   bool isFirst = true;
+  List<MapOfCharacter> data = [];
+  bool canLoadMore = true;
 
   void onchange(String? value) {
     if (value != null && value.isNotEmpty) {
@@ -43,8 +46,9 @@ class SignDictionaryCubit extends Cubit<SignDictionaryState> {
               errorMessage: ifLeft.message))
           : emit(SignDictionaryGetAllDataFailing(errorMessage: ifLeft.message));
     }, (ifRight) {
-      emit(SignDictionaryGetAllDataSuccess(
-          data: ifRight.data, canLoadMore: ifRight.canLoading));
+      data = ifRight.data;
+      canLoadMore = ifRight.canLoading;
+      emit(SignDictionaryGetAllDataSuccess());
 
       isFirst = false;
     });
@@ -69,7 +73,8 @@ class SignDictionaryCubit extends Cubit<SignDictionaryState> {
   void changeIsFavoriteItemInRepo(int id) {
     var response = repo.changeIsFaoriteData(id: id);
 
-    emit(SignDictionaryGetAllDataSuccess(
-        data: response.data, canLoadMore: response.canLoading));
+    data = response.data;
+    canLoadMore = response.canLoading;
+    emit(SignDictionaryGetAllDataSuccess());
   }
 }

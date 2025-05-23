@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduate_project/features/chat/presentation/widget/chat_body.dart';
 import 'package:graduate_project/features/home/manager/home_cubit/cubit/home_state.dart';
 import 'package:graduate_project/features/dictionary/presentation/sign_dictionary_body.dart';
 import 'package:graduate_project/features/stream/presentation/stream_body.dart';
@@ -37,7 +38,7 @@ class HomeCubit extends Cubit<HomeState> {
     HomeBody(),
     UploadBody(),
     StreamBody(),
-    // ChatBody(),
+    ChatBody(),
     SignDictionaryBody(),
   ];
 

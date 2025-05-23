@@ -110,10 +110,15 @@ abstract class StringManager {
   static const String home = "Home";
   static const String upload = "Upload";
   static const String stream = "Stream";
-  static const String translate = "Translate";
+  static const String chat = "Chat";
   static const String signDictionary = "Sign Dictionary";
   static const String handTalkApp = "HandTalk App";
   static const String forSignLanguage = "For Sign Language";
+
+  // chat
+
+  static const String en = "EN";
+  static const String asl = "ASL";
 
   // error page
   static const String noPage = "No Page";

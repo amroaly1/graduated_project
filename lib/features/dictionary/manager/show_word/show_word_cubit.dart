@@ -2,10 +2,8 @@ import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduate_project/core/dependency_injection/di.dart';
-import 'package:graduate_project/features/dictionary/data/model/dictionary_item_model.dart';
 import 'package:graduate_project/features/dictionary/data/model/resentaly_serach_model.dart';
 import 'package:graduate_project/features/dictionary/data/repo/dictionary_add_favorite_repo.dart';
-import 'package:graduate_project/features/dictionary/data/repo/dictionary_search_repo.dart';
 import 'package:graduate_project/features/dictionary/data/repo/dictionary_word_repo.dart';
 import 'package:graduate_project/features/dictionary/manager/dictionary_search/dictionary_search_cubit.dart';
 import 'package:graduate_project/features/dictionary/manager/sign_dictionary/sign_dictionary_cubit.dart';

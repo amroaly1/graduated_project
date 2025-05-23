@@ -24,6 +24,7 @@ class DeviceHeightWidthManager {
 
 abstract class HeightOfDesign {
   static const double h42 = 42;
+  static const double h45 = 45;
   static const double h51 = 51;
   static const double h60 = 60;
   static const double h100 = 100;
