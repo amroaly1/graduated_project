@@ -15,7 +15,7 @@ import 'package:graduate_project/features/chat/data/model/save_chat_model.dart';
 class ChatRepo {
   final ApiHelper api;
   final ConnectInternetHelper connectInternetHelper;
-  final int userId = SharedPreferenceHelper().getData(key: ApiKeys.userId);
+  final int? userId = SharedPreferenceHelper().getData(key: ApiKeys.userId);
 
   ChatRepo({required this.api, required this.connectInternetHelper});
 

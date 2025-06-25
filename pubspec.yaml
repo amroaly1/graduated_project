@@ -44,8 +44,10 @@ dependencies:
   get_it: ^8.0.3
   google_sign_in: ^6.3.0
   image_picker: ^1.1.2
+  permission_handler: ^12.0.0+1
   redacted: ^1.0.13
   shared_preferences: ^2.5.3
+  speech_to_text: ^7.1.0
   video_player: ^2.9.5
 
 dev_dependencies:

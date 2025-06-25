@@ -88,7 +88,9 @@ class ChatBody extends StatelessWidget {
                 }
                 return Container(
                   alignment: Alignment.center,
-                  child: Image.memory(ChatCubit.get(context).imageBytes!),
+                  child: ChatCubit.get(context).imageBytes == null
+                      ? SizedBox()
+                      : Image.memory(ChatCubit.get(context).imageBytes!),
                 );
               },
             )),
@@ -114,13 +116,25 @@ class ChatBody extends StatelessWidget {
                         shape: BoxShape.circle,
                         color: ColorManager.whight,
                       ),
-                      child: InkWell(
-                        onTap: () {},
-                        child: Icon(
-                          Icons.mic_none_outlined,
-                          size: HeightManager.h29,
-                          color: ColorManager.purple2Color,
-                        ),
+                      child: BlocBuilder<ChatCubit, ChatState>(
+                        builder: (context, state) {
+                          return InkWell(
+                            onLongPress: ChatCubit.get(context).speechDied
+                                ? null
+                                : () {
+                                    ChatCubit.get(context).startListening();
+                                  },
+                            child: Icon(
+                              Icons.mic_none_outlined,
+                              size: ChatCubit.get(context).startTransalte
+                                  ? HeightManager.h40
+                                  : HeightManager.h29,
+                              color: ChatCubit.get(context).speechDied
+                                  ? Colors.grey
+                                  : ColorManager.purple2Color,
+                            ),
+                          );
+                        },
                       ),
                     ),
                     SizedBox(width: WidthManager.w10),

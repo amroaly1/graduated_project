@@ -21,3 +21,7 @@ final class ChatAddToFavoriteOrRemoveFailing extends ChatState {
 }
 
 final class ChatAddToFavoriteOrRemoveSuccess extends ChatState {}
+
+final class ChatMicISDisabled extends ChatState {}
+
+// final class ChatMicAddText extends ChatState {}
