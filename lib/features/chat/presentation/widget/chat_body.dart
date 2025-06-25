@@ -10,7 +10,8 @@ import 'package:graduate_project/core/resource/font_family_manger.dart';
 import 'package:graduate_project/core/resource/icon_manager.dart';
 import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
-import 'package:graduate_project/features/chat/manager/cubit/chat_cubit.dart';
+import 'package:graduate_project/features/chat/manager/chat_cubit/chat_cubit.dart';
+import 'package:graduate_project/core/manager/mic_cubit/mic_cubit.dart';
 import 'package:graduate_project/features/home/manager/home_cubit/cubit/home_cubit.dart';
 import 'package:graduate_project/features/home/manager/home_cubit/cubit/home_state.dart';
 
@@ -19,8 +20,15 @@ class ChatBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider.value(
-      value: di<ChatCubit>(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider.value(
+          value: di<ChatCubit>(),
+        ),
+        BlocProvider.value(
+          value: di<MicCubit>(),
+        ),
+      ],
       child: Builder(builder: (context) {
         return Column(
           children: [
@@ -116,20 +124,23 @@ class ChatBody extends StatelessWidget {
                         shape: BoxShape.circle,
                         color: ColorManager.whight,
                       ),
-                      child: BlocBuilder<ChatCubit, ChatState>(
+                      child: BlocBuilder<MicCubit, MicState>(
                         builder: (context, state) {
                           return InkWell(
-                            onLongPress: ChatCubit.get(context).speechDied
+                            onLongPress: MicCubit.get(context).speechDied
                                 ? null
                                 : () {
-                                    ChatCubit.get(context).startListening();
+                                    MicCubit.get(context).startListening(
+                                      controller:
+                                          ChatCubit.get(context).controller,
+                                    );
                                   },
                             child: Icon(
                               Icons.mic_none_outlined,
-                              size: ChatCubit.get(context).startTransalte
+                              size: MicCubit.get(context).startTransalte
                                   ? HeightManager.h40
                                   : HeightManager.h29,
-                              color: ChatCubit.get(context).speechDied
+                              color: MicCubit.get(context).speechDied
                                   ? Colors.grey
                                   : ColorManager.purple2Color,
                             ),
