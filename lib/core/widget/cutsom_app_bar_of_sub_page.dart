@@ -56,6 +56,7 @@ class CutsomAppBarOfSubPage extends StatelessWidget {
                       ),
                     )
                   : title,
+              title,
               showLogo
                   ? Padding(
                       padding: EdgeInsets.only(

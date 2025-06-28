@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class DeviceHeightWidthManager {
-  static const double designWidth = 438;
-  static const double designHeight = 861;
+  static const double designWidth = 390;
+  static const double designHeight = 844;
 
   static double deviceWidth(BuildContext context) =>
       MediaQuery.of(context).size.width;

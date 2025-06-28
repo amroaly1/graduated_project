@@ -3,6 +3,7 @@ import 'package:graduate_project/core/resource/color_manager.dart';
 import 'package:graduate_project/core/resource/device_height_width_manager.dart';
 import 'package:graduate_project/core/resource/distance_manager.dart';
 import 'package:graduate_project/core/resource/font_family_manger.dart';
+import 'package:graduate_project/core/resource/font_size_manager.dart';
 import 'package:graduate_project/core/resource/image_manager.dart';
 import 'package:graduate_project/core/resource/padding_manager.dart';
 import 'package:graduate_project/core/resource/string_manager.dart';
@@ -47,6 +48,7 @@ class WelcomeBody extends StatelessWidget {
             StringManager.welcomeTohandTalk,
             style: TextStyleManager.black32(
               color: ColorManager.black,
+              fontSize: FontSizeManager.s28,
             ),
             textAlign: TextAlign.center,
           ),
@@ -58,6 +60,7 @@ class WelcomeBody extends StatelessWidget {
               style: TextStyleManager.medium24(
                 fontFamily: FontFamilyManger.avenirLTStd,
                 color: ColorManager.blackwithOpacity70,
+                fontSize: FontSizeManager.s17,
               ),
               textAlign: TextAlign.center,
             ),

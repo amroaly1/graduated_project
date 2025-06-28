@@ -34,4 +34,8 @@ abstract class IconManager {
   static const String dictionary = "${_baseUrl}dictionary.svg";
   static const String chat = "${_baseUrl}chat.svg";
   static const String deleteicon = "${_baseUrl}delete_icon.svg";
+  static const String editicon = "${_baseUrl}edit.svg";
+  static const String passwordicon = "${_baseUrl}password.svg";
+  static const String logOuticon = "${_baseUrl}logOut.svg";
+  static const String correcticon = "${_baseUrl}correct.svg";
 }

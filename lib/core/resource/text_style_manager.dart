@@ -8,23 +8,39 @@ abstract class TextStyleManager {
   static TextStyle medium24({
     String? fontFamily,
     Color color = ColorManager.primaryColor,
+    double? fontSize,
   }) =>
       TextStyle(
         fontFamily: fontFamily,
         fontWeight: FontWeightManager.meduim,
-        fontSize: FontSizeManager.s24,
+        fontSize: fontSize ?? FontSizeManager.s24,
         color: color,
+      );
+  static TextStyle medium14({
+    String? fontFamily,
+    Color color = ColorManager.black,
+    double? size,
+    double? height,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.meduim,
+        fontSize: size ?? FontSizeManager.s14,
+        color: color,
+        height: height,
       );
   static TextStyle medium20({
     String? fontFamily,
     Color color = ColorManager.black,
     double? size,
+    double? height,
   }) =>
       TextStyle(
         fontFamily: fontFamily,
         fontWeight: FontWeightManager.meduim,
         fontSize: size ?? FontSizeManager.s20,
         color: color,
+        height: height,
       );
   static TextStyle medium32({
     String? fontFamily,
@@ -69,6 +85,30 @@ abstract class TextStyleManager {
         fontFamily: fontFamily,
         fontWeight: FontWeightManager.bold,
         fontSize: FontSizeManager.s20,
+        color: color,
+        shadows: shadows,
+      );
+  static TextStyle black20({
+    Color color = ColorManager.black1Color,
+    String? fontFamily,
+    List<Shadow>? shadows,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.black,
+        fontSize: FontSizeManager.s20,
+        color: color,
+        shadows: shadows,
+      );
+  static TextStyle black24({
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+    Color color = ColorManager.black,
+    List<Shadow>? shadows,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.black,
+        fontSize: FontSizeManager.s24,
         color: color,
         shadows: shadows,
       );
@@ -147,11 +187,12 @@ abstract class TextStyleManager {
   static TextStyle black32({
     String? fontFamily,
     Color color = ColorManager.black1Color,
+    double? fontSize,
   }) =>
       TextStyle(
         fontFamily: fontFamily,
         fontWeight: FontWeightManager.black,
-        fontSize: FontSizeManager.s32,
+        fontSize: fontSize ?? FontSizeManager.s32,
         color: color,
       );
   static TextStyle black40({

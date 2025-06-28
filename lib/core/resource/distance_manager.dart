@@ -33,8 +33,10 @@ abstract class HeightManager {
   static double h70 = 70.0.h;
   static double h80 = 80.0.h;
   static double h100 = 100.0.h;
+  static double h140 = 140.0.h;
   static double h160 = 160.0.h;
   static double h200 = 200.0.h;
+  static double h250 = 250.0.h;
   static double h300 = 300.0.h;
   static double h319 = 319.0.h;
   static double h317 = 317.0.h;
@@ -43,6 +45,7 @@ abstract class HeightManager {
 
 abstract class WidthManager {
   static double w1_5 = 1.5.w;
+  static double w3 = 3.w;
   static double w6 = 6.w;
   static double w9_28 = 9.28.w;
   static double w10 = 10.w;
@@ -54,10 +57,12 @@ abstract class WidthManager {
   static double w24 = 24.w;
   static double w29 = 29.w;
   static double w35 = 35.w;
+  static double w38 = 38.w;
   static double w46 = 46.w;
   static double w48 = 48.w;
   static double w62 = 62.w;
   static double w70 = 70.w;
+  static double w160 = 160.w;
   static double w200 = 200.w;
   static double w363 = 363.w;
 }
@@ -69,4 +74,5 @@ abstract class RaduisValueManager {
   static double r20 = 20.r;
   static double r29 = 29.r;
   static double r30 = 30.r;
+  static double r40 = 40.r;
 }

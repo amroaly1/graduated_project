@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:graduate_project/core/resource/color_manager.dart';
 import 'package:graduate_project/core/resource/distance_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
 import 'package:graduate_project/core/widget/default_text_form_field.dart';
@@ -14,8 +15,10 @@ class CustomTextFieldAuth extends StatelessWidget {
     this.validator,
     this.keyboardType,
     this.inputFormatters,
+    this.labelColor = ColorManager.black,
   });
   final String labelText;
+  final Color labelColor;
   final String hintText;
   final bool isPassword;
   final TextEditingController? controller;
@@ -29,7 +32,9 @@ class CustomTextFieldAuth extends StatelessWidget {
       children: [
         Text(
           labelText,
-          style: TextStyleManager.bold19(),
+          style: TextStyleManager.bold19(
+            color: labelColor,
+          ),
           textAlign: TextAlign.start,
         ),
         SizedBox(

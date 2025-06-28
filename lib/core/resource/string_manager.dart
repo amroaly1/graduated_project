@@ -62,6 +62,7 @@ abstract class StringManager {
   static const String enterCode = "Enter Code";
   static const String enterCodehint = "123456";
   static const String newpassword = "New password";
+  static const String oldpassword = "Old Password";
   static const String newpasswordhint = "new password";
   static const String confirmNewpassword = "Confirm New password";
   static const String confirmNewpasswordhint = "confirm new password";
@@ -134,6 +135,10 @@ abstract class StringManager {
   static const String cancel = "Cancel";
   static const String goToChat = "Go To Chat";
   static const String resetPassword = "Reset Password";
+  static const String savechanges = "Save changes";
+  static const String confirmchanges = "Confirm Changes";
+  static const String okayThanks = "Okay, Thanks";
+  static const String yesLogout = "Yes, Logout";
 
   // validation
   static const String pleaseEnterYourEmail = "please enter your email";
@@ -156,4 +161,23 @@ abstract class StringManager {
       "No Internet , please connect to internet";
   static const String unExperctedError = "UnExpected Error";
   static const String noDataMore = "No Data More";
+  static const String profileSuccessfullyUpdated =
+      "Profile Successfully Updated";
+  static const String passwordSuccessfullyUpdated =
+      "Password Successfully Updated";
+  static const String profileSuccessfullyUpdatedSubTitle =
+      "Success! Your account information has been updated. If you use a screen reader or sign language interpreter, your new settings are now active.";
+  static const String passwordSuccessfullyUpdatedSubTitle =
+      "Your password has been changed. You can now log in using your new credentials.";
+
+  // Profile
+  static const String profile = "Profile";
+  static const String editYourProfile = "Edit Your Profile";
+  static const String changePassword = "Change Password";
+  static const String logOut = "Log Out";
+  static const String logout = "Logout";
+  static const String areYouSurelogout = "Are you sure you want to logout ?";
+
+  //  Edit Profile
+  static const String editProfile = " Edit Profile";
 }

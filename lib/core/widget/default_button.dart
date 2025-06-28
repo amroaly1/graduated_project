@@ -16,11 +16,11 @@ class DefaultButton extends StatelessWidget {
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           padding: EdgeInsets.symmetric(
-            vertical: HeightManager.h12,
+            vertical: HeightManager.h10,
           ),
           backgroundColor: ColorManager.primaryColor,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(RaduisValueManager.r30),
+            borderRadius: BorderRadius.circular(RaduisValueManager.r40),
           ),
         ),
         child: Text(
