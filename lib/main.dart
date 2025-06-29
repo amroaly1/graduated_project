@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         // initialRoute: ScreenManager.onBoardingView,
-        initialRoute: ScreenManager.profileView,
+        initialRoute: ScreenManager.savingView,
         onGenerateRoute: RouteManager.generateRoute,
       ),
     );

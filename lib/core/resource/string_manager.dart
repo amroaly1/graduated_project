@@ -180,4 +180,7 @@ abstract class StringManager {
 
   //  Edit Profile
   static const String editProfile = " Edit Profile";
+
+  // saving
+  static const String recentlySaved = "Recently Saved";
 }

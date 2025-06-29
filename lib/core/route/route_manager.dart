@@ -19,6 +19,7 @@ import 'package:graduate_project/features/onboarding/view/on_boarding_view.dart'
 import 'package:graduate_project/features/profile/presentation/change_password_view.dart';
 import 'package:graduate_project/features/profile/presentation/edit_profile_view.dart';
 import 'package:graduate_project/features/profile/presentation/profile_view.dart';
+import 'package:graduate_project/features/saving/presentation/saving_view.dart';
 import 'package:graduate_project/features/stream/presentation/video_to_audio_view.dart';
 import 'package:graduate_project/features/stream/presentation/video_to_text_view.dart';
 import 'package:graduate_project/features/upload/presentation/translate_video_view.dart';
@@ -51,6 +52,8 @@ abstract class RouteManager {
         return customPageBuilder(VideoToAudioView());
       case ScreenManager.videototextview:
         return customPageBuilder(VideoToTextView());
+      case ScreenManager.savingView:
+        return customPageBuilder(SavingView());
       case ScreenManager.worddetailsview:
         return customPageBuilder(WordDetailsView(
           word: settings.arguments as DictionaryItemModel,

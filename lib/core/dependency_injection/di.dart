@@ -22,6 +22,7 @@ import 'package:graduate_project/features/dictionary/data/repo/sign_dictionary_r
 import 'package:graduate_project/features/dictionary/manager/dictionary_search/dictionary_search_cubit.dart';
 import 'package:graduate_project/features/dictionary/manager/sign_dictionary/sign_dictionary_cubit.dart';
 import 'package:graduate_project/features/home/manager/home_cubit/cubit/home_cubit.dart';
+import 'package:graduate_project/features/saving/manager/cubit/saving_cubit.dart';
 
 final di = GetIt.instance;
 
@@ -103,4 +104,5 @@ Future<void> setUp() async {
 
   di.registerSingleton<ChatCubit>(ChatCubit(repo: di<ChatRepo>()));
   di.registerSingleton<MicCubit>(MicCubit());
+  di.registerSingleton<SavingCubit>(SavingCubit());
 }

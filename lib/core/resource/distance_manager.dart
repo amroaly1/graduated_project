@@ -50,6 +50,7 @@ abstract class WidthManager {
   static double w9_28 = 9.28.w;
   static double w10 = 10.w;
   static double w12 = 12.w;
+  static double w13 = 13.w;
   static double w14 = 14.w;
   static double w16 = 16.w;
   static double w19 = 19.w;

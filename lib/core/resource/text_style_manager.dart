@@ -29,6 +29,19 @@ abstract class TextStyleManager {
         color: color,
         height: height,
       );
+  static TextStyle medium13({
+    String? fontFamily,
+    Color color = ColorManager.gray6,
+    double? size,
+    double? height,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.meduim,
+        fontSize: size ?? FontSizeManager.s13,
+        color: color,
+        height: height,
+      );
   static TextStyle medium20({
     String? fontFamily,
     Color color = ColorManager.black,

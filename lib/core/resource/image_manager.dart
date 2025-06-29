@@ -9,5 +9,7 @@ abstract class ImageManager {
   static const String uploadvideoimage = "${_baseUrl}upload_video_image.svg";
   static const String translateImage = "${_baseUrl}translate_image.png";
   static const String profileImage = "${_baseUrl}profile.png";
+  static const String savingimage = "${_baseUrl}saving_image.png";
   static const String changePassword = "${_baseUrl}change_password.svg";
+  static const String chattingwithai = "${_baseUrl}chatting_with_ai.svg";
 }

@@ -38,4 +38,6 @@ abstract class IconManager {
   static const String passwordicon = "${_baseUrl}password.svg";
   static const String logOuticon = "${_baseUrl}logOut.svg";
   static const String correcticon = "${_baseUrl}correct.svg";
+  static const String shareicon = "${_baseUrl}share_icon.svg";
+  static const String deleteiconsaving = "${_baseUrl}delete_icon_saving.svg";
 }
