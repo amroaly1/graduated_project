@@ -11,6 +11,7 @@ import 'package:graduate_project/features/auth/login/presentation/login_view.dar
 import 'package:graduate_project/features/auth/signUp/presentation/sigin_up_view.dart';
 import 'package:graduate_project/features/auth/welcome/presentation/welcome_view.dart';
 import 'package:graduate_project/features/chat/presentation/chat_view.dart';
+import 'package:graduate_project/features/chat_with_ai/presentation/chat_with_ai_view.dart';
 import 'package:graduate_project/features/dictionary/data/model/dictionary_item_model.dart';
 import 'package:graduate_project/features/dictionary/presentation/widget/dictionary_serach_view.dart';
 import 'package:graduate_project/features/dictionary/presentation/word_details_view.dart';
@@ -54,6 +55,8 @@ abstract class RouteManager {
         return customPageBuilder(VideoToTextView());
       case ScreenManager.savingView:
         return customPageBuilder(SavingView());
+      case ScreenManager.chatingWitAiView:
+        return customPageBuilder(ChatWithAiView());
       case ScreenManager.worddetailsview:
         return customPageBuilder(WordDetailsView(
           word: settings.arguments as DictionaryItemModel,

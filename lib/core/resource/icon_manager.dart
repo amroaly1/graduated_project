@@ -40,4 +40,6 @@ abstract class IconManager {
   static const String correcticon = "${_baseUrl}correct.svg";
   static const String shareicon = "${_baseUrl}share_icon.svg";
   static const String deleteiconsaving = "${_baseUrl}delete_icon_saving.svg";
+  static const String recordIcon = "${_baseUrl}record.svg";
+  static const String sendarrowIcon = "${_baseUrl}send_arrow.svg";
 }

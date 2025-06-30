@@ -10,7 +10,6 @@ abstract class ColorManager {
   static const Color light2purpleColor = Color(0xffDFD7F1);
   static const Color light3purpleColor = Color(0xffDCD5E6);
   static const Color light4purpleColor = Color(0xffEBE2FF);
-
   static const Color black1Color = Color(0xff2D0567);
   static const Color black = Color(0xff000000);
   static const Color black1 = Color(0xff010101);

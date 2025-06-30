@@ -183,4 +183,10 @@ abstract class StringManager {
 
   // saving
   static const String recentlySaved = "Recently Saved";
+
+  // Chatting with HandTalk
+  static const String chattingwithHandTalk = "Chatting with HandTalk";
+  static const String chattingwithHandTalkSubTitle =
+      "Hello there ! \nHow can i help You ?";
+  static const String askanything = "Ask anything...";
 }
