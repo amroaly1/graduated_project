@@ -12,6 +12,7 @@ Future<dynamic> showConfirmAlertDialog(
     required String subTitle,
     required String buttonText,
     required void Function()? onPressed,
+    bool isError = false,
     required BuildContext context}) {
   return showDialog(
     context: context,
@@ -24,10 +25,16 @@ Future<dynamic> showConfirmAlertDialog(
             shape: BoxShape.circle,
             color: ColorManager.primaryColor,
           ),
-          child: SvgPicture.asset(
-            IconManager.correcticon,
-            fit: BoxFit.scaleDown,
-          ),
+          child: isError
+              ? Icon(
+                  Icons.close,
+                  color: ColorManager.whight,
+                  size: HeightManager.h40,
+                )
+              : SvgPicture.asset(
+                  IconManager.correcticon,
+                  fit: BoxFit.scaleDown,
+                ),
         ),
         title: Text(
           title,

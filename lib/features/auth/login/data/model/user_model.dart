@@ -7,19 +7,18 @@ class UserModel {
   final String refreshToken;
   final String tokenExpiry;
   final String refreshTokenExpiry;
-  // final String firstName;
-  // final String lastName;
+  final String firstName;
+  final String lastName;
 
-  UserModel({
-    required this.userId,
-    required this.email,
-    required this.token,
-    required this.refreshToken,
-    required this.tokenExpiry,
-    required this.refreshTokenExpiry,
-    // required this.firstName,
-    // required this.lastName
-  });
+  UserModel(
+      {required this.userId,
+      required this.email,
+      required this.token,
+      required this.refreshToken,
+      required this.tokenExpiry,
+      required this.refreshTokenExpiry,
+      required this.firstName,
+      required this.lastName});
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
@@ -29,8 +28,8 @@ class UserModel {
       refreshToken: json[ApiKeys.refreshToken],
       tokenExpiry: json[ApiKeys.tokenExpiry],
       refreshTokenExpiry: json[ApiKeys.refreshTokenExpiry],
-      // firstName: json[ApiKeys.firstName],
-      // lastName: json[ApiKeys.lastName],
+      firstName: json[ApiKeys.firstName],
+      lastName: json[ApiKeys.lastName],
     );
   }
 

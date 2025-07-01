@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduate_project/core/dependency_injection/di.dart';
@@ -9,6 +11,7 @@ class SignDictionaryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    log("Call SignDictionaryView");
     return BlocProvider.value(
       value: di<SignDictionaryCubit>()..inital(),
       child: const Scaffold(

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduate_project/core/dependency_injection/di.dart';
 import 'package:graduate_project/core/helper/custom_confirm_bottom_navigation_sheet.dart';
 import 'package:graduate_project/core/resource/color_manager.dart';
 import 'package:graduate_project/core/resource/distance_manager.dart';
@@ -8,6 +10,7 @@ import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
 import 'package:graduate_project/core/route/navigation_manager.dart';
 import 'package:graduate_project/core/route/screen_manager.dart';
+import 'package:graduate_project/features/dictionary/manager/manage_user_data/manager_user_data_cubit.dart';
 import 'package:graduate_project/features/profile/presentation/widget/custom_profile_card.dart';
 import 'package:graduate_project/features/profile/presentation/widget/custom_profile_image.dart';
 
@@ -16,49 +19,61 @@ class ProfileBodyView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Padding(
-        padding: PaddingManager.paddingHorizontal24,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            SizedBox(
-              height: HeightManager.h60,
-            ),
-            Text(
-              StringManager.profile,
-              style: TextStyleManager.black24(
-                color: ColorManager.blackwithOpacity70,
+    return BlocProvider.value(
+      value: di<ManagerUserDataCubit>(),
+      child: SafeArea(
+        child: Padding(
+          padding: PaddingManager.paddingHorizontal24,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(
+                height: HeightManager.h60,
               ),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(
-              height: HeightManager.h26,
-            ),
-            CustomProfileImage(),
-            SizedBox(
-              height: HeightManager.h20,
-            ),
-            Text(
-              "Dina Mostafa",
-              style: TextStyleManager.black24(
-                color: ColorManager.blackwithOpacity70,
+              Text(
+                StringManager.profile,
+                style: TextStyleManager.black24(
+                  color: ColorManager.blackwithOpacity70,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
-            ),
-            Text(
-              "dina_mostafa",
-              style: TextStyleManager.medium20(
-                color: ColorManager.blackwithOpacity50,
-                height: 1.2,
+              SizedBox(
+                height: HeightManager.h26,
               ),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(
-              height: HeightManager.h40,
-            ),
-            CardProfileSection(),
-          ],
+              CustomProfileImage(),
+              SizedBox(
+                height: HeightManager.h20,
+              ),
+              BlocBuilder<ManagerUserDataCubit, ManagerUserDataState>(
+                builder: (context, state) {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text(
+                        "${ManagerUserDataCubit.get(context).firstname} ${ManagerUserDataCubit.get(context).lastname}",
+                        style: TextStyleManager.black24(
+                          color: ColorManager.blackwithOpacity70,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      Text(
+                        ManagerUserDataCubit.get(context).username,
+                        style: TextStyleManager.medium20(
+                          color: ColorManager.blackwithOpacity50,
+                          height: 1.2,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  );
+                },
+              ),
+              SizedBox(
+                height: HeightManager.h40,
+              ),
+              CardProfileSection(),
+            ],
+          ),
         ),
       ),
     );

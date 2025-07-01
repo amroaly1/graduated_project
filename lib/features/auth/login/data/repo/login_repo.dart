@@ -269,12 +269,12 @@ class LoginRepo {
           key: ApiKeys.refreshToken,
           value: userModel.refreshToken,
         ),
-        // sharedPreference.saveData(
-        //   key: ApiKeys.firstName,
-        //   value: userModel.firstName,
-        // ),
-        // sharedPreference.saveData(
-        //     key: ApiKeys.lastName, value: userModel.lastName),
+        sharedPreference.saveData(
+          key: ApiKeys.firstName,
+          value: userModel.firstName,
+        ),
+        sharedPreference.saveData(
+            key: ApiKeys.lastName, value: userModel.lastName),
         sharedPreference.saveData(
           key: ApiKeys.tokenExpiry,
           value: userModel.tokenExpiry,

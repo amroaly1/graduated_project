@@ -181,6 +181,8 @@ abstract class StringManager {
   static const String logOut = "Log Out";
   static const String logout = "Logout";
   static const String areYouSurelogout = "Are you sure you want to logout ?";
+  static const String uploadimaegefailing = "Upload Image Failing";
+  static const String editProfileFailing = "Edit Profile Failing";
 
   //  Edit Profile
   static const String editProfile = " Edit Profile";

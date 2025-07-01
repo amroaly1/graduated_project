@@ -42,6 +42,26 @@ class ApiHelper {
     }
   }
 
+  Future<ApiResponse> put({
+    required String endpoint,
+    Map<String, dynamic>? data,
+    bool isForm = false,
+    Map<String, dynamic>? queryParameters,
+  }) async {
+    try {
+      var response = await _dio.put(
+        endpoint,
+        data: isForm ? FormData.fromMap(data ?? {}) : data,
+        queryParameters: queryParameters,
+        options: Options(),
+      );
+
+      return ApiReponseSuccess(data: response.data);
+    } on DioException catch (e) {
+      return handelDioExeption(e: e);
+    }
+  }
+
   Future<ApiResponse> patch({
     required String endpoint,
     required Map<String, dynamic> data,
