@@ -169,6 +169,7 @@ abstract class StringManager {
       "Profile Successfully Updated";
   static const String passwordSuccessfullyUpdated =
       "Password Successfully Updated";
+  static const String passwordfailingUpdated = "Password Failing Updated";
   static const String profileSuccessfullyUpdatedSubTitle =
       "Success! Your account information has been updated. If you use a screen reader or sign language interpreter, your new settings are now active.";
   static const String passwordSuccessfullyUpdatedSubTitle =
