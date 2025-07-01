@@ -9,12 +9,14 @@ abstract class TextStyleManager {
     String? fontFamily,
     Color color = ColorManager.primaryColor,
     double? fontSize,
+    double? wordSpacing,
   }) =>
       TextStyle(
         fontFamily: fontFamily,
         fontWeight: FontWeightManager.meduim,
         fontSize: fontSize ?? FontSizeManager.s24,
         color: color,
+        wordSpacing: wordSpacing,
       );
   static TextStyle medium14({
     String? fontFamily,
@@ -47,10 +49,11 @@ abstract class TextStyleManager {
     Color color = ColorManager.black,
     double? size,
     double? height,
+    FontWeight? fontWeight,
   }) =>
       TextStyle(
         fontFamily: fontFamily,
-        fontWeight: FontWeightManager.meduim,
+        fontWeight: fontWeight ?? FontWeightManager.meduim,
         fontSize: size ?? FontSizeManager.s20,
         color: color,
         height: height,
@@ -98,6 +101,18 @@ abstract class TextStyleManager {
         fontFamily: fontFamily,
         fontWeight: FontWeightManager.bold,
         fontSize: FontSizeManager.s20,
+        color: color,
+        shadows: shadows,
+      );
+  static TextStyle bold22({
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+    Color color = ColorManager.black,
+    List<Shadow>? shadows,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.bold,
+        fontSize: FontSizeManager.s22,
         color: color,
         shadows: shadows,
       );
@@ -215,7 +230,7 @@ abstract class TextStyleManager {
       TextStyle(
         fontFamily: fontFamily,
         fontWeight: FontWeightManager.black,
-        fontSize: FontSizeManager.s40,
+        fontSize: FontSizeManager.s32,
         color: color,
       );
   static TextStyle black16({

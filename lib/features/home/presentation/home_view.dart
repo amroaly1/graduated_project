@@ -7,7 +7,6 @@ import 'package:graduate_project/core/resource/distance_manager.dart';
 import 'package:graduate_project/core/resource/icon_manager.dart';
 import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
-import 'package:graduate_project/features/dictionary/manager/sign_dictionary/sign_dictionary_cubit.dart';
 import 'package:graduate_project/features/home/manager/home_cubit/cubit/home_cubit.dart';
 import 'package:graduate_project/features/home/manager/home_cubit/cubit/home_state.dart';
 
@@ -19,7 +18,6 @@ class HomeView extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider.value(value: di<HomeCubit>()),
-        BlocProvider.value(value: di<SignDictionaryCubit>()),
       ],
       child: PopScope(
         canPop: false,
@@ -44,58 +42,69 @@ class HomeView extends StatelessWidget {
                       currentIndex: HomeCubit.get(context).currentIndex,
                       onTap: HomeCubit.get(context).chnageCurrentIndex,
                       type: BottomNavigationBarType.fixed, // Fixed
-                      backgroundColor: ColorManager.whight,
+                      backgroundColor: ColorManager.whight3,
                       selectedLabelStyle: TextStyleManager.bold12(
-                        color: ColorManager.blue1,
+                        color: ColorManager.blue3,
                       ),
-                      unselectedLabelStyle: TextStyleManager.bold12(),
-                      selectedItemColor: ColorManager.blue1,
-                      unselectedItemColor: ColorManager.gray1,
+                      unselectedLabelStyle: TextStyleManager.bold12(
+                        color: ColorManager.primaryColorlight2,
+                      ),
+                      selectedItemColor: ColorManager.blue3,
+                      unselectedItemColor: ColorManager.primaryColorlight2,
 
                       items: [
                         BottomNavigationBarItem(
                           icon: unSelectedIcon(
-                            icon: IconManager.home,
+                            icon: IconManager.homeicon,
                           ),
                           label: StringManager.home,
                           activeIcon: selectedIcon(
-                            icon: IconManager.home,
+                            icon: IconManager.homeicon,
                           ),
                         ),
                         BottomNavigationBarItem(
                           icon: unSelectedIcon(
-                            icon: IconManager.cloudupload,
+                            icon: IconManager.bridgeicon,
                           ),
-                          label: StringManager.upload,
+                          label: StringManager.bridge,
                           activeIcon: selectedIcon(
-                            icon: IconManager.cloudupload,
+                            icon: IconManager.bridgeicon,
                           ),
                         ),
                         BottomNavigationBarItem(
                           icon: unSelectedIcon(
-                            icon: IconManager.stream,
+                            icon: IconManager.signGPTicon,
                           ),
-                          label: StringManager.stream,
+                          label: StringManager.signGBT,
                           activeIcon: selectedIcon(
-                            icon: IconManager.stream,
+                            icon: IconManager.signGPTicon,
                           ),
                         ),
                         BottomNavigationBarItem(
                           icon: unSelectedIcon(
-                            icon: IconManager.chatunselected,
+                            icon: IconManager.translateicon,
                           ),
-                          label: StringManager.chat,
+                          label: StringManager.translate,
                           activeIcon: selectedIcon(
-                            icon: IconManager.chatselected,
+                            icon: IconManager.translateicon,
                           ),
                         ),
                         BottomNavigationBarItem(
                           icon: unSelectedIcon(
-                            icon: IconManager.learn,
+                            icon: IconManager.signifyicon,
                           ),
-                          label: StringManager.signDictionary,
+                          label: StringManager.signify,
                           activeIcon: selectedIcon(
-                            icon: IconManager.learn,
+                            icon: IconManager.signifyicon,
+                          ),
+                        ),
+                        BottomNavigationBarItem(
+                          icon: unSelectedIcon(
+                            icon: IconManager.profileicon,
+                          ),
+                          label: StringManager.profile,
+                          activeIcon: selectedIcon(
+                            icon: IconManager.profileicon,
                           ),
                         ),
                       ],
@@ -113,8 +122,8 @@ class HomeView extends StatelessWidget {
                           HomeCubit.get(context).onVerticalDragUpdate,
                       child: Container(
                         width: double.infinity,
-                        height: HeightManager.h15,
-                        color: ColorManager.whight,
+                        height: HeightManager.h13,
+                        color: ColorManager.whight2,
                       ),
                     ),
                   ),
@@ -131,7 +140,7 @@ class HomeView extends StatelessWidget {
     return SvgPicture.asset(
       icon,
       colorFilter: ColorFilter.mode(
-        ColorManager.primaryColor,
+        ColorManager.blue3,
         BlendMode.srcIn,
       ),
       width: WidthManager.w24,

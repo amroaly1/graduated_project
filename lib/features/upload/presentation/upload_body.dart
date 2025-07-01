@@ -73,6 +73,9 @@ class UploadBody extends StatelessWidget {
                           SizedBox(height: HeightManager.h32),
                           SvgPicture.asset(
                             ImageManager.uploadvideoimage,
+                            height: HeightManager.h130,
+                            width: double.infinity,
+                            fit: BoxFit.fill,
                           ),
                           SizedBox(height: HeightManager.h22),
                           Padding(

@@ -109,10 +109,12 @@ abstract class StringManager {
 
   // bottom navigation bar
   static const String home = "Home";
-  static const String upload = "Upload";
-  static const String stream = "Stream";
-  static const String chat = "Chat";
+  static const String bridge = "Bridge";
+  static const String signGBT = "SignGBT";
+  static const String translate = "Translate";
+  static const String signify = "Signify";
   static const String signDictionary = "Sign Dictionary";
+  // static const String profile = "Profile";
   static const String handTalkApp = "HandTalk App";
   static const String forSignLanguage = "For Sign Language";
 
@@ -139,6 +141,8 @@ abstract class StringManager {
   static const String confirmchanges = "Confirm Changes";
   static const String okayThanks = "Okay, Thanks";
   static const String yesLogout = "Yes, Logout";
+  static const String continuee = "Continue";
+  static const String startChatting = "Start Chatting";
 
   // validation
   static const String pleaseEnterYourEmail = "please enter your email";
@@ -184,9 +188,24 @@ abstract class StringManager {
   // saving
   static const String recentlySaved = "Recently Saved";
 
-  // Chatting with HandTalk
-  static const String chattingwithHandTalk = "Chatting with HandTalk";
-  static const String chattingwithHandTalkSubTitle =
-      "Hello there ! \nHow can i help You ?";
+  // Chatting with Ai
+  static const String signGPT = "SignGPT";
+  static const String signGPTDesc =
+      "Type or speak to chat, and watch your words come alive through expressive signs. Learn, connect, and make communication truly inclusive.";
+  static const String handTalkAIAssistant = "HandTalk AI Assistant";
+  static const String signGPTYourAIFluentinSignLanguage =
+      "SignGPT – Your AI Fluent in Sign Language";
+
   static const String askanything = "Ask anything...";
+
+  // HandTalk Bridge
+  static const String handTalkBridge = "HandTalk Bridge";
+  static const String typeyourmessagehere = "Type your message here...";
+
+  static const String communicatewithSignLanguageUsers =
+      "Communicate with Sign Language Users";
+  static const String handTalkBridgeDesc1 =
+      "As a manager or employee, you may need to interact with sign language users in your workplace.";
+  static const String handTalkBridgeDesc2 =
+      "We will guide you on how to effectively communicate and foster a more inclusive environmet. ";
 }

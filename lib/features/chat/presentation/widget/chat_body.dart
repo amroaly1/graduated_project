@@ -4,12 +4,12 @@ import 'package:flutter_svg/svg.dart';
 import 'package:graduate_project/core/dependency_injection/di.dart';
 import 'package:graduate_project/core/helper/show_snack_bar.dart';
 import 'package:graduate_project/core/resource/color_manager.dart';
-import 'package:graduate_project/core/resource/device_height_width_manager.dart';
 import 'package:graduate_project/core/resource/distance_manager.dart';
 import 'package:graduate_project/core/resource/font_family_manger.dart';
 import 'package:graduate_project/core/resource/icon_manager.dart';
 import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
+import 'package:graduate_project/core/widget/custom_chat_text_field_send.dart';
 import 'package:graduate_project/features/chat/manager/chat_cubit/chat_cubit.dart';
 import 'package:graduate_project/core/manager/mic_cubit/mic_cubit.dart';
 import 'package:graduate_project/features/home/manager/home_cubit/cubit/home_cubit.dart';
@@ -102,91 +102,11 @@ class ChatBody extends StatelessWidget {
                 );
               },
             )),
-            Container(
-              color: ColorManager.whight2,
-              padding: EdgeInsets.only(
-                right: WidthManager.w16,
-                left: WidthManager.w16,
-                bottom: HeightManager.h24,
-                top: HeightManager.h20,
-              ),
-              child: Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: WidthManager.w6,
-                        vertical: HeightManager.h10,
-                      ),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: ColorManager.whight,
-                      ),
-                      child: BlocBuilder<MicCubit, MicState>(
-                        builder: (context, state) {
-                          return InkWell(
-                            onLongPress: MicCubit.get(context).speechDied
-                                ? null
-                                : () {
-                                    MicCubit.get(context).startListening(
-                                      controller:
-                                          ChatCubit.get(context).controller,
-                                    );
-                                  },
-                            child: Icon(
-                              Icons.mic_none_outlined,
-                              size: MicCubit.get(context).startTransalte
-                                  ? HeightManager.h40
-                                  : HeightManager.h29,
-                              color: MicCubit.get(context).speechDied
-                                  ? Colors.grey
-                                  : ColorManager.purple2Color,
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                    SizedBox(width: WidthManager.w10),
-                    SizedBox(
-                      height: DeviceHeightWidthManager.subOfHeight(
-                        context,
-                        HeightOfDesign.h45,
-                      ),
-                      width:
-                          (DeviceHeightWidthManager.deviceWidth(context) / 1.5),
-                      child: TextField(
-                        style: TextStyleManager.bold16(
-                          color: ColorManager.black,
-                        ),
-                        controller: ChatCubit.get(context).controller,
-                        decoration: InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(
-                            horizontal: WidthManager.w21,
-                            // vertical: HeightManager.h10,
-                          ),
-                          filled: true,
-                          fillColor: ColorManager.whight,
-                          border: oulineborder(),
-                          hintText: StringManager.enterText,
-                          hintStyle: TextStyleManager.bold16(
-                            color: ColorManager.purple2Color,
-                          ),
-                          enabledBorder: oulineborder(),
-                          focusedBorder: oulineborder(),
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: WidthManager.w10),
-                    InkWell(
-                      onTap: ChatCubit.get(context).chat,
-                      child: SvgPicture.asset(
-                        IconManager.send,
-                      ),
-                    ),
-                  ],
-                ),
+            Padding(
+              padding: EdgeInsets.only(bottom: HeightManager.h8),
+              child: CustomChatTextFieldSend(
+                controller: ChatCubit.get(context).controller,
+                onTapSend: ChatCubit.get(context).chat,
               ),
             ),
             BlocBuilder<HomeCubit, HomeState>(

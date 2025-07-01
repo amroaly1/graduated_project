@@ -1,13 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:graduate_project/core/resource/color_manager.dart';
 import 'package:graduate_project/core/resource/distance_manager.dart';
-import 'package:graduate_project/core/resource/font_family_manger.dart';
-import 'package:graduate_project/core/resource/icon_manager.dart';
-import 'package:graduate_project/core/resource/image_manager.dart';
 import 'package:graduate_project/core/resource/padding_manager.dart';
-import 'package:graduate_project/core/resource/string_manager.dart';
-import 'package:graduate_project/core/resource/text_style_manager.dart';
+import 'package:graduate_project/core/widget/app_bar_of_chat.dart';
+import 'package:graduate_project/core/widget/custom_chat_card.dart';
+import 'package:graduate_project/core/widget/custom_chat_text_field_send.dart';
 
 class ChatWitAiBodyView extends StatelessWidget {
   const ChatWitAiBodyView({super.key});
@@ -15,148 +13,95 @@ class ChatWitAiBodyView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                SizedBox(
-                  height: HeightManager.h55,
-                ),
-                Text(
-                  StringManager.chattingwithHandTalk,
-                  style: TextStyleManager.bold20(
-                    color: ColorManager.black,
-                    fontFamily: FontFamilyManger.hvDTrialBrandonGrotesque,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(
-                  height: HeightManager.h80,
-                ),
-                SvgPicture.asset(
-                  ImageManager.chattingwithai,
-                ),
-                SizedBox(
-                  height: HeightManager.h34,
-                ),
-                Text(
-                  StringManager.chattingwithHandTalkSubTitle,
-                  style: TextStyleManager.bold26(
-                    color: ColorManager.primaryColor,
-                    fontFamily: FontFamilyManger.hvDTrialBrandonGrotesque,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ],
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          AppBarOfChat(),
+          Expanded(
+            child: Padding(
+              padding: PaddingManager.paddingHorizontal24,
+              child: ListView.builder(
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return CustomChatCard(
+                    isStart: index == 0,
+                    fromMe: index % 2 == 0,
+                    message: index % 2 == 0
+                        ? "Hello, what about you ?"
+                        : "Hello, what about you ? Hello, what about you ? Hello, what about you ? Hello, what about you ? Hello, what about you ?",
+                  );
+                },
+              ),
             ),
           ),
-          SliverFillRemaining(
-            hasScrollBody: false,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                SizedBox(
-                  height: HeightManager.h70,
-                ),
-                CustomChattingTextField(),
-                SizedBox(
-                  height: HeightManager.h20,
-                ),
-              ],
+          Padding(
+            padding: EdgeInsets.only(bottom: HeightManager.h11),
+            child: CustomChatTextFieldSend(
+              // TODO : use this function to communitcate with api
+              onTapSend: () {},
+              onChanged: (p0) {
+                log("message $p0");
+              },
+              //TODO : give this controller
+              controller: TextEditingController(),
             ),
           ),
+          // BlocBuilder<HomeCubit, HomeState>(
+          //   builder: (context, state) {
+          //     return SizedBox(
+          //       height: HomeCubit.get(context).isShowBottomNavigationBar
+          //           ? HeightManager.h60
+          //           : 0,
+          //     );
+          //   },
+          // ),
         ],
       ),
     );
   }
 }
 
-class CustomChattingTextField extends StatelessWidget {
-  const CustomChattingTextField({
-    super.key,
-  });
+// class ChatWithAiBodyMessages extends StatefulWidget {
+//   const ChatWithAiBodyMessages({
+//     super.key,
+//   });
 
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: PaddingManager.paddingHorizontal24,
-      child: TextField(
-        decoration: InputDecoration(
-          contentPadding: EdgeInsets.symmetric(
-            horizontal: WidthManager.w21,
-          ),
-          filled: true,
-          fillColor: ColorManager.whight,
-          border: oulineInputBorder(),
-          enabledBorder: oulineInputBorder(),
-          focusedBorder: oulineInputBorder(),
-          hintText: StringManager.askanything,
-          hintStyle: TextStyleManager.light16(
-            color: ColorManager.gray1,
-          ),
-          suffixIcon: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  splashColor: Colors.grey.shade300,
-                  borderRadius: BorderRadius.circular(RaduisValueManager.r30),
-                  onTap: () {},
-                  child: Container(
-                    width: WidthManager.w35,
-                    decoration: BoxDecoration(
-                      // color: Colors.black,
-                      shape: BoxShape.circle,
-                    ),
-                    child: SvgPicture.asset(
-                      IconManager.recordIcon,
-                      fit: BoxFit.scaleDown,
-                    ),
-                  ),
-                ),
-              ),
-              Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  splashColor: Colors.grey.shade300,
-                  borderRadius: BorderRadius.circular(RaduisValueManager.r30),
-                  onTap: () {},
-                  child: Container(
-                    width: WidthManager.w35,
-                    decoration: BoxDecoration(
-                      // color: Colors.black,
-                      shape: BoxShape.circle,
-                    ),
-                    child: SvgPicture.asset(
-                      IconManager.sendarrowIcon,
-                      width: WidthManager.w24,
-                      height: HeightManager.h24,
-                      fit: BoxFit.scaleDown,
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: WidthManager.w13,
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
+//   @override
+//   State<ChatWithAiBodyMessages> createState() => _ChatWithAiBodyMessagesState();
+// }
 
-  OutlineInputBorder oulineInputBorder() {
-    return OutlineInputBorder(
-      borderSide: BorderSide(
-        color: ColorManager.whight,
-      ),
-      borderRadius: BorderRadius.circular(
-        RaduisValueManager.r30,
-      ),
-    );
-  }
-}
+// class _ChatWithAiBodyMessagesState extends State<ChatWithAiBodyMessages> {
+//   @override
+//   void initState() {
+//     _scrollDown();
+//     super.initState();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return ListView.builder(
+//       reverse: true,
+//       controller: scrollcontroller,
+//       itemCount: 10,
+//       itemBuilder: (context, index) {
+//         return CustomChatCard(
+//           isStart: index == 0,
+//           fromMe: index % 2 == 0,
+//           message: index % 2 == 0
+//               ? "Hello, what about you ?"
+//               : "Hello, what about you ? Hello, what about you ? Hello, what about you ? Hello, what about you ? Hello, what about you ?",
+//         );
+//       },
+//     );
+//   }
+
+//   final ScrollController scrollcontroller = ScrollController();
+
+//   void _scrollDown() {
+//     scrollcontroller.animateTo(
+//       0,
+//       duration: Duration(seconds: 2),
+//       curve: Curves.fastOutSlowIn,
+//     );
+//   }
+// }

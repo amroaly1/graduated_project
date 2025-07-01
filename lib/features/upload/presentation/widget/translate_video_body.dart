@@ -97,7 +97,7 @@ class TranslateVideoBody extends StatelessWidget {
               ),
               SizedBox(height: HeightManager.h40),
               DefaultButton(
-                text: StringManager.chat,
+                text: StringManager.translate,
                 onPressed: () {},
               ),
               SizedBox(height: HeightManager.h10),

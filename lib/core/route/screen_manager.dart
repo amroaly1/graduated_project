@@ -18,4 +18,8 @@ abstract class ScreenManager {
   static const String changePasswordView = "/changePasswordView";
   static const String savingView = "/savingView";
   static const String chatingWitAiView = "/chatingWitAiView";
+  static const String bridgeView = "/bridgeView";
+  static const String bridgeChatView = "/bridgeChatView";
+  static const String introChatingWitAiView = "/introChatingWitAiView";
+  static const String signDictionaryView = "/signDictionaryView";
 }

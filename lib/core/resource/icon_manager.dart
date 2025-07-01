@@ -9,13 +9,12 @@ abstract class IconManager {
   static const String google = "${_baseUrl}Google.svg";
   static const String facebook = "${_baseUrl}Facebook.svg";
   static const String apple = "${_baseUrl}Apple.svg";
-  static const String home = "${_baseUrl}home.svg";
-  static const String cloudupload = "${_baseUrl}cloud_upload.svg";
-  static const String stream = "${_baseUrl}stream.svg";
-  // static const String translate = "${_baseUrl}translate.svg";
-  static const String chatunselected = "${_baseUrl}chat_un_selected.svg";
-  static const String chatselected = "${_baseUrl}chat_selected.svg";
-  static const String learn = "${_baseUrl}learn.svg";
+  static const String homeicon = "${_baseUrl}home_icon.svg";
+  static const String bridgeicon = "${_baseUrl}bridge_icon.svg";
+  static const String signGPTicon = "${_baseUrl}signGPT_icon.svg";
+  static const String translateicon = "${_baseUrl}translate_icon.svg";
+  static const String profileicon = "${_baseUrl}profile_icon.svg";
+  static const String signifyicon = "${_baseUrl}signify_icon.svg";
   static const String streamPageCamera = "${_baseUrl}stream_page_camera.svg";
   static const String arrowrightarrowleft =
       "${_baseUrl}arrow-right-arrow-left.svg";
@@ -41,5 +40,12 @@ abstract class IconManager {
   static const String shareicon = "${_baseUrl}share_icon.svg";
   static const String deleteiconsaving = "${_baseUrl}delete_icon_saving.svg";
   static const String recordIcon = "${_baseUrl}record.svg";
+  static const String recordIcon2 = "${_baseUrl}record_icon_2.svg";
   static const String sendarrowIcon = "${_baseUrl}send_arrow.svg";
+  static const String micicon = "${_baseUrl}mic_icon.svg";
+  static const String starBridgeIcon = "${_baseUrl}star.svg";
+  static const String notificationicon = "${_baseUrl}notification_icon.svg";
+  static const String sendicon = "${_baseUrl}send_icon.svg";
+  static const String startquot = "${_baseUrl}start_quot.svg";
+  static const String endquot = "${_baseUrl}end_quot.svg";
 }
