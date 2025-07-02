@@ -44,6 +44,19 @@ abstract class TextStyleManager {
         color: color,
         height: height,
       );
+  static TextStyle medium16({
+    String? fontFamily,
+    Color color = ColorManager.gray13,
+    double? size,
+    double? height,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.meduim,
+        fontSize: size ?? FontSizeManager.s16,
+        color: color,
+        height: height,
+      );
   static TextStyle medium20({
     String? fontFamily,
     Color color = ColorManager.black,
@@ -311,5 +324,113 @@ abstract class TextStyleManager {
         fontWeight: FontWeightManager.bold,
         fontSize: FontSizeManager.s12,
         color: color,
+      );
+  static TextStyle bold10({
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+    Color color = ColorManager.gray16,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.bold,
+        fontSize: FontSizeManager.s10,
+        color: color,
+      );
+
+  static TextStyle regular10({
+    Color color = ColorManager.gray11,
+    double? height,
+    String? fontFamily,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        height: height,
+        fontWeight: FontWeightManager.regular,
+        fontSize: FontSizeManager.s10,
+        color: color,
+      );
+  static TextStyle semiBold15({
+    Color color = ColorManager.primaryColorlight3,
+    double? height,
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+  }) =>
+      TextStyle(
+        height: height,
+        fontWeight: FontWeightManager.semiBold,
+        fontSize: FontSizeManager.s15,
+        color: color,
+        fontFamily: fontFamily,
+      );
+  static TextStyle bold15({
+    Color color = ColorManager.primaryColorlight3,
+    double? height,
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+  }) =>
+      TextStyle(
+        height: height,
+        fontWeight: FontWeightManager.bold,
+        fontSize: FontSizeManager.s15,
+        color: color,
+        fontFamily: fontFamily,
+      );
+
+  static TextStyle semiBold14({
+    Color color = ColorManager.primaryColorlight3,
+    double? height,
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+  }) =>
+      TextStyle(
+        height: height,
+        fontWeight: FontWeightManager.bold,
+        fontSize: FontSizeManager.s15,
+        color: color,
+        fontFamily: fontFamily,
+      );
+  static TextStyle semiBold12({
+    Color color = ColorManager.gray14,
+    double? height,
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+  }) =>
+      TextStyle(
+        height: height,
+        fontWeight: FontWeightManager.semiBold,
+        fontSize: FontSizeManager.s12,
+        color: color,
+        fontFamily: fontFamily,
+      );
+  static TextStyle semiBold10({
+    Color color = ColorManager.gray16,
+    double? height,
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+  }) =>
+      TextStyle(
+        height: height,
+        fontWeight: FontWeightManager.semiBold,
+        fontSize: FontSizeManager.s10,
+        color: color,
+        fontFamily: fontFamily,
+      );
+  static TextStyle semiBold8({
+    Color color = ColorManager.gray16,
+    double? height,
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+  }) =>
+      TextStyle(
+        height: height,
+        fontWeight: FontWeightManager.semiBold,
+        fontSize: FontSizeManager.s8,
+        color: color,
+        fontFamily: fontFamily,
+      );
+  static TextStyle bold9({
+    Color color = ColorManager.primaryColorlight3,
+    double? height,
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+  }) =>
+      TextStyle(
+        height: height,
+        fontWeight: FontWeightManager.bold,
+        fontSize: FontSizeManager.s9,
+        color: color,
+        fontFamily: fontFamily,
       );
 }

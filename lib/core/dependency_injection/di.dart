@@ -20,9 +20,11 @@ import 'package:graduate_project/features/dictionary/data/repo/dictionary_search
 import 'package:graduate_project/features/dictionary/data/repo/dictionary_word_repo.dart';
 import 'package:graduate_project/features/dictionary/data/repo/sign_dictionary_repo.dart';
 import 'package:graduate_project/features/dictionary/manager/dictionary_search/dictionary_search_cubit.dart';
-import 'package:graduate_project/features/dictionary/manager/manage_user_data/manager_user_data_cubit.dart';
+import 'package:graduate_project/core/manager/manage_user_data/manager_user_data_cubit.dart';
 import 'package:graduate_project/features/dictionary/manager/sign_dictionary/sign_dictionary_cubit.dart';
+import 'package:graduate_project/features/home/data/repo/home_dictionar_repo.dart';
 import 'package:graduate_project/features/home/manager/home_cubit/cubit/home_cubit.dart';
+import 'package:graduate_project/features/home/manager/home_dictionary/home_dictionary_cubit.dart';
 import 'package:graduate_project/features/profile/data/repo/change_password_repo.dart';
 import 'package:graduate_project/features/profile/data/repo/edit_profile_repo.dart';
 import 'package:graduate_project/features/profile/manager/change_image_cubit/change_image_cubit.dart';
@@ -120,6 +122,12 @@ Future<void> setUp() async {
       connectInternetHelper: di<ConnectInternetHelper>(),
     ),
   );
+  di.registerSingleton<HomeDictionarRepo>(
+    HomeDictionarRepo(
+      apiHelper: di<ApiHelper>(),
+      connectInternetHelper: di<ConnectInternetHelper>(),
+    ),
+  );
 
   di.registerSingleton<EditProfileCubit>(
       EditProfileCubit(di<EditProfileRepo>()));
@@ -130,4 +138,6 @@ Future<void> setUp() async {
   di.registerSingleton<ManagerUserDataCubit>(ManagerUserDataCubit());
   di.registerSingleton<ChangePasswordCubit>(
       ChangePasswordCubit(di<ChangePasswordRepo>()));
+  di.registerSingleton<HomeDictionaryCubit>(
+      HomeDictionaryCubit(di<HomeDictionarRepo>()));
 }

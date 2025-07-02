@@ -10,7 +10,7 @@ import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
 import 'package:graduate_project/core/route/navigation_manager.dart';
 import 'package:graduate_project/core/route/screen_manager.dart';
-import 'package:graduate_project/features/dictionary/manager/manage_user_data/manager_user_data_cubit.dart';
+import 'package:graduate_project/core/manager/manage_user_data/manager_user_data_cubit.dart';
 import 'package:graduate_project/features/profile/presentation/widget/custom_profile_card.dart';
 import 'package:graduate_project/features/profile/presentation/widget/custom_profile_image.dart';
 

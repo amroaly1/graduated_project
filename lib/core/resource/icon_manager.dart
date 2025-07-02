@@ -48,4 +48,10 @@ abstract class IconManager {
   static const String sendicon = "${_baseUrl}send_icon.svg";
   static const String startquot = "${_baseUrl}start_quot.svg";
   static const String endquot = "${_baseUrl}end_quot.svg";
+  static const String searchicon = "${_baseUrl}search_icon.svg";
+  static const String texticon = "${_baseUrl}text_icon.svg";
+  static const String voiceicon = "${_baseUrl}voice_icon.svg";
+
+  static const String recentalysavedpersonpng =
+      "${_baseUrl}recentaly_saved_person.png";
 }

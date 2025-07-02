@@ -5,6 +5,7 @@ class DictionaryItemModel {
   final String gloss;
   final String videoUrl;
   final int searchCount;
+  final String source;
   bool isFavorite;
   bool isCharacters = false;
   final String createdOn;
@@ -17,6 +18,7 @@ class DictionaryItemModel {
       required this.searchCount,
       required this.isFavorite,
       required this.createdOn,
+      required this.source,
       this.lastModifiedOn});
 
   DictionaryItemModel.isCharacters(
@@ -26,6 +28,7 @@ class DictionaryItemModel {
       this.searchCount = 0,
       this.isFavorite = false,
       this.createdOn = "",
+      this.source = "",
       this.lastModifiedOn})
       : isCharacters = true;
 
@@ -37,6 +40,7 @@ class DictionaryItemModel {
         searchCount: json[ApiKeys.searchCount],
         isFavorite: json[ApiKeys.isFavorite],
         createdOn: json[ApiKeys.createdOn],
+        source: json[ApiKeys.source],
         lastModifiedOn: json[ApiKeys.lastModifiedOn]);
   }
 

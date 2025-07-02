@@ -71,6 +71,18 @@ abstract class StringManager {
 
   // home
 
+  static const String readytotranslatesomethingtoday =
+      "Ready to translate something today ?";
+  static const String searchHandTalk = "Search HandTalk...";
+  static const String whatsYourPlanforToday = "What’s Your Plan for Today?";
+  static const String continueWhereYouLeftOff = "Continue Where You Left Off";
+  static const String processing = "Processing...";
+  static const String recentlyTranslated = "Recently Translated";
+  static const String seeAll = "See All";
+  static const String seeDictionary = "See Dictionary";
+  static const String howcanIassistyouinsignlanguage =
+      "How can I assist you in sign language?";
+
   // stream screen
   static const String liveTranslation = "Live Translation";
   static const String liveTranslationDescription =
