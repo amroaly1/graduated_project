@@ -31,6 +31,8 @@ import 'package:graduate_project/features/profile/manager/change_image_cubit/cha
 import 'package:graduate_project/features/profile/manager/change_password.dart/change_password_cubit.dart';
 import 'package:graduate_project/features/profile/manager/edit_profile_cubit/edit_profile_cubit.dart';
 import 'package:graduate_project/features/saving/manager/cubit/saving_cubit.dart';
+import 'package:graduate_project/features/upload/manager/audio_player_cubit/audio_player_cubit.dart';
+import 'package:graduate_project/features/upload/manager/upload_cubit/upload_cubit.dart';
 
 final di = GetIt.instance;
 
@@ -140,4 +142,6 @@ Future<void> setUp() async {
       ChangePasswordCubit(di<ChangePasswordRepo>()));
   di.registerSingleton<HomeDictionaryCubit>(
       HomeDictionaryCubit(di<HomeDictionarRepo>()));
+  di.registerSingleton<UploadCubit>(UploadCubit());
+  di.registerSingleton<AudioPlayerCubit>(AudioPlayerCubit());
 }

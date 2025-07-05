@@ -22,4 +22,6 @@ abstract class ScreenManager {
   static const String bridgeChatView = "/bridgeChatView";
   static const String introChatingWitAiView = "/introChatingWitAiView";
   static const String signDictionaryView = "/signDictionaryView";
+  static const String translateToTextView = "/TranslateToTextView";
+  static const String translateToAudioView = "/TranslateToAudioView";
 }

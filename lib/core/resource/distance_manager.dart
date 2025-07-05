@@ -89,9 +89,11 @@ abstract class RaduisValueManager {
   static double r5 = 5.r;
   static double r8 = 8.r;
   static double r10 = 10.r;
+  static double r15 = 15.r;
   static double r18 = 18.r;
   static double r20 = 20.r;
   static double r29 = 29.r;
   static double r30 = 30.r;
   static double r40 = 40.r;
+  static double r72 = 72.r;
 }

@@ -161,6 +161,7 @@ abstract class StringManager {
   static const String yesLogout = "Yes, Logout";
   static const String continuee = "Continue";
   static const String startChatting = "Start Chatting";
+  static const String clickhere = "click here";
 
   // validation
   static const String pleaseEnterYourEmail = "please enter your email";
@@ -229,4 +230,12 @@ abstract class StringManager {
       "As a manager or employee, you may need to interact with sign language users in your workplace.";
   static const String handTalkBridgeDesc2 =
       "We will guide you on how to effectively communicate and foster a more inclusive environmet. ";
+
+  // uploading video
+  static const String gallery = "Gallery";
+  static const String camera = "Camera";
+  static const String translatetoText = "Translate to Text";
+  static const String translatetoAudio = "Translate to Audio";
+  static const String ifyouwanttotranslateanothervideo =
+      "If you want to translate another video?";
 }

@@ -1,18 +1,15 @@
 import 'dart:async';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graduate_project/features/upload/manager/cubit/upload_state.dart';
+import 'package:graduate_project/features/upload/manager/upload_cubit/upload_state.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:video_player/video_player.dart';
 
 class UploadCubit extends Cubit<UploadState> {
-  // UploadCubit() : super(UploadInitial());
-  UploadCubit._() : super(UploadInitial());
-  static final UploadCubit _istance = UploadCubit._();
-  factory UploadCubit() {
-    return _istance;
-  }
+  UploadCubit() : super(UploadInitial());
+  // UploadCubit._() : super(UploadInitial());
 
   static UploadCubit get(context) => BlocProvider.of(context);
 
@@ -39,9 +36,15 @@ class UploadCubit extends Cubit<UploadState> {
   void isUploadVideo() {
     if (video != null) {
       controller = VideoPlayerController.file(File(video!.path))
-        ..initialize().then((_) {});
-      updateUi();
-      emit(UploadVideoDone());
+        ..initialize().then((_) {
+          if (!isClosed) {
+            updateUi();
+
+            emit(UploadVideoDone());
+          }
+        }).catchError((onError) {
+          log("error : $onError");
+        });
     }
   }
 

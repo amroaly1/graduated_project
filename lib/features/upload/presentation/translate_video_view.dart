@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graduate_project/features/upload/manager/cubit/upload_cubit.dart';
+import 'package:graduate_project/core/dependency_injection/di.dart';
+import 'package:graduate_project/features/upload/manager/upload_cubit/upload_cubit.dart';
 import 'package:graduate_project/features/upload/presentation/widget/translate_video_body.dart';
 
 class TranslateVideoView extends StatelessWidget {
@@ -9,7 +10,7 @@ class TranslateVideoView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider.value(
-      value: UploadCubit(),
+      value: di<UploadCubit>(),
       child: const Scaffold(
         body: TranslateVideoBody(),
       ),

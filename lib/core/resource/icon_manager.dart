@@ -51,6 +51,14 @@ abstract class IconManager {
   static const String searchicon = "${_baseUrl}search_icon.svg";
   static const String texticon = "${_baseUrl}text_icon.svg";
   static const String voiceicon = "${_baseUrl}voice_icon.svg";
+  static const String camera = "${_baseUrl}camera.svg";
+  static const String gallery = "${_baseUrl}gallery.svg";
+  static const String arrowrightbold = "${_baseUrl}arrow_right_bold.svg";
+  static const String copygrey = "${_baseUrl}copy_grey.svg";
+  static const String sharegrey = "${_baseUrl}share_grey.svg";
+  static const String savegrey = "${_baseUrl}save_grey.svg";
+  static const String backward10 = "${_baseUrl}backward 1.png";
+  static const String forward10 = "${_baseUrl}forward 1.png";
 
   static const String recentalysavedpersonpng =
       "${_baseUrl}recentaly_saved_person.png";

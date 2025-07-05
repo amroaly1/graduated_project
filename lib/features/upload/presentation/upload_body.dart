@@ -2,6 +2,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:graduate_project/core/dependency_injection/di.dart';
 import 'package:graduate_project/core/resource/color_manager.dart';
 import 'package:graduate_project/core/resource/distance_manager.dart';
 import 'package:graduate_project/core/resource/image_manager.dart';
@@ -12,8 +13,8 @@ import 'package:graduate_project/core/route/navigation_manager.dart';
 import 'package:graduate_project/core/route/screen_manager.dart';
 import 'package:graduate_project/core/widget/app_bar_of_home_pages.dart';
 import 'package:graduate_project/core/widget/default_button.dart';
-import 'package:graduate_project/features/upload/manager/cubit/upload_cubit.dart';
-import 'package:graduate_project/features/upload/manager/cubit/upload_state.dart';
+import 'package:graduate_project/features/upload/manager/upload_cubit/upload_cubit.dart';
+import 'package:graduate_project/features/upload/manager/upload_cubit/upload_state.dart';
 import 'package:graduate_project/features/upload/presentation/widget/body_of_buttom_sheet.dart';
 
 class UploadBody extends StatelessWidget {
@@ -22,7 +23,7 @@ class UploadBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider.value(
-      value: UploadCubit(),
+      value: di<UploadCubit>(),
       child: Builder(builder: (context) {
         return SafeArea(
           child: Column(
@@ -112,10 +113,16 @@ class UploadBody extends StatelessWidget {
                     text: StringManager.selectVideo,
                     onPressed: () {
                       showModalBottomSheet(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(RaduisValueManager.r72),
+                            topRight: Radius.circular(RaduisValueManager.r72),
+                          ),
+                        ),
                         context: context,
                         builder: (context) {
                           return BlocProvider.value(
-                            value: UploadCubit(),
+                            value: di<UploadCubit>(),
                             child: BodyOfBoyyomSheet(),
                           );
                         },

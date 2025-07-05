@@ -33,6 +33,7 @@ abstract class HeightOfDesign {
   static const double h309 = 309;
   static const double h313 = 313;
   static const double h319 = 319;
+  static const double h240 = 240;
 }
 
 abstract class WidthOfDesign {

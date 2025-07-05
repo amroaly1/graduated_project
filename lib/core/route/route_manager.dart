@@ -27,6 +27,8 @@ import 'package:graduate_project/features/profile/presentation/profile_view.dart
 import 'package:graduate_project/features/saving/presentation/saving_view.dart';
 import 'package:graduate_project/features/stream/presentation/video_to_audio_view.dart';
 import 'package:graduate_project/features/stream/presentation/video_to_text_view.dart';
+import 'package:graduate_project/features/upload/presentation/tranlsate_to_text_view.dart';
+import 'package:graduate_project/features/upload/presentation/translate_to_audio_view.dart';
 import 'package:graduate_project/features/upload/presentation/translate_video_view.dart';
 
 abstract class RouteManager {
@@ -53,6 +55,8 @@ abstract class RouteManager {
         return customPageBuilder(ChangePasswordView());
       case ScreenManager.translatevideoView:
         return customPageBuilder(TranslateVideoView());
+      case ScreenManager.translateToAudioView:
+        return customPageBuilder(TranslateToAudioView());
       case ScreenManager.videotoaudioview:
         return customPageBuilder(VideoToAudioView());
       case ScreenManager.videototextview:
@@ -77,6 +81,8 @@ abstract class RouteManager {
         return customPageBuilder(IntroChatWithAiView());
       case ScreenManager.signDictionaryView:
         return customPageBuilder(SignDictionaryView());
+      case ScreenManager.translateToTextView:
+        return customPageBuilder(TranlsateToTextView());
       case ScreenManager.resetPassowrdView:
         return customPageBuilder(ResetPasswordView(
           email: settings.arguments as String,
