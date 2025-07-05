@@ -10,10 +10,11 @@ abstract class TextStyleManager {
     Color color = ColorManager.primaryColor,
     double? fontSize,
     double? wordSpacing,
+    FontWeight? fontWeight,
   }) =>
       TextStyle(
         fontFamily: fontFamily,
-        fontWeight: FontWeightManager.meduim,
+        fontWeight: fontWeight ?? FontWeightManager.meduim,
         fontSize: fontSize ?? FontSizeManager.s24,
         color: color,
         wordSpacing: wordSpacing,
@@ -91,6 +92,18 @@ abstract class TextStyleManager {
         fontWeight: FontWeightManager.semiBold,
         fontSize: FontSizeManager.s16,
         color: color,
+      );
+  static TextStyle semiBold22({Color? color}) => TextStyle(
+        fontFamily: FontFamilyManger.avenirLTStd,
+        fontWeight: FontWeightManager.semiBold,
+        fontSize: FontSizeManager.s22,
+        color: color ?? ColorManager.purple1Color,
+      );
+  static TextStyle semiBold17({Color? color}) => TextStyle(
+        fontFamily: FontFamilyManger.avenirLTStd,
+        fontWeight: FontWeightManager.semiBold,
+        fontSize: FontSizeManager.s17,
+        color: color ?? ColorManager.purple1Color,
       );
 
   static TextStyle bold19({
@@ -201,6 +214,18 @@ abstract class TextStyleManager {
         color: color,
         shadows: shadows,
       );
+  // static TextStyle semiBold17({
+  //   String? fontFamily = FontFamilyManger.avenirLTStd,
+  //   Color color = ColorManager.primaryColor,
+  //   List<Shadow>? shadows,
+  // }) =>
+  //     TextStyle(
+  //       fontFamily: fontFamily,
+  //       fontWeight: FontWeightManager.semiBold,
+  //       fontSize: FontSizeManager.s17,
+  //       color: color,
+  //       shadows: shadows,
+  //     );
   static TextStyle light32({
     String? fontFamily,
     Color color = ColorManager.whight,
@@ -234,6 +259,17 @@ abstract class TextStyleManager {
         fontFamily: fontFamily,
         fontWeight: FontWeightManager.black,
         fontSize: fontSize ?? FontSizeManager.s32,
+        color: color,
+      );
+  static TextStyle bold28({
+    String? fontFamily,
+    Color color = ColorManager.black1Color,
+    double? fontSize,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.bold,
+        fontSize: fontSize ?? FontSizeManager.s28,
         color: color,
       );
   static TextStyle black40({

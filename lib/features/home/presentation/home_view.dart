@@ -51,7 +51,6 @@ class HomeView extends StatelessWidget {
                       ),
                       selectedItemColor: ColorManager.blue3,
                       unselectedItemColor: ColorManager.primaryColorlight2,
-
                       items: [
                         BottomNavigationBarItem(
                           icon: unSelectedIcon(
@@ -75,7 +74,7 @@ class HomeView extends StatelessWidget {
                           icon: unSelectedIcon(
                             icon: IconManager.signGPTicon,
                           ),
-                          label: StringManager.signGBT,
+                          label: StringManager.signGPT,
                           activeIcon: selectedIcon(
                             icon: IconManager.signGPTicon,
                           ),

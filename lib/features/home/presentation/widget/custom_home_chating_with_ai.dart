@@ -46,7 +46,7 @@ class CustomHomeChattingWithAI extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      StringManager.signGBT,
+                      StringManager.signGPT,
                       style: TextStyleManager.semiBold14(
                         height: 1,
                       ),

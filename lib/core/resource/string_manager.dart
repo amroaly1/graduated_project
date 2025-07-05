@@ -2,13 +2,19 @@ abstract class StringManager {
   // onBoarding text
   static const String onBoardingTitle1 = "Welcome To  HandTalk";
   static const String onBoardingSubTitle1 =
-      '“ Real-time translation from speech to sign language – bridging communication gaps ”';
-  static const String onBoardingTitle2 = "Instant Translation";
+      'Inclusive learning tools for sign language – making communication accessible to everyone';
+  static const String onBoardingTitle2 = "Learn & Explore";
   static const String onBoardingSubTitle2 =
-      '“  Translate sign language in real-time. Break barriers and communicate smoothly ”';
-  static const String onBoardingTitle3 = "Learn & Explore";
+      'Upload videos for translation and explore our dictionary to learn sign language';
+  static const String onBoardingTitle3 = "Chat with SignGPT";
   static const String onBoardingSubTitle3 =
-      '“ Upload videos for translation and explore our dictionary to learn sign language ”';
+      'Ask questions and learn about sign language by chatting with our chatbot';
+  static const String onBoardingTitle4 = "Visual Dictionary";
+  static const String onBoardingSubTitle4 =
+      'Search for words & learn how their are signed – discover visual communication with ease';
+  static const String onBoardingTitle5 = "Bridge Communication";
+  static const String onBoardingSubTitle5 =
+      'Facilitate conversations between users and deaf or mute  through seamless sign language translation.';
 
   // welcome page
   static const String handTalk = "HandTalk";
@@ -122,7 +128,7 @@ abstract class StringManager {
   // bottom navigation bar
   static const String home = "Home";
   static const String bridge = "Bridge";
-  static const String signGBT = "SignGBT";
+  static const String signGPT = "SignGPT";
   static const String translate = "Translate";
   static const String signify = "Signify";
   static const String signDictionary = "Sign Dictionary";
@@ -204,7 +210,7 @@ abstract class StringManager {
   static const String recentlySaved = "Recently Saved";
 
   // Chatting with Ai
-  static const String signGPT = "SignGPT";
+  // static const String signGPT = "SignGPT";
   static const String signGPTDesc =
       "Type or speak to chat, and watch your words come alive through expressive signs. Learn, connect, and make communication truly inclusive.";
   static const String handTalkAIAssistant = "HandTalk AI Assistant";

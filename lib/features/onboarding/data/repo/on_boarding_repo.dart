@@ -28,5 +28,15 @@ class OnBoardingRepo {
       title: StringManager.onBoardingTitle3,
       subTitle: StringManager.onBoardingSubTitle3,
     ),
+    OnBoardingModel(
+      image: ImageManager.onBoardingImage4,
+      title: StringManager.onBoardingTitle4,
+      subTitle: StringManager.onBoardingSubTitle4,
+    ),
+    OnBoardingModel(
+      image: ImageManager.onBoardingImage5,
+      title: StringManager.onBoardingTitle5,
+      subTitle: StringManager.onBoardingSubTitle5,
+    ),
   ];
 }

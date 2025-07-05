@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graduate_project/core/resource/color_manager.dart';
 import 'package:graduate_project/core/resource/device_height_width_manager.dart';
 import 'package:graduate_project/core/resource/distance_manager.dart';
-import 'package:graduate_project/core/resource/font_family_manger.dart';
 import 'package:graduate_project/core/resource/icon_manager.dart';
 import 'package:graduate_project/core/resource/padding_manager.dart';
 import 'package:graduate_project/core/resource/string_manager.dart';
@@ -24,7 +23,9 @@ class OnBoardingItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            SizedBox(height: HeightManager.h20),
+            SizedBox(
+              height: HeightManager.h32,
+            ),
             Padding(
               padding: PaddingManager.paddingHorizontal24,
               child: Visibility(
@@ -38,8 +39,9 @@ class OnBoardingItem extends StatelessWidget {
                     onTap: () => OnBoardingCubit.get(context)
                         .navigatToWelcomeView(context),
                     child: Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: WidthManager.w21),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: WidthManager.w19,
+                          vertical: HeightManager.h2),
                       decoration: BoxDecoration(
                         borderRadius:
                             BorderRadius.circular(RaduisValueManager.r30),
@@ -47,7 +49,9 @@ class OnBoardingItem extends StatelessWidget {
                       ),
                       child: Text(
                         StringManager.skip,
-                        style: TextStyleManager.light24(),
+                        style: TextStyleManager.semiBold17(
+                          color: ColorManager.primaryColor,
+                        ),
                       ),
                     ),
                   ),
@@ -76,7 +80,7 @@ class OnBoardingItem extends StatelessWidget {
             SizedBox(height: HeightManager.h10),
             Text(
               item.title,
-              style: TextStyleManager.black32(),
+              style: TextStyleManager.bold28(),
               textAlign: TextAlign.center,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
@@ -84,14 +88,27 @@ class OnBoardingItem extends StatelessWidget {
             SizedBox(height: HeightManager.h20),
             Padding(
               padding: PaddingManager.paddingHorizontal24,
-              child: Text(
-                item.subTitle,
-                style: TextStyleManager.medium24(
-                  fontFamily: FontFamilyManger.avenirLTStd,
-                ),
-                textAlign: TextAlign.center,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 3,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  SvgPicture.asset(
+                    IconManager.startquot,
+                    alignment: Alignment.centerLeft,
+                  ),
+                  Text(
+                    item.subTitle,
+                    style: TextStyleManager.semiBold16(
+                      color: ColorManager.purple1Color,
+                    ),
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 3,
+                  ),
+                  SvgPicture.asset(
+                    IconManager.endquot,
+                    alignment: Alignment.centerRight,
+                  ),
+                ],
               ),
             ),
             SizedBox(height: HeightManager.h42),
