@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduate_project/core/dependency_injection/di.dart';
+import 'package:graduate_project/features/saving/manager/cubit/get_all_data_saving_cubit.dart';
 import 'package:graduate_project/features/saving/manager/dictionary_saving_cubit/dictionary_saving_cubit.dart';
+import 'package:graduate_project/features/saving/manager/translation_saving/trsanlation_saving_cubit.dart';
 import 'package:graduate_project/features/saving/manager/video_to_audio_save/video_to_audio_save_cubit.dart';
 import 'package:graduate_project/features/saving/manager/video_to_text_cubit/video_to_text_cubitt.dart';
+import 'package:graduate_project/features/saving/presentation/widget/custom_body_of_all_data.dart';
+import 'package:graduate_project/features/saving/presentation/widget/custom_body_of_translation.dart';
 import 'package:graduate_project/features/saving/presentation/widget/custom_body_of_dictioanry.dart';
 import 'package:graduate_project/features/saving/presentation/widget/custom_body_of_video_to_audio.dart';
 import 'package:graduate_project/features/saving/presentation/widget/custom_body_of_video_to_text.dart';
-import 'package:graduate_project/features/saving/presentation/widget/custom_loading_body.dart';
 // ignore: depend_on_referenced_packages, unnecessary_import
 import 'package:meta/meta.dart';
 
@@ -23,6 +26,8 @@ class SavingCubit extends Cubit<SavingState> {
     di<DictionarySavingCubit>().list = [];
     di<VideoToTextCubit>().videoToTextSaveModel = null;
     di<VideoToAudioSaveCubit>().videoToAudioSaveModel = null;
+    di<TrsanlationSavingCubit>().translationSavingModel = null;
+    di<GetAllDataSavingCubit>().getAllDataModel = null;
   }
 
   void changeSavingIndex({required int index}) {
@@ -35,14 +40,17 @@ class SavingCubit extends Cubit<SavingState> {
       case 0:
 
         //All
-        return CustomLoadingBody();
+        return CustomBodyOfAllData();
       case 1:
         // Dictionar
-        return CustomBodyOfDictioanry();
+        return CustomBodyOfTranslation();
       case 2:
+        // Dictionar
+        return CustomBodyOfDictioanry();
+      case 3:
         // Video to Audio
         return CustomBodyOfVideoToAudio();
-      case 3:
+      case 4:
         // Video to text
         return CustomBodyOfVideoToText();
       default:

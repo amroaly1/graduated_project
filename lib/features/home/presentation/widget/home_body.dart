@@ -7,9 +7,11 @@ import 'package:graduate_project/core/resource/icon_manager.dart';
 import 'package:graduate_project/core/resource/padding_manager.dart';
 import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
+import 'package:graduate_project/core/route/navigation_manager.dart';
+import 'package:graduate_project/core/route/screen_manager.dart';
 import 'package:graduate_project/features/home/presentation/widget/body_of_card_recentaly_translate.dart';
 import 'package:graduate_project/features/home/presentation/widget/body_of_home_of_recentaly_saved.dart';
-import 'package:graduate_project/features/home/presentation/widget/continue_where_you_left_off.dart';
+import 'package:graduate_project/features/home/presentation/widget/recentaly_chat.dart';
 import 'package:graduate_project/features/home/presentation/widget/custom_dictionary_home_card.dart';
 import 'package:graduate_project/features/home/presentation/widget/custom_home_card.dart';
 import 'package:graduate_project/features/home/presentation/widget/custom_home_chating_with_ai.dart';
@@ -53,17 +55,17 @@ class HomeBody extends StatelessWidget {
                   SizedBox(
                     height: HeightManager.h15,
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: WidthManager.w10),
-                    child: Text(
-                      StringManager.whatsYourPlanforToday,
-                      style: TextStyleManager.semiBold15(),
-                    ),
-                  ),
-                  SizedBox(
-                    height: HeightManager.h19,
-                  ),
-                  ContinueWhereYouLeftOff(),
+                  // Padding(
+                  //   padding: EdgeInsets.only(left: WidthManager.w10),
+                  //   child: Text(
+                  //     StringManager.whatsYourPlanforToday,
+                  //     style: TextStyleManager.semiBold15(),
+                  //   ),
+                  // ),
+                  // SizedBox(
+                  //   height: HeightManager.h19,
+                  // ),
+                  RecentlyChat(),
                   SizedBox(
                     height: HeightManager.h13,
                   ),
@@ -87,7 +89,12 @@ class HomeBody extends StatelessWidget {
                   CustomHomeCard(
                     title: StringManager.recentlySaved,
                     button: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        NavigationManager.push(
+                          context: context,
+                          screen: ScreenManager.savingView,
+                        );
+                      },
                       child: Text(
                         StringManager.seeAll,
                         style: TextStyleManager.regular10(

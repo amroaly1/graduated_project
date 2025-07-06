@@ -88,6 +88,7 @@ abstract class StringManager {
   static const String seeDictionary = "See Dictionary";
   static const String howcanIassistyouinsignlanguage =
       "How can I assist you in sign language?";
+  static const String recentlyChats = "Recently Chats";
 
   // stream screen
   static const String liveTranslation = "Live Translation";

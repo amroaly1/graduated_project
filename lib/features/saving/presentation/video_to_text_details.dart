@@ -7,71 +7,75 @@ import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
 import 'package:graduate_project/core/widget/cutsom_app_bar_of_sub_page.dart';
 import 'package:graduate_project/features/saving/data/model/video_to_text_save_model.dart';
+import 'package:graduate_project/features/saving/presentation/widget/show_video.dart';
 
 class VideoToTextDetails extends StatelessWidget {
   const VideoToTextDetails({super.key, required this.item});
   final TranslationsText item;
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
-        children: [
-          CutsomAppBarOfSubPage(),
-          SizedBox(height: HeightManager.h29),
-          Padding(
-            padding: PaddingManager.paddingHorizontal24,
-            child: Column(
-              children: [
-                Container(
-                  width: double.infinity,
-                  // height: HeightManager.h319,
-                  height: DeviceHeightWidthManager.subOfHeight(
-                    context,
-                    HeightOfDesign.h319,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(RaduisValueManager.r10),
-                  ),
-                  clipBehavior: Clip.antiAlias,
-                  child: Image.network(
-                    item.thumbnailUrl,
-                  ),
-                ),
-                SizedBox(height: HeightManager.h15),
-                Padding(
-                  padding: EdgeInsets.only(left: WidthManager.w12),
-                  child: Column(
-                    children: [
-                      Row(
-                        spacing: WidthManager.w6,
-                        children: [
-                          Text(
-                            StringManager.filename,
-                            style: TextStyleManager.bold14(),
-                          ),
-                          Expanded(
-                            child: Text(
-                              item.filename,
-                              style: TextStyleManager.light13(),
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
+            CutsomAppBarOfSubPage(),
+            SizedBox(height: HeightManager.h29),
+            Padding(
+              padding: PaddingManager.paddingHorizontal24,
+              child: Column(
+                children: [
+                  // Container(
+                  //   width: double.infinity,
+                  //   // height: HeightManager.h319,
+                  //   height: DeviceHeightWidthManager.subOfHeight(
+                  //     context,
+                  //     HeightOfDesign.h319,
+                  //   ),
+                  //   decoration: BoxDecoration(
+                  //     borderRadius: BorderRadius.circular(RaduisValueManager.r10),
+                  //   ),
+                  //   clipBehavior: Clip.antiAlias,
+                  //   child: Image.network(
+                  //     item.thumbnailUrl,
+                  //   ),
+                  // ),
+                  ShowVideo(url: item.videoUrl),
+                  SizedBox(height: HeightManager.h15),
+                  Padding(
+                    padding: EdgeInsets.only(left: WidthManager.w12),
+                    child: Column(
+                      children: [
+                        Row(
+                          spacing: WidthManager.w6,
+                          children: [
+                            Text(
+                              StringManager.filename,
+                              style: TextStyleManager.bold14(),
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
+                            Expanded(
+                              child: Text(
+                                item.filename,
+                                style: TextStyleManager.light13(),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          SizedBox(
-            height: HeightManager.h20,
-          ),
-          BodySectionOfTranaslateToText(
-            data: item,
-          ),
-        ],
+            SizedBox(
+              height: HeightManager.h20,
+            ),
+            BodySectionOfTranaslateToText(
+              data: item,
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -115,10 +119,16 @@ class BodySectionOfTranaslateToText extends StatelessWidget {
               ),
               Expanded(
                 child: SingleChildScrollView(
-                  child: Text(
-                    data.text,
-                    style: TextStyleManager.light13(
-                      color: ColorManager.black,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: WidthManager.w20,
+                    ),
+                    child: Text(
+                      data.text,
+                      style: TextStyleManager.light16(
+                        color: ColorManager.black,
+                      ),
+                      textAlign: TextAlign.start,
                     ),
                   ),
                 ),

@@ -9,6 +9,7 @@ List<SearchTypeModel> searchTypeList = [
 
 final List<String> categoriesSaving = [
   "All",
+  "Text to Video",
   'Dictionary',
   'Video to Audio',
   'Video to Text',

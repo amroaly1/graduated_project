@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -43,10 +45,12 @@ class BodySectionOfTransalteToAudio extends StatelessWidget {
           ),
           child: BlocProvider.value(
             value: di<AudioPlayerCubit>()
-              ..init(
-                  url: "${ApiEndPoint.baseUrl2}/${videoToAudioModel.audioUrl}"),
+              ..init(url: "${ApiEndPoint.baseUrl2}${videoToAudioModel.audioUrl}"
+                  // url: "https://server6.mp3quran.net/akdr/001.mp3",
+                  ),
             child: BlocBuilder<AudioPlayerCubit, AudioPlayerState>(
               builder: (context, state) {
+                log(videoToAudioModel.audioUrl);
                 if (state is AudioPlayerInitialFailing) {
                   Center(
                     child: Text(

@@ -6,6 +6,7 @@ import 'package:graduate_project/core/resource/icon_manager.dart';
 import 'package:graduate_project/core/resource/image_manager.dart';
 import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
+import 'package:graduate_project/features/home/manager/home_cubit/cubit/home_cubit.dart';
 
 class CustomHomeChattingWithAI extends StatelessWidget {
   const CustomHomeChattingWithAI({
@@ -52,7 +53,9 @@ class CustomHomeChattingWithAI extends StatelessWidget {
                       ),
                     ),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        HomeCubit.get(context).chnageCurrentIndex(2);
+                      },
                       icon: SvgPicture.asset(
                         IconManager.arrowRight,
                         colorFilter: ColorFilter.mode(

@@ -31,10 +31,14 @@ import 'package:graduate_project/features/profile/manager/change_image_cubit/cha
 import 'package:graduate_project/features/profile/manager/change_password.dart/change_password_cubit.dart';
 import 'package:graduate_project/features/profile/manager/edit_profile_cubit/edit_profile_cubit.dart';
 import 'package:graduate_project/features/saving/data/repo/dicationry_saving_repo.dart';
+import 'package:graduate_project/features/saving/data/repo/get_all_data_saving_repo.dart';
+import 'package:graduate_project/features/saving/data/repo/trasnlation_saving_repo.dart';
 import 'package:graduate_project/features/saving/data/repo/video_to_audio_save_repo.dart';
 import 'package:graduate_project/features/saving/data/repo/video_to_text_save_repo.dart';
+import 'package:graduate_project/features/saving/manager/cubit/get_all_data_saving_cubit.dart';
 import 'package:graduate_project/features/saving/manager/dictionary_saving_cubit/dictionary_saving_cubit.dart';
 import 'package:graduate_project/features/saving/manager/saving_cubit/saving_cubit.dart';
+import 'package:graduate_project/features/saving/manager/translation_saving/trsanlation_saving_cubit.dart';
 import 'package:graduate_project/features/saving/manager/video_to_audio_save/video_to_audio_save_cubit.dart';
 import 'package:graduate_project/features/saving/manager/video_to_text_cubit/video_to_text_cubitt.dart';
 import 'package:graduate_project/features/upload/data/repo/saving_video_repo.dart';
@@ -170,6 +174,18 @@ Future<void> setUp() async {
       connectInternetHelper: di<ConnectInternetHelper>(),
     ),
   );
+  di.registerSingleton<TrasnlationSavingRepo>(
+    TrasnlationSavingRepo(
+      apiHelper: di<ApiHelper>(),
+      connectInternetHelper: di<ConnectInternetHelper>(),
+    ),
+  );
+  di.registerSingleton<GetAllDataSavingRepo>(
+    GetAllDataSavingRepo(
+      apiHelper: di<ApiHelper>(),
+      connectInternetHelper: di<ConnectInternetHelper>(),
+    ),
+  );
 
   di.registerSingleton<EditProfileCubit>(
       EditProfileCubit(di<EditProfileRepo>()));
@@ -198,5 +214,11 @@ Future<void> setUp() async {
   ));
   di.registerSingleton<DictionarySavingCubit>(DictionarySavingCubit(
     di<DicationrySavingRepo>(),
+  ));
+  di.registerSingleton<TrsanlationSavingCubit>(TrsanlationSavingCubit(
+    di<TrasnlationSavingRepo>(),
+  ));
+  di.registerSingleton<GetAllDataSavingCubit>(GetAllDataSavingCubit(
+    di<GetAllDataSavingRepo>(),
   ));
 }

@@ -45,6 +45,7 @@ class CustomCardLaoding extends StatelessWidget {
         contentPadding: EdgeInsets.symmetric(
           horizontal: WidthManager.w13,
         ),
+        // ignore: sized_box_for_whitespace
         leading: Container(
           width: WidthManager.w70,
           height: HeightManager.h130,

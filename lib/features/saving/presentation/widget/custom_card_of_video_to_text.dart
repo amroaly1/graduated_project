@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:graduate_project/core/dependency_injection/di.dart';
 import 'package:graduate_project/core/resource/color_manager.dart';
 import 'package:graduate_project/core/resource/distance_manager.dart';
 import 'package:graduate_project/core/resource/icon_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
 import 'package:graduate_project/features/saving/data/model/video_to_text_save_model.dart';
+import 'package:graduate_project/features/saving/manager/cubit/get_all_data_saving_cubit.dart';
 import 'package:graduate_project/features/saving/manager/video_to_text_cubit/video_to_text_cubitt.dart';
 import 'package:graduate_project/features/saving/presentation/video_to_text_details.dart';
 import 'package:intl/intl.dart';
@@ -98,8 +100,11 @@ class CustomCardOfVideoToText extends StatelessWidget {
             Material(
               child: InkWell(
                 borderRadius: BorderRadius.circular(RaduisValueManager.r8),
-                onTap: () => VideoToTextCubit.get(context)
-                    .deleteItem(trsnlationid: item.id),
+                onTap: () {
+                  VideoToTextCubit.get(context)
+                      .deleteItem(trsnlationid: item.id);
+                  di<GetAllDataSavingCubit>().delete();
+                },
                 splashColor: Colors.grey.shade400,
                 child: SvgPicture.asset(
                   IconManager.deleteiconsaving,

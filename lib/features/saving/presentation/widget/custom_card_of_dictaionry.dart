@@ -1,14 +1,19 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:graduate_project/core/dependency_injection/di.dart';
+import 'package:graduate_project/core/helper/get_video_thumbnail.dart';
 import 'package:graduate_project/core/resource/color_manager.dart';
 import 'package:graduate_project/core/resource/distance_manager.dart';
 import 'package:graduate_project/core/resource/icon_manager.dart';
-import 'package:graduate_project/core/resource/image_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
 import 'package:graduate_project/features/saving/data/model/dictionary_saving_model.dart';
+import 'package:graduate_project/features/saving/manager/cubit/get_all_data_saving_cubit.dart';
 import 'package:graduate_project/features/saving/manager/dictionary_saving_cubit/dictionary_saving_cubit.dart';
 import 'package:graduate_project/features/saving/presentation/dictionary_details_saving.dart';
 import 'package:intl/intl.dart';
+import 'package:redacted/redacted.dart';
 
 class CustomCardOfDictaionry extends StatelessWidget {
   const CustomCardOfDictaionry({super.key, required this.item});
@@ -34,11 +39,32 @@ class CustomCardOfDictaionry extends StatelessWidget {
         contentPadding: EdgeInsets.symmetric(
           horizontal: WidthManager.w13,
         ),
-        leading: SvgPicture.asset(
-          ImageManager.homevideo,
-          fit: BoxFit.scaleDown,
-          width: WidthManager.w20,
-          height: HeightManager.h40,
+        leading: FutureBuilder<File?>(
+          future: getVideoThumbnail(item.videoUrl),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              // ignore: sized_box_for_whitespace
+              return Container(
+                width: WidthManager.w70,
+                height: HeightManager.h130,
+              ).redacted(
+                context: context,
+                redact: true,
+                configuration: RedactedConfiguration(
+                  animationDuration:
+                      const Duration(milliseconds: 800), //default
+                ),
+              );
+            } else if (snapshot.hasData) {
+              return Image.file(
+                snapshot.data!,
+                width: WidthManager.w70,
+                height: HeightManager.h130,
+              );
+            } else {
+              return Text("Failed to generate thumbnail");
+            }
+          },
         ),
         title: InkWell(
           onTap: () {
@@ -95,6 +121,7 @@ class CustomCardOfDictaionry extends StatelessWidget {
                 onTap: () {
                   DictionarySavingCubit.get(context)
                       .deleteItem(id: item.dictionaryEntryId);
+                  di<GetAllDataSavingCubit>().delete();
                 },
                 splashColor: Colors.grey.shade400,
                 child: SvgPicture.asset(

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduate_project/core/network/api_end_point.dart';
 import 'package:graduate_project/features/upload/data/model/video_to_audio_model.dart';
 import 'package:graduate_project/features/upload/data/model/video_to_text_model.dart';
 import 'package:graduate_project/features/upload/data/repo/upload_video_repo.dart';
@@ -39,7 +40,7 @@ class UploadVideoCubit extends Cubit<UploadVideoState> {
     try {
       // Open new socket connection
       _channel = IOWebSocketChannel.connect(
-        'wss://9d47-34-125-181-156.ngrok-free.app/ws/${uploadVideoRepo.getUserId()}',
+        '${ApiEndPoint.webSoket}${uploadVideoRepo.getUserId()}',
       );
 
       // Start listening to the socket

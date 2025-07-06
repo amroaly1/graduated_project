@@ -6,6 +6,7 @@ import 'package:graduate_project/core/resource/distance_manager.dart';
 import 'package:graduate_project/core/resource/icon_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
 import 'package:graduate_project/features/saving/data/model/video_to_audio_save_model.dart';
+import 'package:graduate_project/features/saving/manager/cubit/get_all_data_saving_cubit.dart';
 import 'package:graduate_project/features/saving/manager/video_to_audio_save/video_to_audio_save_cubit.dart';
 import 'package:graduate_project/features/saving/presentation/video_to_audio_detials.dart';
 import 'package:intl/intl.dart';
@@ -97,6 +98,7 @@ class CustomCardOfVideoToAudio extends StatelessWidget {
                 borderRadius: BorderRadius.circular(RaduisValueManager.r8),
                 onTap: () {
                   di<VideoToAudioSaveCubit>().deleteItem(trsnlationid: item.id);
+                  di<GetAllDataSavingCubit>().delete();
                 },
                 splashColor: Colors.grey.shade400,
                 child: SvgPicture.asset(

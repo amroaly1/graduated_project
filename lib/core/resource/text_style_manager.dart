@@ -221,6 +221,30 @@ abstract class TextStyleManager {
         color: color,
         shadows: shadows,
       );
+  static TextStyle light12({
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+    Color color = ColorManager.black,
+    List<Shadow>? shadows,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.light,
+        fontSize: FontSizeManager.s10,
+        color: color,
+        shadows: shadows,
+      );
+  static TextStyle light7({
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+    Color color = ColorManager.black,
+    List<Shadow>? shadows,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.light,
+        fontSize: FontSizeManager.s7,
+        color: color,
+        shadows: shadows,
+      );
   static TextStyle light14({
     String? fontFamily = FontFamilyManger.avenirLTStd,
     Color color = ColorManager.gray3,

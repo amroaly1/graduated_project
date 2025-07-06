@@ -49,9 +49,12 @@ class ChatRepo {
         await connectInternetHelper.checkInternetConnection();
     if (isConnectToInternet) {
       try {
-        var response = await api.post(
-            endpoint: ApiEndPoint.saveWordInChat,
-            data: {ApiKeys.userid: userId, ApiKeys.text: word});
+        var response =
+            await api.post(endpoint: ApiEndPoint.saveWordInChat, data: {
+          ApiKeys.userid: userId,
+          ApiKeys.text: word,
+          "generate_audio": false,
+        });
         if (response is ApiReponseSuccess) {
           return right(SaveChatModel.fromJson(response.data));
         } else {

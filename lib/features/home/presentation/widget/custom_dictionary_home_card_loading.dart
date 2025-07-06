@@ -38,6 +38,13 @@ class CustomDictionaryHomeCardLoading extends StatelessWidget {
               Text(
                 DateOfDay.getDataOfDay(),
                 style: TextStyleManager.semiBold10(),
+              ).redacted(
+                context: context,
+                redact: true,
+                configuration: RedactedConfiguration(
+                  animationDuration:
+                      const Duration(milliseconds: 800), //default
+                ),
               ),
               TextButton(
                 onPressed: () {},

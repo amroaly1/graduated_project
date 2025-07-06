@@ -10,6 +10,7 @@ abstract class ColorManager {
   static const Color primaryColorlight4 = Color(0xffEDE7FD);
   static const Color primaryColorlight5 = Color(0xffC3B8ED);
   static const Color primaryColorlight7 = Color(0xffF1EAFE);
+  static const Color primaryColorlight8 = Color(0xfff9f6fc);
   static const Color primaryColorlight6 = Color(0xff9C91C0);
   static Color primaryColorOpacity70 = Color(0xff9780B8).withValues(alpha: 0.7);
   static const Color purple1Color = Color(0xff77539A);
@@ -57,4 +58,6 @@ abstract class ColorManager {
   static const Color gray17 = Color(0xff848484);
   static const Color gray18 = Color(0xffEEEDF0);
   static const Color gray19 = Color(0xff6F6D6D);
+  static const Color gray20 = Color(0xffEEEEEE);
+  static const Color gray21 = Color(0xff444444);
 }
