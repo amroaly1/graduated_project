@@ -30,8 +30,18 @@ import 'package:graduate_project/features/profile/data/repo/edit_profile_repo.da
 import 'package:graduate_project/features/profile/manager/change_image_cubit/change_image_cubit.dart';
 import 'package:graduate_project/features/profile/manager/change_password.dart/change_password_cubit.dart';
 import 'package:graduate_project/features/profile/manager/edit_profile_cubit/edit_profile_cubit.dart';
-import 'package:graduate_project/features/saving/manager/cubit/saving_cubit.dart';
+import 'package:graduate_project/features/saving/data/repo/dicationry_saving_repo.dart';
+import 'package:graduate_project/features/saving/data/repo/video_to_audio_save_repo.dart';
+import 'package:graduate_project/features/saving/data/repo/video_to_text_save_repo.dart';
+import 'package:graduate_project/features/saving/manager/dictionary_saving_cubit/dictionary_saving_cubit.dart';
+import 'package:graduate_project/features/saving/manager/saving_cubit/saving_cubit.dart';
+import 'package:graduate_project/features/saving/manager/video_to_audio_save/video_to_audio_save_cubit.dart';
+import 'package:graduate_project/features/saving/manager/video_to_text_cubit/video_to_text_cubitt.dart';
+import 'package:graduate_project/features/upload/data/repo/saving_video_repo.dart';
+import 'package:graduate_project/features/upload/data/repo/upload_video_repo.dart';
 import 'package:graduate_project/features/upload/manager/audio_player_cubit/audio_player_cubit.dart';
+import 'package:graduate_project/features/upload/manager/saving_video_cubit/saving_video_cubit.dart';
+import 'package:graduate_project/features/upload/manager/upload_video_cubit.dart/upload_video_cubit.dart';
 import 'package:graduate_project/features/upload/manager/upload_cubit/upload_cubit.dart';
 
 final di = GetIt.instance;
@@ -130,6 +140,36 @@ Future<void> setUp() async {
       connectInternetHelper: di<ConnectInternetHelper>(),
     ),
   );
+  di.registerSingleton<UploadVideoRepo>(
+    UploadVideoRepo(
+      apiHelper: di<ApiHelper>(),
+      connectInternetHelper: di<ConnectInternetHelper>(),
+    ),
+  );
+  di.registerSingleton<SavingVideoRepo>(
+    SavingVideoRepo(
+      apiHelper: di<ApiHelper>(),
+      connectInternetHelper: di<ConnectInternetHelper>(),
+    ),
+  );
+  di.registerSingleton<VideoToTextSaveRepo>(
+    VideoToTextSaveRepo(
+      apiHelper: di<ApiHelper>(),
+      connectInternetHelper: di<ConnectInternetHelper>(),
+    ),
+  );
+  di.registerSingleton<VideoToAudioSaveRepo>(
+    VideoToAudioSaveRepo(
+      apiHelper: di<ApiHelper>(),
+      connectInternetHelper: di<ConnectInternetHelper>(),
+    ),
+  );
+  di.registerSingleton<DicationrySavingRepo>(
+    DicationrySavingRepo(
+      apiHelper: di<ApiHelper>(),
+      connectInternetHelper: di<ConnectInternetHelper>(),
+    ),
+  );
 
   di.registerSingleton<EditProfileCubit>(
       EditProfileCubit(di<EditProfileRepo>()));
@@ -144,4 +184,19 @@ Future<void> setUp() async {
       HomeDictionaryCubit(di<HomeDictionarRepo>()));
   di.registerSingleton<UploadCubit>(UploadCubit());
   di.registerSingleton<AudioPlayerCubit>(AudioPlayerCubit());
+  di.registerSingleton<UploadVideoCubit>(UploadVideoCubit(
+    di<UploadVideoRepo>(),
+  ));
+  di.registerSingleton<SavingVideoCubit>(SavingVideoCubit(
+    di<SavingVideoRepo>(),
+  ));
+  di.registerSingleton<VideoToTextCubit>(VideoToTextCubit(
+    di<VideoToTextSaveRepo>(),
+  ));
+  di.registerSingleton<VideoToAudioSaveCubit>(VideoToAudioSaveCubit(
+    di<VideoToAudioSaveRepo>(),
+  ));
+  di.registerSingleton<DictionarySavingCubit>(DictionarySavingCubit(
+    di<DicationrySavingRepo>(),
+  ));
 }

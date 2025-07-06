@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:graduate_project/core/dependency_injection/di.dart';
+import 'package:graduate_project/core/network/api_end_point.dart';
 import 'package:graduate_project/core/resource/color_manager.dart';
 import 'package:graduate_project/core/resource/device_height_width_manager.dart';
 import 'package:graduate_project/core/resource/distance_manager.dart';
@@ -10,11 +11,14 @@ import 'package:graduate_project/core/resource/icon_manager.dart';
 import 'package:graduate_project/core/resource/padding_manager.dart';
 import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
+import 'package:graduate_project/features/upload/data/model/video_to_audio_model.dart';
 import 'package:graduate_project/features/upload/manager/audio_player_cubit/audio_player_cubit.dart';
+import 'package:graduate_project/features/upload/manager/saving_video_cubit/saving_video_cubit.dart';
 
 class BodySectionOfTransalteToAudio extends StatelessWidget {
-  const BodySectionOfTransalteToAudio({super.key});
-
+  const BodySectionOfTransalteToAudio(
+      {super.key, required this.videoToAudioModel});
+  final VideoToAudioModel videoToAudioModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -39,7 +43,8 @@ class BodySectionOfTransalteToAudio extends StatelessWidget {
           ),
           child: BlocProvider.value(
             value: di<AudioPlayerCubit>()
-              ..init(url: "https://server6.mp3quran.net/akdr/001.mp3"),
+              ..init(
+                  url: "${ApiEndPoint.baseUrl2}/${videoToAudioModel.audioUrl}"),
             child: BlocBuilder<AudioPlayerCubit, AudioPlayerState>(
               builder: (context, state) {
                 if (state is AudioPlayerInitialFailing) {
@@ -78,8 +83,9 @@ class BodySectionOfTransalteToAudio extends StatelessWidget {
                           onTap: () {
                             AudioPlayerCubit.get(context).skipBackward();
                           },
-                          child: Image.asset(
+                          child: SvgPicture.asset(
                             IconManager.backward10,
+                            height: HeightManager.h24,
                           ),
                         ),
                         InkWell(
@@ -95,7 +101,7 @@ class BodySectionOfTransalteToAudio extends StatelessWidget {
                                   ? Icons.pause
                                   : Icons.play_arrow,
                               color: ColorManager.whight,
-                              size: HeightManager.h29,
+                              size: HeightManager.h32,
                             ),
                           ),
                         ),
@@ -103,21 +109,45 @@ class BodySectionOfTransalteToAudio extends StatelessWidget {
                           onTap: () {
                             AudioPlayerCubit.get(context).skipForward();
                           },
-                          child: Image.asset(
+                          child: SvgPicture.asset(
                             IconManager.forward10,
+                            height: HeightManager.h24,
                           ),
                         ),
-                        Column(
-                          children: [
-                            Icon(
-                              Icons.bookmark_border_outlined,
-                              color: ColorManager.primaryColor,
-                            ),
-                            Text(
-                              StringManager.save,
-                              style: TextStyleManager.light8(),
-                            ),
-                          ],
+                        BlocProvider.value(
+                          value: di<SavingVideoCubit>()..init(),
+                          child:
+                              BlocConsumer<SavingVideoCubit, SavingVideoState>(
+                            listener: (context, state) {
+                              if (state is SavingVideoErrorState) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(content: Text(state.errMessage)));
+                              }
+                            },
+                            builder: (context, state) {
+                              return InkWell(
+                                onTap: () => SavingVideoCubit.get(context)
+                                    .onTap(
+                                        trsnlationid:
+                                            videoToAudioModel.translationId,
+                                        returnaudio: true),
+                                child: Column(
+                                  children: [
+                                    Icon(
+                                      SavingVideoCubit.get(context).isSaved
+                                          ? Icons.bookmark
+                                          : Icons.bookmark_border_outlined,
+                                      color: ColorManager.primaryColor,
+                                    ),
+                                    Text(
+                                      StringManager.save,
+                                      style: TextStyleManager.light8(),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            },
+                          ),
                         ),
                       ],
                     ),

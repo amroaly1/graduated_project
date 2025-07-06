@@ -10,7 +10,7 @@ class AudioPlayerCubit extends Cubit<AudioPlayerState> {
 
   static AudioPlayerCubit get(context) => BlocProvider.of(context);
 
-  final AudioPlayer player = AudioPlayer();
+  late AudioPlayer player;
   Future<double> get duration async {
     Duration? du = await player.getDuration();
     return du?.inSeconds.toDouble() ?? 0;
@@ -30,6 +30,7 @@ class AudioPlayerCubit extends Cubit<AudioPlayerState> {
 
   void init({required String url}) async {
     emit(AudioPlayerInitialLoading());
+    player = AudioPlayer();
     try {
       await player.setReleaseMode(ReleaseMode.stop);
       await player.setSourceUrl(url);
@@ -46,9 +47,11 @@ class AudioPlayerCubit extends Cubit<AudioPlayerState> {
   }
 
   void listenToStreamEnd() {
-    player.onPlayerComplete.listen((event) {
-      emit(AudioPlayerIsComplete());
-    });
+    if (!isClosed) {
+      player.onPlayerComplete.listen((event) {
+        emit(AudioPlayerIsComplete());
+      });
+    }
   }
 
   void pause() async {

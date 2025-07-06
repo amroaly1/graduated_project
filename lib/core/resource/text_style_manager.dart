@@ -124,6 +124,18 @@ abstract class TextStyleManager {
         color: color,
         shadows: shadows,
       );
+  static TextStyle bold13({
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+    Color color = ColorManager.black,
+    List<Shadow>? shadows,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.bold,
+        fontSize: FontSizeManager.s13,
+        color: color,
+        shadows: shadows,
+      );
   static TextStyle bold20({
     String? fontFamily = FontFamilyManger.avenirLTStd,
     Color color = ColorManager.gray2,
@@ -413,6 +425,17 @@ abstract class TextStyleManager {
         height: height,
         fontWeight: FontWeightManager.regular,
         fontSize: FontSizeManager.s10,
+        color: color,
+      );
+  static TextStyle regular11(
+          {Color color = ColorManager.gray11,
+          double? height,
+          String? fontFamily}) =>
+      TextStyle(
+        fontFamily: fontFamily ?? FontFamilyManger.avenirLTStd,
+        height: height,
+        fontWeight: FontWeightManager.regular,
+        fontSize: FontSizeManager.s11,
         color: color,
       );
   static TextStyle semiBold15({

@@ -104,6 +104,7 @@ class UploadBody extends StatelessWidget {
               BlocListener<UploadCubit, UploadState>(
                 listener: (context, state) {
                   if (state is UploadVideoDone) {
+                    NavigationManager.pop(context: context);
                     NavigationManager.push(
                         context: context,
                         screen: ScreenManager.translatevideoView);

@@ -57,8 +57,8 @@ abstract class IconManager {
   static const String copygrey = "${_baseUrl}copy_grey.svg";
   static const String sharegrey = "${_baseUrl}share_grey.svg";
   static const String savegrey = "${_baseUrl}save_grey.svg";
-  static const String backward10 = "${_baseUrl}backward 1.png";
-  static const String forward10 = "${_baseUrl}forward 1.png";
+  static const String backward10 = "${_baseUrl}backward 1.svg";
+  static const String forward10 = "${_baseUrl}forward 1.svg";
 
   static const String recentalysavedpersonpng =
       "${_baseUrl}recentaly_saved_person.png";

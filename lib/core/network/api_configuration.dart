@@ -7,7 +7,7 @@ class ApiConfiguration {
       SharedPreferenceHelper();
   static BaseOptions option = BaseOptions(
     // baseUrl: ApiEndPoint.baseUrlOriginal,
-    receiveTimeout: Duration(minutes: 1),
+    // receiveTimeout: Duration(minutes: 1),
     sendTimeout: Duration(minutes: 1),
     headers: {
       ApiKeys.authorization:

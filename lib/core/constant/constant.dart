@@ -1,5 +1,4 @@
 import 'package:graduate_project/features/dictionary/data/model/search_type_model.dart';
-import 'package:graduate_project/features/saving/data/saving_category_model.dart';
 
 List<SearchTypeModel> searchTypeList = [
   SearchTypeModel(title: "Must Match", value: 0),
@@ -8,25 +7,9 @@ List<SearchTypeModel> searchTypeList = [
   SearchTypeModel(title: "Ends With", value: 3),
 ];
 
-final List<SavingCategoryModel> categoriesSaving = [
-  SavingCategoryModel(
-    name: "All",
-    items: [],
-  ),
-  SavingCategoryModel(
-    name: 'Dictionary',
-    items: [],
-  ),
-  SavingCategoryModel(
-    name: 'Video to Audio',
-    items: [],
-  ),
-  SavingCategoryModel(
-    name: 'Video to Text',
-    items: [],
-  ),
-  SavingCategoryModel(
-    name: "Chat",
-    items: [],
-  ),
+final List<String> categoriesSaving = [
+  "All",
+  'Dictionary',
+  'Video to Audio',
+  'Video to Text',
 ];

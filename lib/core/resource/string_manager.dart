@@ -162,6 +162,7 @@ abstract class StringManager {
   static const String continuee = "Continue";
   static const String startChatting = "Start Chatting";
   static const String clickhere = "click here";
+  static const String yesdelete = "Yes, Delete";
 
   // validation
   static const String pleaseEnterYourEmail = "please enter your email";
@@ -238,4 +239,8 @@ abstract class StringManager {
   static const String translatetoAudio = "Translate to Audio";
   static const String ifyouwanttotranslateanothervideo =
       "If you want to translate another video?";
+  static const String areyousuretoremovethisvideo =
+      "Are you sure to remove this video ?";
+  static const String thisvideowillbepermanentlydeletedandcannotberecovered =
+      "This video will be permanently deleted and cannot be recovered.";
 }

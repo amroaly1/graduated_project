@@ -27,6 +27,8 @@ import 'package:graduate_project/features/profile/presentation/profile_view.dart
 import 'package:graduate_project/features/saving/presentation/saving_view.dart';
 import 'package:graduate_project/features/stream/presentation/video_to_audio_view.dart';
 import 'package:graduate_project/features/stream/presentation/video_to_text_view.dart';
+import 'package:graduate_project/features/upload/data/model/video_to_audio_model.dart';
+import 'package:graduate_project/features/upload/data/model/video_to_text_model.dart';
 import 'package:graduate_project/features/upload/presentation/tranlsate_to_text_view.dart';
 import 'package:graduate_project/features/upload/presentation/translate_to_audio_view.dart';
 import 'package:graduate_project/features/upload/presentation/translate_video_view.dart';
@@ -56,7 +58,9 @@ abstract class RouteManager {
       case ScreenManager.translatevideoView:
         return customPageBuilder(TranslateVideoView());
       case ScreenManager.translateToAudioView:
-        return customPageBuilder(TranslateToAudioView());
+        return customPageBuilder(TranslateToAudioView(
+          videoToAudioModel: settings.arguments as VideoToAudioModel,
+        ));
       case ScreenManager.videotoaudioview:
         return customPageBuilder(VideoToAudioView());
       case ScreenManager.videototextview:
@@ -69,6 +73,7 @@ abstract class RouteManager {
         return customPageBuilder(WordDetailsView(
           word: settings.arguments as DictionaryItemModel,
         ));
+
       case ScreenManager.chatView:
         return customPageBuilder(ChatView());
       case ScreenManager.dictionarySearchView:
@@ -82,7 +87,9 @@ abstract class RouteManager {
       case ScreenManager.signDictionaryView:
         return customPageBuilder(SignDictionaryView());
       case ScreenManager.translateToTextView:
-        return customPageBuilder(TranlsateToTextView());
+        return customPageBuilder(TranlsateToTextView(
+          data: settings.arguments as VideoToTextModel,
+        ));
       case ScreenManager.resetPassowrdView:
         return customPageBuilder(ResetPasswordView(
           email: settings.arguments as String,

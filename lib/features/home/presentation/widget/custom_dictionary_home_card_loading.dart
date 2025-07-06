@@ -63,6 +63,12 @@ class CustomDictionaryHomeCardLoading extends StatelessWidget {
             style: TextStyleManager.bold15(
               height: 0,
             ),
+          ).redacted(
+            context: context,
+            redact: true,
+            configuration: RedactedConfiguration(
+              animationDuration: const Duration(milliseconds: 800), //default
+            ),
           ),
           Padding(
             padding: EdgeInsets.only(
@@ -159,12 +165,6 @@ class CustomDictionaryHomeCardLoading extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    ).redacted(
-      context: context,
-      redact: true,
-      configuration: RedactedConfiguration(
-        animationDuration: const Duration(milliseconds: 800), //default
       ),
     );
   }

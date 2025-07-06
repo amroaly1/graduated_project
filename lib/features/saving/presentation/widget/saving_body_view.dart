@@ -1,20 +1,15 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduate_project/core/constant/constant.dart';
 import 'package:graduate_project/core/resource/color_manager.dart';
 import 'package:graduate_project/core/resource/distance_manager.dart';
 import 'package:graduate_project/core/resource/font_family_manger.dart';
-import 'package:graduate_project/core/resource/image_manager.dart';
 import 'package:graduate_project/core/resource/padding_manager.dart';
 import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
 import 'package:graduate_project/core/resource/time_manager.dart';
 import 'package:graduate_project/core/widget/cutsom_app_bar_of_sub_page.dart';
-import 'package:graduate_project/features/saving/data/saving_category_model.dart';
-import 'package:graduate_project/features/saving/manager/cubit/saving_cubit.dart';
-import 'package:graduate_project/features/saving/presentation/widget/custom_card_saving.dart';
+import 'package:graduate_project/features/saving/manager/saving_cubit/saving_cubit.dart';
 
 class SavingBodyView extends StatelessWidget {
   const SavingBodyView({super.key});
@@ -59,9 +54,9 @@ class SavingBodyView extends StatelessWidget {
                         duration: TimeManager.mill500,
                         curve: Curves.elasticInOut,
                         margin: index == 0
-                            ? EdgeInsets.only(left: WidthManager.w24)
+                            ? EdgeInsets.only(left: WidthManager.w10)
                             : index == categoriesSaving.length - 1
-                                ? EdgeInsets.only(right: WidthManager.w24)
+                                ? EdgeInsets.only(right: WidthManager.w10)
                                 : null,
                         padding: EdgeInsets.symmetric(
                           horizontal: WidthManager.w16,
@@ -77,7 +72,7 @@ class SavingBodyView extends StatelessWidget {
                               : null,
                         ),
                         child: Text(
-                          categoriesSaving[index].name,
+                          categoriesSaving[index],
                           style: TextStyleManager.medium14(
                             color: index ==
                                     SavingCubit.get(context).currentSavingIndex
@@ -95,24 +90,13 @@ class SavingBodyView extends StatelessWidget {
           SizedBox(
             height: HeightManager.h16,
           ),
-          Expanded(
-              child: Padding(
-            padding: PaddingManager.paddingHorizontal24,
-            child: ListView.builder(
-              itemBuilder: (context, index) => CustomCardSaving(
-                item: SavingCategoryItem(
-                  title: "my name",
-                  subtitl1: "Source : YouTube",
-                  subtitl2: ". 15 Mars",
-                  image: ImageManager.savingimage,
-                ),
-                onTapShare: () {
-                  log("Share");
-                },
-                onTapDelete: () {},
-              ),
-              itemCount: 10,
-            ),
+          Expanded(child: BlocBuilder<SavingCubit, SavingState>(
+            builder: (context, state) {
+              return Padding(
+                padding: PaddingManager.paddingHorizontal24,
+                child: SavingCubit.get(context).buildSavingBody(),
+              );
+            },
           ))
         ],
       ),
