@@ -18,7 +18,7 @@ class TranslatioDetails extends StatelessWidget {
         CutsomAppBarOfSubPage(),
         SizedBox(height: HeightManager.h29),
         Padding(
-          padding: PaddingManager.paddingHorizontal24,
+          padding: PaddingManager.paddingHorizontal16,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,

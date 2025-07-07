@@ -15,8 +15,10 @@ class CustomCardOfVideoToAudio extends StatelessWidget {
   const CustomCardOfVideoToAudio({
     super.key,
     required this.item,
+    this.isSaving = true,
   });
   final TranslationsAudio item;
+  final bool isSaving;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -80,34 +82,38 @@ class CustomCardOfVideoToAudio extends StatelessWidget {
             ],
           ),
         ),
-        trailing: Row(
-          spacing: WidthManager.w9_28,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Material(
-              child: InkWell(
-                onTap: () {},
-                splashColor: Colors.grey.shade400,
-                child: SvgPicture.asset(
-                  IconManager.shareicon,
-                ),
-              ),
-            ),
-            Material(
-              child: InkWell(
-                borderRadius: BorderRadius.circular(RaduisValueManager.r8),
-                onTap: () {
-                  di<VideoToAudioSaveCubit>().deleteItem(trsnlationid: item.id);
-                  di<GetAllDataSavingCubit>().delete();
-                },
-                splashColor: Colors.grey.shade400,
-                child: SvgPicture.asset(
-                  IconManager.deleteiconsaving,
-                ),
-              ),
-            ),
-          ],
-        ),
+        trailing: isSaving
+            ? Row(
+                spacing: WidthManager.w9_28,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Material(
+                    child: InkWell(
+                      onTap: () {},
+                      splashColor: Colors.grey.shade400,
+                      child: SvgPicture.asset(
+                        IconManager.shareicon,
+                      ),
+                    ),
+                  ),
+                  Material(
+                    child: InkWell(
+                      borderRadius:
+                          BorderRadius.circular(RaduisValueManager.r8),
+                      onTap: () {
+                        di<VideoToAudioSaveCubit>()
+                            .deleteItem(trsnlationid: item.id);
+                        di<GetAllDataSavingCubit>().delete();
+                      },
+                      splashColor: Colors.grey.shade400,
+                      child: SvgPicture.asset(
+                        IconManager.deleteiconsaving,
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            : null,
       ),
     );
   }

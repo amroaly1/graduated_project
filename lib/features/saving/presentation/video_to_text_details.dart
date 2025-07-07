@@ -21,7 +21,7 @@ class VideoToTextDetails extends StatelessWidget {
             CutsomAppBarOfSubPage(),
             SizedBox(height: HeightManager.h29),
             Padding(
-              padding: PaddingManager.paddingHorizontal24,
+              padding: PaddingManager.paddingHorizontal16,
               child: Column(
                 children: [
                   // Container(
@@ -90,7 +90,7 @@ class BodySectionOfTranaslateToText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: PaddingManager.paddingHorizontal24,
+      padding: PaddingManager.paddingHorizontal16,
       child: Container(
         height: DeviceHeightWidthManager.subOfHeight(
           context,

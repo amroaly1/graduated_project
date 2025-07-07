@@ -215,7 +215,7 @@ abstract class StringManager {
   // Chatting with Ai
   // static const String signGPT = "SignGPT";
   static const String signGPTDesc =
-      "Type or speak to chat, and watch your words come alive through expressive signs. Learn, connect, and make communication truly inclusive.";
+      "Type or speak to chat, and watch your words come alive. Learn, connect, and make communication truly inclusive.";
   static const String handTalkAIAssistant = "HandTalk AI Assistant";
   static const String signGPTYourAIFluentinSignLanguage =
       "SignGPT – Your AI Fluent in Sign Language";
@@ -229,7 +229,7 @@ abstract class StringManager {
   static const String communicatewithSignLanguageUsers =
       "Communicate with Sign Language Users";
   static const String handTalkBridgeDesc1 =
-      "As a manager or employee, you may need to interact with sign language users in your workplace.";
+      "As a User , you may need to interact with sign language users in your workplace.";
   static const String handTalkBridgeDesc2 =
       "We will guide you on how to effectively communicate and foster a more inclusive environmet. ";
 

@@ -29,7 +29,7 @@ class SignDictionaryBody extends StatelessWidget {
         ),
         SliverToBoxAdapter(
           child: Padding(
-            padding: PaddingManager.paddingHorizontal24,
+            padding: PaddingManager.paddingHorizontal16,
             child: Column(
               children: [
                 SizedBox(height: HeightManager.h20),
@@ -75,7 +75,7 @@ class SignDictionaryBody extends StatelessWidget {
             if (state is SignDictionaryGetAllDataLoading) {
               return SliverFillRemaining(
                 child: Padding(
-                  padding: PaddingManager.paddingHorizontal24,
+                  padding: PaddingManager.paddingHorizontal16,
                   child: SignDictionaryLoading(),
                 ),
               );
@@ -93,7 +93,7 @@ class SignDictionaryBody extends StatelessWidget {
                   );
                 }
                 return Padding(
-                  padding: PaddingManager.paddingHorizontal24,
+                  padding: PaddingManager.paddingHorizontal16,
                   child: CustomCardCharacterAndWord(
                     myKey: SignDictionaryCubit.get(context).data[index].key,
                     words: SignDictionaryCubit.get(context).data[index].data,
@@ -120,7 +120,7 @@ class SignDictionaryFailing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: PaddingManager.paddingHorizontal24,
+      padding: PaddingManager.paddingHorizontal16,
       child: Column(
         spacing: HeightManager.h12,
         crossAxisAlignment: CrossAxisAlignment.center,

@@ -22,7 +22,12 @@ import 'package:graduate_project/features/dictionary/data/repo/sign_dictionary_r
 import 'package:graduate_project/features/dictionary/manager/dictionary_search/dictionary_search_cubit.dart';
 import 'package:graduate_project/core/manager/manage_user_data/manager_user_data_cubit.dart';
 import 'package:graduate_project/features/dictionary/manager/sign_dictionary/sign_dictionary_cubit.dart';
+import 'package:graduate_project/features/home/data/repo/get_recentaly_saved.dart';
+import 'package:graduate_project/features/home/data/repo/get_recently_translate.dart';
 import 'package:graduate_project/features/home/data/repo/home_dictionar_repo.dart';
+import 'package:graduate_project/features/home/data/repo/home_search_repo.dart';
+import 'package:graduate_project/features/home/manager/get_recenly_saved_cubit/get_recently_saved_cubit.dart';
+import 'package:graduate_project/features/home/manager/get_recent_translate/get_recently_translate_cubit.dart';
 import 'package:graduate_project/features/home/manager/home_cubit/cubit/home_cubit.dart';
 import 'package:graduate_project/features/home/manager/home_dictionary/home_dictionary_cubit.dart';
 import 'package:graduate_project/features/profile/data/repo/change_password_repo.dart';
@@ -186,6 +191,24 @@ Future<void> setUp() async {
       connectInternetHelper: di<ConnectInternetHelper>(),
     ),
   );
+  di.registerSingleton<GetRecentalySavedRepo>(
+    GetRecentalySavedRepo(
+      apiHelper: di<ApiHelper>(),
+      connectInternetHelper: di<ConnectInternetHelper>(),
+    ),
+  );
+  di.registerSingleton<GetRecentlyTranslateRepo>(
+    GetRecentlyTranslateRepo(
+      apiHelper: di<ApiHelper>(),
+      connectInternetHelper: di<ConnectInternetHelper>(),
+    ),
+  );
+  di.registerSingleton<HomeSearchRepo>(
+    HomeSearchRepo(
+      apiHelper: di<ApiHelper>(),
+      connectInternetHelper: di<ConnectInternetHelper>(),
+    ),
+  );
 
   di.registerSingleton<EditProfileCubit>(
       EditProfileCubit(di<EditProfileRepo>()));
@@ -220,5 +243,11 @@ Future<void> setUp() async {
   ));
   di.registerSingleton<GetAllDataSavingCubit>(GetAllDataSavingCubit(
     di<GetAllDataSavingRepo>(),
+  ));
+  di.registerSingleton<GetRecentlySavedCubit>(GetRecentlySavedCubit(
+    di<GetRecentalySavedRepo>(),
+  ));
+  di.registerSingleton<GetRecentlyTranslateCubit>(GetRecentlyTranslateCubit(
+    di<GetRecentlyTranslateRepo>(),
   ));
 }

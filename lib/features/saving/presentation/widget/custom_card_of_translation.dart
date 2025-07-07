@@ -15,8 +15,10 @@ class CustomCardOfTranslation extends StatelessWidget {
   const CustomCardOfTranslation({
     super.key,
     required this.item,
+    this.isSaving = true,
   });
   final TranslationsTranslate item;
+  final bool isSaving;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -83,35 +85,38 @@ class CustomCardOfTranslation extends StatelessWidget {
             ],
           ),
         ),
-        trailing: Row(
-          spacing: WidthManager.w9_28,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Material(
-              child: InkWell(
-                onTap: () {},
-                splashColor: Colors.grey.shade400,
-                child: SvgPicture.asset(
-                  IconManager.shareicon,
-                ),
-              ),
-            ),
-            Material(
-              child: InkWell(
-                borderRadius: BorderRadius.circular(RaduisValueManager.r8),
-                onTap: () {
-                  TrsanlationSavingCubit.get(context)
-                      .deleteItem(trsnlationid: item.translationId);
-                  di<GetAllDataSavingCubit>().delete();
-                },
-                splashColor: Colors.grey.shade400,
-                child: SvgPicture.asset(
-                  IconManager.deleteiconsaving,
-                ),
-              ),
-            ),
-          ],
-        ),
+        trailing: isSaving
+            ? Row(
+                spacing: WidthManager.w9_28,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Material(
+                    child: InkWell(
+                      onTap: () {},
+                      splashColor: Colors.grey.shade400,
+                      child: SvgPicture.asset(
+                        IconManager.shareicon,
+                      ),
+                    ),
+                  ),
+                  Material(
+                    child: InkWell(
+                      borderRadius:
+                          BorderRadius.circular(RaduisValueManager.r8),
+                      onTap: () {
+                        TrsanlationSavingCubit.get(context)
+                            .deleteItem(trsnlationid: item.translationId);
+                        di<GetAllDataSavingCubit>().delete();
+                      },
+                      splashColor: Colors.grey.shade400,
+                      child: SvgPicture.asset(
+                        IconManager.deleteiconsaving,
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            : null,
       ),
     );
   }

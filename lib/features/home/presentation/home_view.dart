@@ -9,6 +9,7 @@ import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
 import 'package:graduate_project/features/home/manager/home_cubit/cubit/home_cubit.dart';
 import 'package:graduate_project/features/home/manager/home_cubit/cubit/home_state.dart';
+import 'package:graduate_project/features/home/manager/home_dictionary/home_dictionary_cubit.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -18,6 +19,7 @@ class HomeView extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider.value(value: di<HomeCubit>()),
+        BlocProvider.value(value: di<HomeDictionaryCubit>()..init()),
       ],
       child: PopScope(
         canPop: false,

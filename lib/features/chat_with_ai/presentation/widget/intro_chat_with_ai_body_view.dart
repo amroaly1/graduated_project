@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:graduate_project/core/resource/color_manager.dart';
 import 'package:graduate_project/core/resource/distance_manager.dart';
 import 'package:graduate_project/core/resource/font_family_manger.dart';
-import 'package:graduate_project/core/resource/font_size_manager.dart';
 import 'package:graduate_project/core/resource/font_weight_manager.dart';
 import 'package:graduate_project/core/resource/icon_manager.dart';
 import 'package:graduate_project/core/resource/image_manager.dart';
@@ -33,10 +32,9 @@ class IntroChatWithAiBodyView extends StatelessWidget {
           ),
           Text(
             StringManager.handTalkAIAssistant,
-            style: TextStyleManager.medium20(
+            style: TextStyleManager.black14(
               color: ColorManager.primaryColor,
-              size: FontSizeManager.s14,
-              fontWeight: FontWeightManager.semiBold,
+              fontFamily: FontFamilyManger.avenirLTStd,
             ),
             textAlign: TextAlign.center,
           ),
@@ -45,7 +43,7 @@ class IntroChatWithAiBodyView extends StatelessWidget {
             height: HeightManager.h280,
           ),
           Padding(
-            padding: PaddingManager.paddingHorizontal24,
+            padding: PaddingManager.paddingHorizontal16,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -67,11 +65,8 @@ class IntroChatWithAiBodyView extends StatelessWidget {
                 ),
                 Text(
                   StringManager.signGPTDesc,
-                  style: TextStyleManager.medium20(
+                  style: TextStyleManager.semiBold13(
                     color: ColorManager.gray8,
-                    fontFamily: FontFamilyManger.avenirLTStd,
-                    fontWeight: FontWeightManager.semiBold,
-                    size: FontSizeManager.s16,
                   ),
                   textAlign: TextAlign.center,
                 ),

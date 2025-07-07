@@ -21,7 +21,7 @@ class CustomChattingTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: PaddingManager.paddingHorizontal24,
+      padding: PaddingManager.paddingHorizontal16,
       child: BlocProvider.value(
         value: di<MicCubit>(),
         child: TextField(

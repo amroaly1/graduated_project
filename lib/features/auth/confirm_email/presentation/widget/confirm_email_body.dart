@@ -41,7 +41,7 @@ class _ConfirmEmailBodyState extends State<ConfirmEmailBody> {
               height: HeightManager.h43,
             ),
             Padding(
-              padding: PaddingManager.paddingHorizontal24,
+              padding: PaddingManager.paddingHorizontal16,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [

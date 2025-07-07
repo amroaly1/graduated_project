@@ -32,7 +32,7 @@ class HomeBody extends StatelessWidget {
               height: HeightManager.h52,
             ),
             Padding(
-              padding: PaddingManager.paddingHorizontal24,
+              padding: PaddingManager.paddingHorizontal16,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -46,9 +46,19 @@ class HomeBody extends StatelessWidget {
             SizedBox(
               height: HeightManager.h26,
             ),
-            CustomSearchHomeTextField(),
+            InkWell(
+              onTap: () {
+                NavigationManager.push(
+                  context: context,
+                  screen: ScreenManager.searchHomeView,
+                );
+              },
+              child: CustomSearchHomeTextField(
+                enabled: false,
+              ),
+            ),
             Padding(
-              padding: PaddingManager.paddingHorizontal24,
+              padding: PaddingManager.paddingHorizontal16,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -73,13 +83,14 @@ class HomeBody extends StatelessWidget {
                     title: StringManager.recentlyTranslated,
                     button: IconButton(
                       onPressed: () {},
-                      icon: SvgPicture.asset(
-                        IconManager.arrowRight,
-                        colorFilter: ColorFilter.mode(
-                          ColorManager.primaryColorlight6,
-                          BlendMode.srcIn,
-                        ),
-                      ),
+                      icon: SizedBox(),
+                      // icon: SvgPicture.asset(
+                      //   IconManager.arrowRight,
+                      //   colorFilter: ColorFilter.mode(
+                      //     ColorManager.primaryColorlight6,
+                      //     BlendMode.srcIn,
+                      //   ),
+                      // ),
                     ),
                     body: BodyOfCardRecentalyTranslate(),
                   ),

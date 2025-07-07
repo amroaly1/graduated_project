@@ -54,7 +54,7 @@ class _ForgetPasswordBodyState extends State<ForgetPasswordBody> {
             ),
             SizedBox(height: HeightManager.h11),
             Padding(
-              padding: PaddingManager.paddingHorizontal24,
+              padding: PaddingManager.paddingHorizontal16,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -86,7 +86,7 @@ class _ForgetPasswordBodyState extends State<ForgetPasswordBody> {
                   autovalidateMode:
                       ForgetPasswordCubit.get(context).autovalidateMode,
                   child: Padding(
-                    padding: PaddingManager.paddingHorizontal24,
+                    padding: PaddingManager.paddingHorizontal16,
                     child: CustomTextFieldAuth(
                       labelText: StringManager.emailaddress,
                       hintText: StringManager.forgetPassowrdEmailHint,

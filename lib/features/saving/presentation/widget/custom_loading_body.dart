@@ -5,12 +5,16 @@ import 'package:graduate_project/core/resource/text_style_manager.dart';
 import 'package:redacted/redacted.dart';
 
 class CustomLoadingBody extends StatelessWidget {
-  const CustomLoadingBody({super.key});
+  const CustomLoadingBody({super.key, this.isSaving = true});
+
+  final bool isSaving;
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemBuilder: (context, index) => CustomCardLaoding(),
+      itemBuilder: (context, index) => CustomCardLaoding(
+        isSaving: isSaving,
+      ),
       itemCount: 10,
     );
   }
@@ -19,7 +23,9 @@ class CustomLoadingBody extends StatelessWidget {
 class CustomCardLaoding extends StatelessWidget {
   const CustomCardLaoding({
     super.key,
+    required this.isSaving,
   });
+  final bool isSaving;
 
   @override
   Widget build(BuildContext context) {
@@ -92,38 +98,42 @@ class CustomCardLaoding extends StatelessWidget {
             ),
           ],
         ),
-        trailing: Row(
-          spacing: WidthManager.w9_28,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              width: WidthManager.w29,
-              height: HeightManager.h32,
-              decoration: BoxDecoration(
-                shape: BoxShape.rectangle,
-              ),
-            ).redacted(
-              context: context,
-              redact: true,
-              configuration: RedactedConfiguration(
-                animationDuration: const Duration(milliseconds: 800), //default
-              ),
-            ),
-            Container(
-              width: WidthManager.w29,
-              height: HeightManager.h32,
-              decoration: BoxDecoration(
-                shape: BoxShape.rectangle,
-              ),
-            ).redacted(
-              context: context,
-              redact: true,
-              configuration: RedactedConfiguration(
-                animationDuration: const Duration(milliseconds: 800), //default
-              ),
-            ),
-          ],
-        ),
+        trailing: isSaving
+            ? Row(
+                spacing: WidthManager.w9_28,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    width: WidthManager.w29,
+                    height: HeightManager.h32,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                    ),
+                  ).redacted(
+                    context: context,
+                    redact: true,
+                    configuration: RedactedConfiguration(
+                      animationDuration:
+                          const Duration(milliseconds: 800), //default
+                    ),
+                  ),
+                  Container(
+                    width: WidthManager.w29,
+                    height: HeightManager.h32,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                    ),
+                  ).redacted(
+                    context: context,
+                    redact: true,
+                    configuration: RedactedConfiguration(
+                      animationDuration:
+                          const Duration(milliseconds: 800), //default
+                    ),
+                  ),
+                ],
+              )
+            : null,
       ),
     );
   }

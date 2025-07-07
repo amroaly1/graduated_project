@@ -15,7 +15,7 @@ class TopSectionOfAuth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: PaddingManager.paddingHorizontal24,
+      padding: PaddingManager.paddingHorizontal16,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [

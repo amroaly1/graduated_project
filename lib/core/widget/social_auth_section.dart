@@ -7,20 +7,15 @@ import 'package:graduate_project/core/resource/padding_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
 
 class SocialAuthSection extends StatelessWidget {
-  const SocialAuthSection(
-      {super.key,
-      this.onTapFaceBook,
-      this.onTapGoogle,
-      this.onTapApple,
-      required this.title});
-  final void Function()? onTapFaceBook;
+  const SocialAuthSection({super.key, this.onTapGoogle, required this.title});
+  // final void Function()? onTapFaceBook;
   final void Function()? onTapGoogle;
-  final void Function()? onTapApple;
+  // final void Function()? onTapApple;
   final String title;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: PaddingManager.paddingHorizontal24,
+      padding: PaddingManager.paddingHorizontal16,
       child: Column(
         children: [
           Row(
@@ -45,20 +40,20 @@ class SocialAuthSection extends StatelessWidget {
           ),
           SizedBox(height: HeightManager.h24),
           Row(
-            spacing: WidthManager.w16,
+            // spacing: WidthManager.w16,
             children: [
-              _customcardofsocial(
-                icon: IconManager.facebook,
-                onTap: onTapFaceBook,
-              ),
+              // _customcardofsocial(
+              //   icon: IconManager.facebook,
+              //   onTap: onTapFaceBook,
+              // ),
               _customcardofsocial(
                 icon: IconManager.google,
                 onTap: onTapGoogle,
               ),
-              _customcardofsocial(
-                icon: IconManager.apple,
-                onTap: () {},
-              ),
+              // _customcardofsocial(
+              //   icon: IconManager.apple,
+              //   onTap: () {},
+              // ),
             ],
           ),
         ],

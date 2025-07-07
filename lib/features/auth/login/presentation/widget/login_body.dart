@@ -43,7 +43,7 @@ class _LoginBodyState extends State<LoginBody> {
               text: StringManager.login,
             ),
             Padding(
-              padding: PaddingManager.paddingHorizontal24,
+              padding: PaddingManager.paddingHorizontal16,
               child: Padding(
                 padding: PaddingManager.paddingAuthBody19,
                 child: BlocBuilder<LoginCubit, LoginState>(
@@ -81,7 +81,7 @@ class _LoginBodyState extends State<LoginBody> {
               alignment: Alignment.centerRight,
               child: TextButton(
                 style: ElevatedButton.styleFrom(
-                  padding: PaddingManager.paddingHorizontal24,
+                  padding: PaddingManager.paddingHorizontal16,
                 ),
                 onPressed: () {
                   NavigationManager.push(
@@ -123,13 +123,13 @@ class _LoginBodyState extends State<LoginBody> {
             SizedBox(height: HeightManager.h52),
             SocialAuthSection(
               title: StringManager.orLoginwith,
-              onTapFaceBook: () {
-                LoginCubit.get(context).loginUsingFacebook();
-              },
+              // onTapFaceBook: () {
+              //   LoginCubit.get(context).loginUsingFacebook();
+              // },
               onTapGoogle: () {
                 LoginCubit.get(context).loginUsingGoogle();
               },
-              onTapApple: () {},
+              // onTapApple: () {},
             ),
             SizedBox(
               height: HeightManager.h29,

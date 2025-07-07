@@ -24,4 +24,5 @@ abstract class ScreenManager {
   static const String signDictionaryView = "/signDictionaryView";
   static const String translateToTextView = "/TranslateToTextView";
   static const String translateToAudioView = "/TranslateToAudioView";
+  static const String searchHomeView = "/SearchHomeView";
 }

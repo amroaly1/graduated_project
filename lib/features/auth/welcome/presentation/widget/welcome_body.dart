@@ -54,7 +54,7 @@ class WelcomeBody extends StatelessWidget {
           ),
           SizedBox(height: HeightManager.h20),
           Padding(
-            padding: PaddingManager.paddingHorizontal24,
+            padding: PaddingManager.paddingHorizontal16,
             child: Text(
               StringManager.subTitlewelcomeTohandTalk,
               style: TextStyleManager.medium24(

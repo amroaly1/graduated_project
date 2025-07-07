@@ -42,6 +42,7 @@ class CustomHomeChattingWithAI extends StatelessWidget {
           ),
           Expanded(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -68,8 +69,9 @@ class CustomHomeChattingWithAI extends StatelessWidget {
                 ),
                 Text(
                   StringManager.howcanIassistyouinsignlanguage,
-                  style: TextStyleManager.semiBold12(
+                  style: TextStyleManager.semiBold10(
                     height: 1,
+                    color: ColorManager.gray22,
                   ),
                 )
               ],

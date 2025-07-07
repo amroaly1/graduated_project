@@ -27,7 +27,7 @@ class OnBoardingItem extends StatelessWidget {
               height: HeightManager.h32,
             ),
             Padding(
-              padding: PaddingManager.paddingHorizontal24,
+              padding: PaddingManager.paddingHorizontal16,
               child: Visibility(
                 visible: OnBoardingCubit.get(context).skipVisibility(),
                 maintainSize: true,
@@ -60,7 +60,7 @@ class OnBoardingItem extends StatelessWidget {
             ),
             SizedBox(height: HeightManager.h29),
             Padding(
-              padding: PaddingManager.paddingHorizontal24,
+              padding: PaddingManager.paddingHorizontal16,
               child: SvgPicture.asset(
                 item.image,
                 height: DeviceHeightWidthManager.subOfHeight(
@@ -87,7 +87,7 @@ class OnBoardingItem extends StatelessWidget {
             ),
             SizedBox(height: HeightManager.h20),
             Padding(
-              padding: PaddingManager.paddingHorizontal24,
+              padding: PaddingManager.paddingHorizontal16,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [

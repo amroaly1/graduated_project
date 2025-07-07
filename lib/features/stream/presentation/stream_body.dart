@@ -23,7 +23,7 @@ class StreamBody extends StatelessWidget {
             title: StringManager.liveTranslation,
           ),
           Padding(
-            padding: PaddingManager.paddingHorizontal24,
+            padding: PaddingManager.paddingHorizontal16,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [

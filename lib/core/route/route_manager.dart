@@ -19,6 +19,7 @@ import 'package:graduate_project/features/dictionary/data/model/dictionary_item_
 import 'package:graduate_project/features/dictionary/presentation/sign_dictionary_view.dart';
 import 'package:graduate_project/features/dictionary/presentation/widget/dictionary_serach_view.dart';
 import 'package:graduate_project/features/dictionary/presentation/word_details_view.dart';
+import 'package:graduate_project/features/home/presentation/home_search_view.dart';
 import 'package:graduate_project/features/home/presentation/home_view.dart';
 import 'package:graduate_project/features/onboarding/view/on_boarding_view.dart';
 import 'package:graduate_project/features/profile/presentation/change_password_view.dart';
@@ -57,6 +58,8 @@ abstract class RouteManager {
         return customPageBuilder(ChangePasswordView());
       case ScreenManager.translatevideoView:
         return customPageBuilder(TranslateVideoView());
+      case ScreenManager.searchHomeView:
+        return customPageBuilder(HomeSearchView());
       case ScreenManager.translateToAudioView:
         return customPageBuilder(TranslateToAudioView(
           videoToAudioModel: settings.arguments as VideoToAudioModel,

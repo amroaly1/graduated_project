@@ -60,4 +60,5 @@ abstract class ColorManager {
   static const Color gray19 = Color(0xff6F6D6D);
   static const Color gray20 = Color(0xffEEEEEE);
   static const Color gray21 = Color(0xff444444);
+  static const Color gray22 = Color(0xffc0c0c0);
 }

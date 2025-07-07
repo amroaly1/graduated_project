@@ -73,7 +73,7 @@ class DictionarySerachView extends StatelessWidget {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: PaddingManager.paddingHorizontal24,
+                    padding: PaddingManager.paddingHorizontal16,
                     child: BlocConsumer<DictionarySearchCubit,
                         DictionarySearchState>(
                       listener: (context, state) {
@@ -177,7 +177,7 @@ class ErorrBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: PaddingManager.paddingHorizontal24,
+      padding: PaddingManager.paddingHorizontal16,
       child: Column(
         spacing: HeightManager.h12,
         crossAxisAlignment: CrossAxisAlignment.center,

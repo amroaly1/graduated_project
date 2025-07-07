@@ -24,7 +24,7 @@ class GeneralBodyOfTranslateToAudioOrText extends StatelessWidget {
           ),
           SizedBox(height: HeightManager.h29),
           Padding(
-            padding: PaddingManager.paddingHorizontal24,
+            padding: PaddingManager.paddingHorizontal16,
             child: VideoThatTranslate(),
           ),
           SizedBox(

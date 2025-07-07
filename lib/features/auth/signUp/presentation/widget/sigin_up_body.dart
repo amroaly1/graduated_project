@@ -12,7 +12,6 @@ import 'package:graduate_project/core/route/screen_manager.dart';
 import 'package:graduate_project/core/widget/custom_naviagtion_between_auth.dart';
 import 'package:graduate_project/core/widget/custom_text_field_auth.dart';
 import 'package:graduate_project/core/widget/default_button.dart';
-import 'package:graduate_project/core/widget/social_auth_section.dart';
 import 'package:graduate_project/core/widget/top_section_of_auth.dart';
 import 'package:graduate_project/features/auth/signUp/manager/cubit/sigin_up_cubit.dart';
 import 'package:graduate_project/features/auth/signUp/manager/cubit/sigin_up_state.dart';
@@ -42,7 +41,7 @@ class _SiginUpBodyState extends State<SiginUpBody> {
               text: StringManager.signUp,
             ),
             Padding(
-              padding: PaddingManager.paddingHorizontal24,
+              padding: PaddingManager.paddingHorizontal16,
               child: Padding(
                 padding: PaddingManager.paddingAuthBody19,
                 child: BlocBuilder<SiginUpCubit, SiginUpState>(
@@ -127,13 +126,13 @@ class _SiginUpBodyState extends State<SiginUpBody> {
                       );
               },
             ),
-            SizedBox(height: HeightManager.h24),
-            SocialAuthSection(
-              title: StringManager.orRegisterWith,
-              onTapFaceBook: () {},
-              onTapGoogle: () {},
-              onTapApple: () {},
-            ),
+            // SizedBox(height: HeightManager.h24),
+            // SocialAuthSection(
+            //   title: StringManager.orRegisterWith,
+            //   onTapFaceBook: () {},
+            //   onTapGoogle: () {},
+            //   onTapApple: () {},
+            // ),
             SizedBox(
               height: HeightManager.h29,
             ),

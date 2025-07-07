@@ -22,7 +22,7 @@ class RecentlyChat extends StatelessWidget {
       child: Builder(builder: (context) {
         return SizedBox(
           width: double.infinity,
-          height: HeightManager.h260,
+          height: HeightManager.h230,
           child: CustomHomeCard(
             body: Expanded(
               child: Column(
@@ -34,7 +34,7 @@ class RecentlyChat extends StatelessWidget {
                       children: [
                         Positioned(
                           bottom: 0,
-                          top: HeightManager.h19,
+                          top: HeightManager.h13,
                           right: 0,
                           left: 0,
                           child: Divider(
@@ -60,11 +60,13 @@ class RecentlyChat extends StatelessWidget {
                                           .changeCurrentIndex(index);
                                     },
                                     child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           RecentalyChatCubit.get(context)
                                               .list[index],
-                                          style: TextStyleManager.semiBold13(
+                                          style: TextStyleManager.semiBold11(
                                             color:
                                                 RecentalyChatCubit.get(context)
                                                             .currentIndex ==
@@ -79,7 +81,7 @@ class RecentlyChat extends StatelessWidget {
                                         AnimatedContainer(
                                           duration:
                                               const Duration(microseconds: 500),
-                                          width: WidthManager.w100,
+                                          width: WidthManager.w95,
                                           height: HeightManager.h2,
                                           decoration: BoxDecoration(
                                             color:
@@ -161,7 +163,7 @@ class RecentlyChat extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: HeightManager.h5,
+                    height: HeightManager.h2,
                   ),
                 ],
               ),

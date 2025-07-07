@@ -23,7 +23,7 @@ class CutsomAppBarOfSubPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: PaddingManager.paddingHorizontal24,
+      padding: PaddingManager.paddingHorizontal16,
       child: Column(
         children: [
           SizedBox(height: HeightManager.h29),

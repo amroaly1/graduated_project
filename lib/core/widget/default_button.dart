@@ -11,7 +11,7 @@ class DefaultButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: PaddingManager.paddingHorizontal24,
+      padding: PaddingManager.paddingHorizontal16,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(

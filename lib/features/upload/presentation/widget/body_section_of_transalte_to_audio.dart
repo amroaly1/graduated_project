@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:graduate_project/core/dependency_injection/di.dart';
-import 'package:graduate_project/core/network/api_end_point.dart';
 import 'package:graduate_project/core/resource/color_manager.dart';
 import 'package:graduate_project/core/resource/device_height_width_manager.dart';
 import 'package:graduate_project/core/resource/distance_manager.dart';
@@ -24,7 +23,7 @@ class BodySectionOfTransalteToAudio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: PaddingManager.paddingHorizontal24,
+      padding: PaddingManager.paddingHorizontal16,
       child: DottedBorder(
         borderType: BorderType.RRect,
         radius: Radius.circular(20),
@@ -45,7 +44,7 @@ class BodySectionOfTransalteToAudio extends StatelessWidget {
           ),
           child: BlocProvider.value(
             value: di<AudioPlayerCubit>()
-              ..init(url: "${ApiEndPoint.baseUrl2}${videoToAudioModel.audioUrl}"
+              ..init(url: videoToAudioModel.audioUrl
                   // url: "https://server6.mp3quran.net/akdr/001.mp3",
                   ),
             child: BlocBuilder<AudioPlayerCubit, AudioPlayerState>(

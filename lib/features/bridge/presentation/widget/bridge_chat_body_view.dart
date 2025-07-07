@@ -19,7 +19,7 @@ class BridgeChatBodyView extends StatelessWidget {
           AppBarOfChat(),
           Expanded(
             child: Padding(
-              padding: PaddingManager.paddingHorizontal24,
+              padding: PaddingManager.paddingHorizontal16,
               child: ListView.builder(
                 itemCount: 10,
                 itemBuilder: (context, index) {

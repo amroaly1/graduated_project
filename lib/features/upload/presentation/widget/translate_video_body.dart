@@ -30,7 +30,7 @@ class TranslateVideoBody extends StatelessWidget {
           CutsomAppBarOfSubPage(),
           SizedBox(height: HeightManager.h29),
           Padding(
-            padding: PaddingManager.paddingHorizontal24,
+            padding: PaddingManager.paddingHorizontal16,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -131,7 +131,7 @@ class TranslateVideoBody extends StatelessWidget {
                       },
                       builder: (context, state) {
                         return Padding(
-                          padding: PaddingManager.paddingHorizontal24,
+                          padding: PaddingManager.paddingHorizontal16,
                           child: Column(
                             spacing: HeightManager.h15,
                             children: [

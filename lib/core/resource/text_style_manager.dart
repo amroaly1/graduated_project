@@ -359,6 +359,16 @@ abstract class TextStyleManager {
         fontSize: FontSizeManager.s16,
         color: color,
       );
+  static TextStyle black14({
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+    Color color = ColorManager.primaryColor,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.black,
+        fontSize: FontSizeManager.s14,
+        color: color,
+      );
   static TextStyle black36({
     String? fontFamily,
     Color color = ColorManager.black,
@@ -494,8 +504,8 @@ abstract class TextStyleManager {
   }) =>
       TextStyle(
         height: height,
-        fontWeight: FontWeightManager.bold,
-        fontSize: FontSizeManager.s15,
+        fontWeight: FontWeightManager.semiBold,
+        fontSize: FontSizeManager.s13,
         color: color,
         fontFamily: fontFamily,
       );
@@ -508,6 +518,18 @@ abstract class TextStyleManager {
         height: height,
         fontWeight: FontWeightManager.semiBold,
         fontSize: FontSizeManager.s12,
+        color: color,
+        fontFamily: fontFamily,
+      );
+  static TextStyle semiBold11({
+    Color color = ColorManager.gray14,
+    double? height,
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+  }) =>
+      TextStyle(
+        height: height,
+        fontWeight: FontWeightManager.semiBold,
+        fontSize: FontSizeManager.s11,
         color: color,
         fontFamily: fontFamily,
       );

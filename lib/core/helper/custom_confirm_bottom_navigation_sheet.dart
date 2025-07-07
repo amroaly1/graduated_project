@@ -63,7 +63,7 @@ Future<dynamic> customConfirmBootomNavigationSheet({
             ],
           ),
           Padding(
-            padding: PaddingManager.paddingHorizontal24,
+            padding: PaddingManager.paddingHorizontal16,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -91,7 +91,7 @@ Future<dynamic> customConfirmBootomNavigationSheet({
                 height: HeightManager.h13,
               ),
               Padding(
-                padding: PaddingManager.paddingHorizontal24,
+                padding: PaddingManager.paddingHorizontal16,
                 child: Row(
                   spacing: WidthManager.w6,
                   children: [

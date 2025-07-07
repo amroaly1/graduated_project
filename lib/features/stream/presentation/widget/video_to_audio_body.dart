@@ -21,7 +21,7 @@ class VideoToAudioBody extends StatelessWidget {
         children: [
           CutsomAppBarOfSubPage(),
           Padding(
-            padding: PaddingManager.paddingHorizontal24,
+            padding: PaddingManager.paddingHorizontal16,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [

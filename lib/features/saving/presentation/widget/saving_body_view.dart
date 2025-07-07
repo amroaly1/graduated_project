@@ -25,7 +25,7 @@ class SavingBodyView extends StatelessWidget {
             height: HeightManager.h34,
           ),
           Padding(
-            padding: PaddingManager.paddingHorizontal24,
+            padding: PaddingManager.paddingHorizontal16,
             child: Text(
               StringManager.recentlySaved,
               style: TextStyleManager.bold20(
@@ -93,7 +93,7 @@ class SavingBodyView extends StatelessWidget {
           Expanded(child: BlocBuilder<SavingCubit, SavingState>(
             builder: (context, state) {
               return Padding(
-                padding: PaddingManager.paddingHorizontal24,
+                padding: PaddingManager.paddingHorizontal16,
                 child: SavingCubit.get(context).buildSavingBody(),
               );
             },

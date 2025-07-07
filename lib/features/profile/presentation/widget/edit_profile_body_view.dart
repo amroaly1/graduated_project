@@ -48,7 +48,7 @@ class EditProfileBodyView extends StatelessWidget {
             height: HeightManager.h29,
           ),
           Padding(
-            padding: PaddingManager.paddingHorizontal24,
+            padding: PaddingManager.paddingHorizontal16,
             child: Column(
               spacing: HeightManager.h20,
               children: [

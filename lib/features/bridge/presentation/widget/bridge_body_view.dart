@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:graduate_project/core/resource/color_manager.dart';
 import 'package:graduate_project/core/resource/distance_manager.dart';
 import 'package:graduate_project/core/resource/font_family_manger.dart';
-import 'package:graduate_project/core/resource/font_size_manager.dart';
 import 'package:graduate_project/core/resource/font_weight_manager.dart';
 import 'package:graduate_project/core/resource/icon_manager.dart';
 import 'package:graduate_project/core/resource/image_manager.dart';
@@ -28,7 +27,7 @@ class BridgeBodyView extends StatelessWidget {
               height: HeightManager.h40,
             ),
             Padding(
-              padding: PaddingManager.paddingHorizontal24,
+              padding: PaddingManager.paddingHorizontal16,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -38,13 +37,30 @@ class BridgeBodyView extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(
-                    height: HeightManager.h10,
+                    height: HeightManager.h20,
                   ),
-                  SvgPicture.asset(
-                    ImageManager.bridgeintro,
-                    height: HeightManager.h180,
-                    width: double.infinity,
-                    fit: BoxFit.fill,
+                  Stack(
+                    children: [
+                      SvgPicture.asset(
+                        ImageManager.bridgeintro,
+                        height: HeightManager.h160,
+                        width: double.infinity,
+                        fit: BoxFit.fill,
+                      ),
+                      Positioned(
+                        right: WidthManager.w24,
+                        bottom: HeightManager.h70,
+                        child: Text(
+                          "I’m a Bridger User",
+                          style: TextStyleManager.bold16(
+                            color: ColorManager.primaryColor,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: HeightManager.h20,
                   ),
                   Text(
                     StringManager.communicatewithSignLanguageUsers,
@@ -74,11 +90,8 @@ class BridgeBodyView extends StatelessWidget {
                   ),
                   Text(
                     StringManager.handTalkBridgeDesc1,
-                    style: TextStyleManager.medium20(
+                    style: TextStyleManager.semiBold13(
                       color: ColorManager.gray8,
-                      fontFamily: FontFamilyManger.avenirLTStd,
-                      fontWeight: FontWeightManager.semiBold,
-                      size: FontSizeManager.s16,
                     ),
                   ),
                   SizedBox(
@@ -86,11 +99,8 @@ class BridgeBodyView extends StatelessWidget {
                   ),
                   Text(
                     StringManager.handTalkBridgeDesc2,
-                    style: TextStyleManager.medium20(
+                    style: TextStyleManager.semiBold13(
                       color: ColorManager.gray8,
-                      fontFamily: FontFamilyManger.avenirLTStd,
-                      fontWeight: FontWeightManager.semiBold,
-                      size: FontSizeManager.s16,
                     ),
                   ),
                   SizedBox(

@@ -50,7 +50,7 @@ class DictionaryDetailsSavingBody extends StatelessWidget {
           SliverToBoxAdapter(child: CutsomAppBarOfSubPage()),
           SliverToBoxAdapter(
             child: Padding(
-              padding: PaddingManager.paddingHorizontal24,
+              padding: PaddingManager.paddingHorizontal16,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [

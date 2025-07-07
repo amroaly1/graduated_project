@@ -8,16 +8,31 @@ import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
 
 class CustomSearchHomeTextField extends StatelessWidget {
-  const CustomSearchHomeTextField({super.key, this.controller, this.onChanged});
+  const CustomSearchHomeTextField(
+      {super.key,
+      this.controller,
+      this.onChanged,
+      this.onTap,
+      this.autofocus = false,
+      this.enabled,
+      this.onSubmitted});
   final TextEditingController? controller;
   final void Function(String)? onChanged;
+  final void Function()? onTap;
+  final bool autofocus;
+  final bool? enabled;
+  final void Function(String)? onSubmitted;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: PaddingManager.paddingHorizontal24,
+      padding: PaddingManager.paddingHorizontal16,
       child: TextField(
         controller: controller,
         onChanged: onChanged,
+        onTap: onTap,
+        onSubmitted: onSubmitted,
+        autofocus: autofocus,
+        enabled: enabled,
         style: TextStyleManager.medium16(
           color: ColorManager.black,
         ),
@@ -30,6 +45,7 @@ class CustomSearchHomeTextField extends StatelessWidget {
           fillColor: ColorManager.gray12,
           border: outlineinputborder(),
           enabledBorder: outlineinputborder(),
+          disabledBorder: outlineinputborder(),
           focusedBorder: outlineinputborder(),
           hintText: StringManager.searchHandTalk,
           hintStyle: TextStyleManager.medium16(),

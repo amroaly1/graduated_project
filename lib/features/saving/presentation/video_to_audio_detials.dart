@@ -27,7 +27,7 @@ class VideoToAudioDetails extends StatelessWidget {
             CutsomAppBarOfSubPage(),
             SizedBox(height: HeightManager.h29),
             Padding(
-              padding: PaddingManager.paddingHorizontal24,
+              padding: PaddingManager.paddingHorizontal16,
               child: Column(
                 children: [
                   // Container(
@@ -93,7 +93,7 @@ class BodySectionOfTransalteToAudio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: PaddingManager.paddingHorizontal24,
+      padding: PaddingManager.paddingHorizontal16,
       child: DottedBorder(
         borderType: BorderType.RRect,
         radius: Radius.circular(20),

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+
 import 'package:graduate_project/core/resource/color_manager.dart';
 import 'package:graduate_project/core/resource/distance_manager.dart';
+import 'package:graduate_project/core/resource/image_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
+import 'package:intl/intl.dart';
 
 class CustomCardOfRecentalySavedItemHome extends StatelessWidget {
   const CustomCardOfRecentalySavedItemHome({
@@ -10,12 +12,10 @@ class CustomCardOfRecentalySavedItemHome extends StatelessWidget {
     required this.title,
     required this.time,
     required this.image,
-    this.isSvg = true,
   });
   final String title;
   final String time;
   final String image;
-  final bool isSvg;
 
   @override
   Widget build(BuildContext context) {
@@ -33,23 +33,18 @@ class CustomCardOfRecentalySavedItemHome extends StatelessWidget {
       ),
       child: Row(
         children: [
-          isSvg
-              ? Padding(
-                  padding: EdgeInsets.symmetric(
-                    vertical: HeightManager.h5,
-                  ),
-                  child: SvgPicture.asset(
-                    image,
-                    height: HeightManager.h34,
-                    width: WidthManager.w35,
-                    fit: BoxFit.cover,
-                  ),
-                )
-              : Image.asset(
-                  image,
-                  height: HeightManager.h34,
-                  width: WidthManager.w35,
-                ),
+          Image.network(
+            image,
+            height: HeightManager.h34,
+            width: WidthManager.w35,
+            errorBuilder: (context, error, stackTrace) {
+              return Image.asset(
+                ImageManager.savingimage,
+                height: HeightManager.h34,
+                width: WidthManager.w35,
+              );
+            },
+          ),
           SizedBox(
             width: WidthManager.w6,
           ),
@@ -61,7 +56,7 @@ class CustomCardOfRecentalySavedItemHome extends StatelessWidget {
                 style: TextStyleManager.bold10(),
               ),
               Text(
-                time,
+                DateFormat('MMMM d, y').format(DateTime.parse(time)),
                 style: TextStyleManager.semiBold8(),
               ),
             ],

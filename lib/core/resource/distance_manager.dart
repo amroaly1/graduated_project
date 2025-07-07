@@ -36,6 +36,7 @@ abstract class HeightManager {
   static double h60 = 60.0.h;
   static double h70 = 70.0.h;
   static double h80 = 80.0.h;
+  static double h90 = 90.0.h;
   static double h100 = 100.0.h;
   static double h130 = 130.0.h;
   static double h140 = 140.0.h;
@@ -44,6 +45,7 @@ abstract class HeightManager {
   static double h180 = 180.0.h;
   static double h200 = 200.0.h;
   static double h230 = 230.0.h;
+  static double h240 = 240.0.h;
   static double h250 = 250.0.h;
   static double h260 = 260.0.h;
   static double h280 = 280.0.h;
@@ -82,6 +84,7 @@ abstract class WidthManager {
   static double w62 = 62.w;
   static double w70 = 70.w;
   static double w90 = 90.w;
+  static double w95 = 95.w;
   static double w100 = 100.w;
   static double w160 = 160.w;
   static double w200 = 200.w;

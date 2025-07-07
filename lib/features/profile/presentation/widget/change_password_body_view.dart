@@ -48,7 +48,7 @@ class ChangePasswordBodyView extends StatelessWidget {
             height: HeightManager.h29,
           ),
           Padding(
-            padding: PaddingManager.paddingHorizontal24,
+            padding: PaddingManager.paddingHorizontal16,
             child: BlocBuilder<ChangePasswordCubit, ChangePasswordState>(
               builder: (context, state) {
                 return Form(
