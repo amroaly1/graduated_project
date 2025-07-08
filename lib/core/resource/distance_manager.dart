@@ -88,6 +88,8 @@ abstract class WidthManager {
   static double w100 = 100.w;
   static double w160 = 160.w;
   static double w200 = 200.w;
+  static double w270 = 270.w;
+  static double w280 = 280.w;
   static double w363 = 363.w;
 }
 

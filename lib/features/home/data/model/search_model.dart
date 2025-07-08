@@ -96,9 +96,9 @@ class Sources {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['video_to_text'] = this.videoToText;
-    data['text_to_video'] = this.textToVideo;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['video_to_text'] = videoToText;
+    data['text_to_video'] = textToVideo;
     return data;
   }
 }

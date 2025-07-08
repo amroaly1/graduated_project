@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 abstract class ColorManager {
   static const Color scaffoldBackground = Color(0xffF6F2FF);
+  static const Color backgroun1 = Color(0xffF5EAFA);
   static const Color primaryColor = Color(0xff9780B8);
   static const Color primaryColorlight = Color(0xffD7CBE7);
   static const Color primaryColorlight1 = Color(0xffE3D1FA);
@@ -11,6 +12,7 @@ abstract class ColorManager {
   static const Color primaryColorlight5 = Color(0xffC3B8ED);
   static const Color primaryColorlight7 = Color(0xffF1EAFE);
   static const Color primaryColorlight8 = Color(0xfff9f6fc);
+  static const Color primaryColorlight9 = Color(0xffD7B9F2);
   static const Color primaryColorlight6 = Color(0xff9C91C0);
   static Color primaryColorOpacity70 = Color(0xff9780B8).withValues(alpha: 0.7);
   static const Color purple1Color = Color(0xff77539A);
@@ -61,4 +63,6 @@ abstract class ColorManager {
   static const Color gray20 = Color(0xffEEEEEE);
   static const Color gray21 = Color(0xff444444);
   static const Color gray22 = Color(0xffc0c0c0);
+
+  static const Color color1 = Color(0xff5C3C87);
 }

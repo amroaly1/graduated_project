@@ -10,6 +10,7 @@ import 'package:graduate_project/core/resource/padding_manager.dart';
 import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
 import 'package:graduate_project/core/route/navigation_manager.dart';
+import 'package:graduate_project/core/widget/custom_body_no_search_found.dart';
 import 'package:graduate_project/features/dictionary/data/model/dictionary_item_model.dart';
 import 'package:graduate_project/features/dictionary/manager/dictionary_search/dictionary_search_cubit.dart';
 import 'package:graduate_project/features/dictionary/presentation/widget/custom_card.dart';
@@ -88,6 +89,9 @@ class DictionarySerachView extends StatelessWidget {
                             fromInterner: state.isFromInternet,
                           );
                         } else if (state is DictionarySearchSuccess) {
+                          if (state.data.isEmpty) {
+                            return const CutomBodyNoSearchFound();
+                          }
                           return SearchDictionaryShowData(data: state.data);
                         }
 

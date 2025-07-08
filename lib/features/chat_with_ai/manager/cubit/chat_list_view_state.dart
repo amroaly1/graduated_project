@@ -1,0 +1,24 @@
+part of 'chat_list_view_cubit.dart';
+
+@immutable
+sealed class ChatListViewState {}
+
+final class ChatListViewInitial extends ChatListViewState {}
+
+final class ChatListViewLoading extends ChatListViewState {}
+
+final class ChatListViewAddItemLoading extends ChatListViewState {}
+
+final class ChatListViewAddItemSuccess extends ChatListViewState {}
+
+final class ChatListViewFailing extends ChatListViewState {
+  final String errMessage;
+
+  ChatListViewFailing({required this.errMessage});
+}
+
+final class ChatListViewAddItemFailing extends ChatListViewState {
+  final String errMessage;
+
+  ChatListViewAddItemFailing({required this.errMessage});
+}

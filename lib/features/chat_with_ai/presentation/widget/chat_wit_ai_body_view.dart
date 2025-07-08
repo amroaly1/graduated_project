@@ -1,11 +1,11 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:graduate_project/core/resource/distance_manager.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduate_project/core/helper/show_snack_bar.dart';
 import 'package:graduate_project/core/resource/padding_manager.dart';
-import 'package:graduate_project/core/widget/app_bar_of_chat.dart';
 import 'package:graduate_project/core/widget/custom_chat_card.dart';
 import 'package:graduate_project/core/widget/custom_chat_text_field_send.dart';
+import 'package:graduate_project/features/chat_with_ai/manager/cubit/chat_list_view_cubit.dart';
+import 'package:graduate_project/features/saving/presentation/widget/custom_failing_body.dart';
 
 class ChatWitAiBodyView extends StatelessWidget {
   const ChatWitAiBodyView({super.key});
@@ -16,34 +16,66 @@ class ChatWitAiBodyView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          AppBarOfChat(),
           Expanded(
             child: Padding(
               padding: PaddingManager.paddingHorizontal16,
-              child: ListView.builder(
-                itemCount: 10,
-                itemBuilder: (context, index) {
-                  return CustomChatCard(
-                    isStart: index == 0,
-                    fromMe: index % 2 == 0,
-                    message: index % 2 == 0
-                        ? "Hello, what about you ?"
-                        : "Hello, what about you ? Hello, what about you ? Hello, what about you ? Hello, what about you ? Hello, what about you ?",
+              child: BlocConsumer<ChatListViewCubit, ChatListViewState>(
+                listener: (context, state) {
+                  if (state is ChatListViewAddItemFailing) {
+                    showSnackBar(context, message: state.errMessage);
+                  }
+                },
+                builder: (context, state) {
+                  if (state is ChatListViewFailing) {
+                    return CustomFailingBody(error: state.errMessage);
+                  }
+                  if (state is ChatListViewAddItemLoading) {
+                    return ListView.builder(
+                      itemCount: 10,
+                      itemBuilder: (context, index) {
+                        return CustomChatCardLoading(
+                          isStart: index == 0,
+                          fromMe: index % 2 == 0,
+                          message: index % 2 == 0
+                              ? "Hello, what about you ?"
+                              : "Hello, what about you ? Hello, what about you ? Hello, what about you ? Hello, what about you ? Hello, what about you ?",
+                        );
+                      },
+                    );
+                  }
+                  WidgetsBinding.instance.addPostFrameCallback((_) {
+                    ChatListViewCubit.get(context).scrollToBottom();
+                  });
+                  return ListView.builder(
+                    itemCount: ChatListViewCubit.get(context).messages.length,
+                    controller: ChatListViewCubit.get(context).scrollController,
+                    itemBuilder: (context, index) {
+                      return CustomChatCard(
+                        isStart: index == 0,
+                        fromMe: index % 2 == 0,
+                        message: ChatListViewCubit.get(context).messages[index],
+                      );
+                    },
                   );
                 },
               ),
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(bottom: HeightManager.h11),
+            padding: EdgeInsets.all(0),
+            // padding: EdgeInsets.only(bottom: HeightManager.h11),
             child: CustomChatTextFieldSend(
               // TODO : use this function to communitcate with api
-              onTapSend: () {},
-              onChanged: (p0) {
-                log("message $p0");
+              onTapSend: () {
+                ChatListViewCubit.get(context).addMessage();
+              },
+
+              onChanged: (text) {
+                // log("${ChatListViewCubit.get(context).textController.text}");
+                // log("text : $text");
               },
               //TODO : give this controller
-              controller: TextEditingController(),
+              controller: ChatListViewCubit.get(context).textController,
             ),
           ),
           // BlocBuilder<HomeCubit, HomeState>(

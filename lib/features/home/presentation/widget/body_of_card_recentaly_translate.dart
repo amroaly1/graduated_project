@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduate_project/core/dependency_injection/di.dart';
 import 'package:graduate_project/core/resource/color_manager.dart';
 import 'package:graduate_project/core/resource/distance_manager.dart';
-import 'package:graduate_project/core/resource/font_family_manger.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
 import 'package:graduate_project/features/home/manager/get_recent_translate/get_recently_translate_cubit.dart';
 import 'package:graduate_project/features/home/presentation/widget/body_of_home_of_recentaly_saved.dart';

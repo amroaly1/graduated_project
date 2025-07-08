@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduate_project/features/home/data/model/search_model.dart';
 import 'package:graduate_project/features/home/data/repo/home_search_repo.dart';
+// ignore: depend_on_referenced_packages
 import 'package:meta/meta.dart';
 
 part 'home_search_state.dart';

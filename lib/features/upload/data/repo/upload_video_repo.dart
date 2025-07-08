@@ -36,7 +36,7 @@ class UploadVideoRepo {
         if (response is ApiReponseSuccess) {
           return right(null);
         } else {
-          log("${response.errormessage ?? StringManager.unExperctedError}");
+          log(response.errormessage ?? StringManager.unExperctedError);
           return left(response.errormessage ?? StringManager.unExperctedError);
         }
       } catch (e) {

@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:graduate_project/core/resource/distance_manager.dart';
 import 'package:graduate_project/core/resource/padding_manager.dart';
+import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/widget/app_bar_of_chat.dart';
 import 'package:graduate_project/core/widget/custom_chat_card.dart';
 import 'package:graduate_project/core/widget/custom_chat_text_field_send.dart';
@@ -16,7 +17,9 @@ class BridgeChatBodyView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          AppBarOfChat(),
+          AppBarOfChat(
+            title: StringManager.bridge,
+          ),
           Expanded(
             child: Padding(
               padding: PaddingManager.paddingHorizontal16,

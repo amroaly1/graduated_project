@@ -244,4 +244,9 @@ abstract class StringManager {
       "Are you sure to remove this video ?";
   static const String thisvideowillbepermanentlydeletedandcannotberecovered =
       "This video will be permanently deleted and cannot be recovered.";
+
+  //
+  static const String noresultsfound = "No results found";
+  static const String tryadifferentsearchterm = "Try a different search term.";
+  static const String searchforanyword = "Search for any word";
 }

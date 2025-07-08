@@ -21,48 +21,48 @@ class GetAllDataSavingRepo {
   Future<Either<String, GetAllDataModel>> getAllData() async {
     bool connected = await connectInternetHelper.checkInternetConnection();
     if (connected) {
-      // try {
-      var response = await apiHelper.get(
-          endpoint: "${ApiEndPoint.baseUrl2}/user/${getUserId()}/saved/all");
-      if (response is ApiReponseSuccess) {
-        GetAllDataModel getAllDataModel =
-            GetAllDataModel.fromJson(response.data);
-        // try {
-        var re = await apiHelper.get(
-            endpoint: ApiEndPoint.getAllDictionaryFavorites);
-        if (re is ApiReponseSuccess) {
-          List<DictionarySavingModel> list = (re.data as List)
-              .map((e) => DictionarySavingModel.fromJson(e))
-              .toList();
+      try {
+        var response = await apiHelper.get(
+            endpoint: "${ApiEndPoint.baseUrl2}/user/${getUserId()}/saved/all");
+        if (response is ApiReponseSuccess) {
+          GetAllDataModel getAllDataModel =
+              GetAllDataModel.fromJson(response.data);
+          try {
+            var re = await apiHelper.get(
+                endpoint: ApiEndPoint.getAllDictionaryFavorites);
+            if (re is ApiReponseSuccess) {
+              List<DictionarySavingModel> list = (re.data as List)
+                  .map((e) => DictionarySavingModel.fromJson(e))
+                  .toList();
 
-          log(list.toString());
+              log(list.toString());
 
-          for (var element in list) {
-            getAllDataModel.translations.add(
-              Translations(
-                id: element.id.toString(),
-                dictionaryEntryId: element.dictionaryEntryId,
-                gloss: element.gloss,
-                videoUrld: element.videoUrl,
-                favoritedOn: element.favoritedOn,
-              ),
-            );
+              for (var element in list) {
+                getAllDataModel.translations.add(
+                  Translations(
+                    id: element.id.toString(),
+                    dictionaryEntryId: element.dictionaryEntryId,
+                    gloss: element.gloss,
+                    videoUrld: element.videoUrl,
+                    favoritedOn: element.favoritedOn,
+                  ),
+                );
+              }
+              sortTranslationsByTime(getAllDataModel.translations);
+              return right(getAllDataModel);
+            } else {
+              return left(
+                  response.errormessage ?? StringManager.unExperctedError);
+            }
+          } catch (e) {
+            return left(StringManager.unExperctedError);
           }
-          sortTranslationsByTime(getAllDataModel.translations);
-          return right(getAllDataModel);
         } else {
           return left(response.errormessage ?? StringManager.unExperctedError);
         }
-        // }
-        // catch (e) {
-        //   return left(StringManager.unExperctedError);
-        // }
-      } else {
-        return left(response.errormessage ?? StringManager.unExperctedError);
+      } catch (e) {
+        return left(StringManager.unExperctedError);
       }
-      // } catch (e) {
-      //   return left(StringManager.unExperctedError);
-      // }
     } else {
       return left(StringManager.noInternetError);
     }

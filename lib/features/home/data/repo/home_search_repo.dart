@@ -18,13 +18,17 @@ class HomeSearchRepo {
   Future<Either<String, SearchModel>> getSearchResult(String word) async {
     bool isConnect = await connectInternetHelper.checkInternetConnection();
     if (isConnect) {
-      var response = await apiHelper.get(
-          endpoint: "${ApiEndPoint.baseUrl2}/user/${getUserId()}/search",
-          queryParameters: {"query": word});
-      if (response is ApiReponseSuccess) {
-        return right(SearchModel.fromJson(response.data!));
-      } else {
-        return left(response.errormessage ?? StringManager.unExperctedError);
+      try {
+        var response = await apiHelper.get(
+            endpoint: "${ApiEndPoint.baseUrl2}/user/${getUserId()}/search",
+            queryParameters: {"query": word});
+        if (response is ApiReponseSuccess) {
+          return right(SearchModel.fromJson(response.data!));
+        } else {
+          return left(response.errormessage ?? StringManager.unExperctedError);
+        }
+      } catch (e) {
+        return left(StringManager.unExperctedError);
       }
     } else {
       return left(StringManager.noInternetError);

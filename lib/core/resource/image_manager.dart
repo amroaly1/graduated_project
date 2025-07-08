@@ -17,4 +17,5 @@ abstract class ImageManager {
   static const String bridgeintro = "${_baseUrl}bridge_intro.svg";
   static const String chatwithai = "${_baseUrl}chat_with_ai.svg";
   static const String homevideo = "${_baseUrl}home_video.svg";
+  static const String noresult = "${_baseUrl}no_result.svg";
 }

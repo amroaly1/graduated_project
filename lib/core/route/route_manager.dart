@@ -12,7 +12,7 @@ import 'package:graduate_project/features/auth/signUp/presentation/sigin_up_view
 import 'package:graduate_project/features/auth/welcome/presentation/welcome_view.dart';
 import 'package:graduate_project/features/bridge/presentation/bridge_chat_view.dart';
 import 'package:graduate_project/features/bridge/presentation/bridge_view.dart';
-import 'package:graduate_project/features/chat/presentation/chat_view.dart';
+import 'package:graduate_project/features/translate/presentation/chat_view.dart';
 import 'package:graduate_project/features/chat_with_ai/presentation/chat_with_ai_view.dart';
 import 'package:graduate_project/features/chat_with_ai/presentation/intro_chat_with_ai_view.dart';
 import 'package:graduate_project/features/dictionary/data/model/dictionary_item_model.dart';
@@ -26,8 +26,6 @@ import 'package:graduate_project/features/profile/presentation/change_password_v
 import 'package:graduate_project/features/profile/presentation/edit_profile_view.dart';
 import 'package:graduate_project/features/profile/presentation/profile_view.dart';
 import 'package:graduate_project/features/saving/presentation/saving_view.dart';
-import 'package:graduate_project/features/stream/presentation/video_to_audio_view.dart';
-import 'package:graduate_project/features/stream/presentation/video_to_text_view.dart';
 import 'package:graduate_project/features/upload/data/model/video_to_audio_model.dart';
 import 'package:graduate_project/features/upload/data/model/video_to_text_model.dart';
 import 'package:graduate_project/features/upload/presentation/tranlsate_to_text_view.dart';
@@ -64,10 +62,7 @@ abstract class RouteManager {
         return customPageBuilder(TranslateToAudioView(
           videoToAudioModel: settings.arguments as VideoToAudioModel,
         ));
-      case ScreenManager.videotoaudioview:
-        return customPageBuilder(VideoToAudioView());
-      case ScreenManager.videototextview:
-        return customPageBuilder(VideoToTextView());
+
       case ScreenManager.savingView:
         return customPageBuilder(SavingView());
       case ScreenManager.chatingWitAiView:

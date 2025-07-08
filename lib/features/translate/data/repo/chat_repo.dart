@@ -8,9 +8,9 @@ import 'package:graduate_project/core/network/api_helper.dart';
 import 'package:graduate_project/core/network/api_keys.dart';
 import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/storage/shared_preference_helper.dart';
-import 'package:graduate_project/features/chat/data/model/chat_model.dart';
-import 'package:graduate_project/features/chat/data/model/delete_chat_model.dart';
-import 'package:graduate_project/features/chat/data/model/save_chat_model.dart';
+import 'package:graduate_project/features/translate/data/model/chat_model.dart';
+import 'package:graduate_project/features/translate/data/model/delete_chat_model.dart';
+import 'package:graduate_project/features/translate/data/model/save_chat_model.dart';
 
 class ChatRepo {
   final ApiHelper api;

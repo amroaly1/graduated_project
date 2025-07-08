@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduate_project/core/dependency_injection/di.dart';
-import 'package:graduate_project/features/chat/data/repo/chat_repo.dart';
+import 'package:graduate_project/features/translate/data/repo/chat_repo.dart';
 import 'package:graduate_project/features/saving/data/model/translation_saving_model.dart';
 import 'package:graduate_project/features/saving/data/repo/trasnlation_saving_repo.dart';
 // ignore: depend_on_referenced_packages

@@ -27,6 +27,7 @@ class CustomNameAndImageHomeView extends StatelessWidget {
                 width: WidthManager.w50,
                 height: HeightManager.h50,
                 decoration: BoxDecoration(
+                  color: ColorManager.gray,
                   shape: BoxShape.circle,
                 ),
                 clipBehavior: Clip.antiAlias,

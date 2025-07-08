@@ -10,7 +10,7 @@ import 'package:graduate_project/core/resource/icon_manager.dart';
 import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
 import 'package:graduate_project/core/widget/custom_chat_text_field_send.dart';
-import 'package:graduate_project/features/chat/manager/chat_cubit/chat_cubit.dart';
+import 'package:graduate_project/features/translate/manager/chat_cubit/chat_cubit.dart';
 import 'package:graduate_project/core/manager/mic_cubit/mic_cubit.dart';
 import 'package:graduate_project/features/home/manager/home_cubit/cubit/home_cubit.dart';
 import 'package:graduate_project/features/home/manager/home_cubit/cubit/home_state.dart';
@@ -121,17 +121,6 @@ class ChatBody extends StatelessWidget {
           ],
         );
       }),
-    );
-  }
-
-  OutlineInputBorder oulineborder() {
-    return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(
-        RaduisValueManager.r30,
-      ),
-      borderSide: BorderSide(
-        color: ColorManager.whight,
-      ),
     );
   }
 }

@@ -54,7 +54,7 @@ class CustomCardOfTranslation extends StatelessWidget {
           onTap: () {
             Navigator.push(context, MaterialPageRoute(
               builder: (context) {
-                return TranslatioDetails(
+                return TranslationDetailsView(
                   item: item,
                 );
               },

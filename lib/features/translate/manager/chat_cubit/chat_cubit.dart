@@ -4,8 +4,8 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graduate_project/features/chat/data/model/chat_model.dart';
-import 'package:graduate_project/features/chat/data/repo/chat_repo.dart';
+import 'package:graduate_project/features/translate/data/model/chat_model.dart';
+import 'package:graduate_project/features/translate/data/repo/chat_repo.dart';
 
 part 'chat_state.dart';
 
@@ -21,6 +21,7 @@ class ChatCubit extends Cubit<ChatState> {
 
   void chat() async {
     if (controller.text.isNotEmpty) {
+      chatModel?.isSaved = false;
       emit(ChatLoading());
       var res = await repo.doChat(text: controller.text);
       res.fold((ifLeft) {

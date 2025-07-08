@@ -124,6 +124,18 @@ abstract class TextStyleManager {
         color: color,
         shadows: shadows,
       );
+  static TextStyle bold17({
+    String? fontFamily = FontFamilyManger.avenirLTStd,
+    Color color = ColorManager.black,
+    List<Shadow>? shadows,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeightManager.bold,
+        fontSize: FontSizeManager.s17,
+        color: color,
+        shadows: shadows,
+      );
   static TextStyle bold13({
     String? fontFamily = FontFamilyManger.avenirLTStd,
     Color color = ColorManager.black,
