@@ -1,8 +1,8 @@
 import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graduate_project/features/chat_with_ai/data/model/search_model.dart';
-import 'package:graduate_project/features/chat_with_ai/data/repo/get_search_chat_repo.dart';
+import 'package:graduate_project/features/signGPT/data/model/search_model.dart';
+import 'package:graduate_project/features/signGPT/data/repo/get_search_chat_repo.dart';
 
 // ignore: depend_on_referenced_packages
 import 'package:meta/meta.dart';

@@ -12,9 +12,9 @@ import 'package:graduate_project/features/auth/signUp/presentation/sigin_up_view
 import 'package:graduate_project/features/auth/welcome/presentation/welcome_view.dart';
 import 'package:graduate_project/features/bridge/presentation/bridge_chat_view.dart';
 import 'package:graduate_project/features/bridge/presentation/bridge_view.dart';
-import 'package:graduate_project/features/translate/presentation/chat_view.dart';
-import 'package:graduate_project/features/chat_with_ai/presentation/chat_with_ai_view.dart';
-import 'package:graduate_project/features/chat_with_ai/presentation/intro_chat_with_ai_view.dart';
+import 'package:graduate_project/features/signify/presentation/chat_view.dart';
+import 'package:graduate_project/features/signGPT/presentation/chat_with_ai_view.dart';
+import 'package:graduate_project/features/signGPT/presentation/intro_chat_with_ai_view.dart';
 import 'package:graduate_project/features/dictionary/data/model/dictionary_item_model.dart';
 import 'package:graduate_project/features/dictionary/presentation/sign_dictionary_view.dart';
 import 'package:graduate_project/features/dictionary/presentation/widget/dictionary_serach_view.dart';
@@ -26,11 +26,11 @@ import 'package:graduate_project/features/profile/presentation/change_password_v
 import 'package:graduate_project/features/profile/presentation/edit_profile_view.dart';
 import 'package:graduate_project/features/profile/presentation/profile_view.dart';
 import 'package:graduate_project/features/saving/presentation/saving_view.dart';
-import 'package:graduate_project/features/upload/data/model/video_to_audio_model.dart';
-import 'package:graduate_project/features/upload/data/model/video_to_text_model.dart';
-import 'package:graduate_project/features/upload/presentation/tranlsate_to_text_view.dart';
-import 'package:graduate_project/features/upload/presentation/translate_to_audio_view.dart';
-import 'package:graduate_project/features/upload/presentation/translate_video_view.dart';
+import 'package:graduate_project/features/translate/data/model/video_to_audio_model.dart';
+import 'package:graduate_project/features/translate/data/model/video_to_text_model.dart';
+import 'package:graduate_project/features/translate/presentation/tranlsate_to_text_view.dart';
+import 'package:graduate_project/features/translate/presentation/translate_to_audio_view.dart';
+import 'package:graduate_project/features/translate/presentation/translate_video_view.dart';
 
 abstract class RouteManager {
   static Route<dynamic> generateRoute(RouteSettings settings) {

@@ -6,8 +6,8 @@ import 'package:graduate_project/core/network/api_helper.dart';
 import 'package:graduate_project/core/network/api_keys.dart';
 import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/storage/shared_preference_helper.dart';
-import 'package:graduate_project/features/chat_with_ai/data/model/chat_model.dart';
-import 'package:graduate_project/features/chat_with_ai/data/model/chat_response_model.dart';
+import 'package:graduate_project/features/signGPT/data/model/chat_model.dart';
+import 'package:graduate_project/features/signGPT/data/model/chat_response_model.dart';
 
 class ChatWitApiRepo {
   final ApiHelper api;

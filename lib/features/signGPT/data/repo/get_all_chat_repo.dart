@@ -6,7 +6,7 @@ import 'package:graduate_project/core/network/api_helper.dart';
 import 'package:graduate_project/core/network/api_keys.dart';
 import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/storage/shared_preference_helper.dart';
-import 'package:graduate_project/features/chat_with_ai/data/model/list_of_chat_model.dart';
+import 'package:graduate_project/features/signGPT/data/model/list_of_chat_model.dart';
 
 class GetAllChatRepo {
   final ApiHelper api;

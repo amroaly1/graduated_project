@@ -8,9 +8,9 @@ import 'package:graduate_project/core/resource/font_weight_manager.dart';
 import 'package:graduate_project/core/resource/icon_manager.dart';
 import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
-import 'package:graduate_project/features/chat_with_ai/manager/chat_list_view_cubit/chat_list_view_cubit.dart';
-import 'package:graduate_project/features/chat_with_ai/presentation/widget/chat_wit_ai_body_view.dart';
-import 'package:graduate_project/features/chat_with_ai/presentation/widget/sing_gpt_drawer.dart';
+import 'package:graduate_project/features/signGPT/manager/chat_list_view_cubit/chat_list_view_cubit.dart';
+import 'package:graduate_project/features/signGPT/presentation/widget/chat_wit_ai_body_view.dart';
+import 'package:graduate_project/features/signGPT/presentation/widget/sing_gpt_drawer.dart';
 
 class ChatWithAiView extends StatelessWidget {
   const ChatWithAiView({super.key, this.chatId});

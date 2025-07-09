@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduate_project/features/bridge/presentation/widget/bridge_body_view.dart';
-import 'package:graduate_project/features/translate/presentation/widget/translate_body.dart';
-import 'package:graduate_project/features/chat_with_ai/presentation/widget/intro_chat_with_ai_body_view.dart';
+import 'package:graduate_project/features/signify/presentation/widget/translate_body.dart';
+import 'package:graduate_project/features/signGPT/presentation/widget/intro_chat_with_ai_body_view.dart';
 import 'package:graduate_project/features/home/manager/home_cubit/cubit/home_state.dart';
 import 'package:graduate_project/features/profile/presentation/widget/profile_body_view.dart';
-import 'package:graduate_project/features/upload/presentation/upload_body.dart';
+import 'package:graduate_project/features/translate/presentation/upload_body.dart';
 import 'package:graduate_project/features/home/presentation/widget/home_body.dart';
 
 class HomeCubit extends Cubit<HomeState> {

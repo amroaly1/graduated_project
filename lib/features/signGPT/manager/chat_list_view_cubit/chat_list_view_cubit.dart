@@ -2,9 +2,9 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graduate_project/features/chat_with_ai/data/model/chat_model.dart';
-import 'package:graduate_project/features/chat_with_ai/data/model/list_of_chat_model.dart';
-import 'package:graduate_project/features/chat_with_ai/data/repo/chat_repo.dart';
+import 'package:graduate_project/features/signGPT/data/model/chat_model.dart';
+import 'package:graduate_project/features/signGPT/data/model/list_of_chat_model.dart';
+import 'package:graduate_project/features/signGPT/data/repo/chat_repo.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 // import 'package:meta/meta.dart';
 

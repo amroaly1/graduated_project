@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graduate_project/features/chat_with_ai/data/model/list_of_chat_model.dart';
-import 'package:graduate_project/features/chat_with_ai/data/repo/get_all_chat_repo.dart';
+import 'package:graduate_project/features/signGPT/data/model/list_of_chat_model.dart';
+import 'package:graduate_project/features/signGPT/data/repo/get_all_chat_repo.dart';
 // ignore: depend_on_referenced_packages
 import 'package:meta/meta.dart';
 

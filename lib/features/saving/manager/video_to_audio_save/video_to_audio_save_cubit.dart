@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduate_project/core/dependency_injection/di.dart';
 import 'package:graduate_project/features/saving/data/model/video_to_audio_save_model.dart';
 import 'package:graduate_project/features/saving/data/repo/video_to_audio_save_repo.dart';
-import 'package:graduate_project/features/upload/data/repo/saving_video_repo.dart';
+import 'package:graduate_project/features/translate/data/repo/saving_video_repo.dart';
 // ignore: depend_on_referenced_packages
 import 'package:meta/meta.dart';
 

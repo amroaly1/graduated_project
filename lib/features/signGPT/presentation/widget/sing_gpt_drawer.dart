@@ -13,12 +13,12 @@ import 'package:graduate_project/core/resource/icon_manager.dart';
 import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
 import 'package:graduate_project/core/route/navigation_manager.dart';
-import 'package:graduate_project/features/chat_with_ai/data/model/chat_model.dart';
-import 'package:graduate_project/features/chat_with_ai/data/model/list_of_chat_model.dart';
-import 'package:graduate_project/features/chat_with_ai/data/repo/get_search_chat_repo.dart';
-import 'package:graduate_project/features/chat_with_ai/manager/chat_list_view_cubit/chat_list_view_cubit.dart';
-import 'package:graduate_project/features/chat_with_ai/manager/get_all_chat/get_all_chat_cubit.dart';
-import 'package:graduate_project/features/chat_with_ai/manager/search_chat_cubit.dart/search_chat_cubit.dart';
+import 'package:graduate_project/features/signGPT/data/model/chat_model.dart';
+import 'package:graduate_project/features/signGPT/data/model/list_of_chat_model.dart';
+import 'package:graduate_project/features/signGPT/data/repo/get_search_chat_repo.dart';
+import 'package:graduate_project/features/signGPT/manager/chat_list_view_cubit/chat_list_view_cubit.dart';
+import 'package:graduate_project/features/signGPT/manager/get_all_chat/get_all_chat_cubit.dart';
+import 'package:graduate_project/features/signGPT/manager/search_chat_cubit.dart/search_chat_cubit.dart';
 import 'package:graduate_project/features/saving/presentation/widget/custom_failing_body.dart';
 import 'package:redacted/redacted.dart';
 

@@ -6,7 +6,7 @@ import 'package:graduate_project/core/helper/show_snack_bar.dart';
 import 'package:graduate_project/core/resource/padding_manager.dart';
 import 'package:graduate_project/core/widget/custom_chat_card.dart';
 import 'package:graduate_project/core/widget/custom_chat_text_field_send.dart';
-import 'package:graduate_project/features/chat_with_ai/manager/chat_list_view_cubit/chat_list_view_cubit.dart';
+import 'package:graduate_project/features/signGPT/manager/chat_list_view_cubit/chat_list_view_cubit.dart';
 import 'package:graduate_project/features/saving/presentation/widget/custom_failing_body.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 

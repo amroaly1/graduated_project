@@ -13,7 +13,7 @@ import 'package:graduate_project/core/resource/text_style_manager.dart';
 import 'package:graduate_project/core/widget/cutsom_app_bar_of_sub_page.dart';
 import 'package:graduate_project/features/saving/data/model/video_to_audio_save_model.dart';
 import 'package:graduate_project/features/saving/presentation/widget/show_video.dart';
-import 'package:graduate_project/features/upload/manager/audio_player_cubit/audio_player_cubit.dart';
+import 'package:graduate_project/features/translate/manager/audio_player_cubit/audio_player_cubit.dart';
 
 class VideoToAudioDetails extends StatelessWidget {
   const VideoToAudioDetails({super.key, required this.item});
