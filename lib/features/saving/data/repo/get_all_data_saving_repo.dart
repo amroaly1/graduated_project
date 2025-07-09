@@ -23,7 +23,8 @@ class GetAllDataSavingRepo {
     if (connected) {
       try {
         var response = await apiHelper.get(
-            endpoint: "${ApiEndPoint.baseUrl2}/user/${getUserId()}/saved/all");
+            endpoint:
+                "${ApiEndPoint.baseUrlSecondary}/user/${getUserId()}/saved/all");
         if (response is ApiReponseSuccess) {
           GetAllDataModel getAllDataModel =
               GetAllDataModel.fromJson(response.data);

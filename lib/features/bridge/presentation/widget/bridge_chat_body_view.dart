@@ -30,6 +30,7 @@ class BridgeChatBodyView extends StatelessWidget {
                     isStart: index == 0,
                     fromMe: index % 2 == 0,
                     message: "Hello, what about you ?",
+                    dateTime: "2025-07-09T13:13:07.047078",
                   );
                 },
               ),

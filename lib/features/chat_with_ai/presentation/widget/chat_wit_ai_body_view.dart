@@ -1,11 +1,14 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduate_project/core/helper/show_snack_bar.dart';
 import 'package:graduate_project/core/resource/padding_manager.dart';
 import 'package:graduate_project/core/widget/custom_chat_card.dart';
 import 'package:graduate_project/core/widget/custom_chat_text_field_send.dart';
-import 'package:graduate_project/features/chat_with_ai/manager/cubit/chat_list_view_cubit.dart';
+import 'package:graduate_project/features/chat_with_ai/manager/chat_list_view_cubit/chat_list_view_cubit.dart';
 import 'package:graduate_project/features/saving/presentation/widget/custom_failing_body.dart';
+import 'package:scroll_to_index/scroll_to_index.dart';
 
 class ChatWitAiBodyView extends StatelessWidget {
   const ChatWitAiBodyView({super.key});
@@ -29,31 +32,63 @@ class ChatWitAiBodyView extends StatelessWidget {
                   if (state is ChatListViewFailing) {
                     return CustomFailingBody(error: state.errMessage);
                   }
-                  if (state is ChatListViewAddItemLoading) {
+
+                  if (state is ChatListViewLoading) {
                     return ListView.builder(
                       itemCount: 10,
-                      itemBuilder: (context, index) {
-                        return CustomChatCardLoading(
-                          isStart: index == 0,
-                          fromMe: index % 2 == 0,
-                          message: index % 2 == 0
-                              ? "Hello, what about you ?"
-                              : "Hello, what about you ? Hello, what about you ? Hello, what about you ? Hello, what about you ? Hello, what about you ?",
-                        );
-                      },
+                      itemBuilder: (context, index) => CustomChatCardLoading(
+                        isStart: index == 0,
+                        fromMe: index % 2 == 0,
+                      ),
                     );
                   }
-                  WidgetsBinding.instance.addPostFrameCallback((_) {
-                    ChatListViewCubit.get(context).scrollToBottom();
-                  });
+                  if (state is ChatListViewSearchSccess) {
+                    return ListView.builder(
+                      itemCount: ChatListViewCubit.get(context).messages.length,
+                      itemBuilder: (context, index) => AutoScrollTag(
+                        key: ValueKey(index),
+                        highlightColor: Colors.amber,
+                        controller:
+                            ChatListViewCubit.get(context).scrollController,
+                        index: index,
+                        child: CustomChatCard(
+                          isStart: index == 0,
+                          fromMe: index % 2 == 0,
+                          message: ChatListViewCubit.get(context)
+                              .messages[index]
+                              .content,
+                          dateTime: ChatListViewCubit.get(context)
+                              .messages[index]
+                              .timestamp,
+                        ),
+                      ),
+                    );
+                  }
+
+                  log((state is ChatListViewAddItemLoading).toString());
                   return ListView.builder(
-                    itemCount: ChatListViewCubit.get(context).messages.length,
+                    itemCount: state is ChatListViewAddItemLoading
+                        ? ChatListViewCubit.get(context).messages.length + 1
+                        : ChatListViewCubit.get(context).messages.length,
                     controller: ChatListViewCubit.get(context).scrollController,
                     itemBuilder: (context, index) {
+                      if (state is ChatListViewAddItemLoading &&
+                          index ==
+                              ChatListViewCubit.get(context).messages.length) {
+                        return CustomChatCardLoading(
+                          isStart: index == 0,
+                          fromMe: false,
+                        );
+                      }
                       return CustomChatCard(
                         isStart: index == 0,
                         fromMe: index % 2 == 0,
-                        message: ChatListViewCubit.get(context).messages[index],
+                        message: ChatListViewCubit.get(context)
+                            .messages[index]
+                            .content,
+                        dateTime: ChatListViewCubit.get(context)
+                            .messages[index]
+                            .timestamp,
                       );
                     },
                   );

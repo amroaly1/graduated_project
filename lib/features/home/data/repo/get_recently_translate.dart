@@ -21,7 +21,7 @@ class GetRecentlyTranslateRepo {
       // try {
       var response = await apiHelper.get(
           endpoint:
-              "${ApiEndPoint.baseUrl2}/user/${getUserId()}/recent-translations/all");
+              "${ApiEndPoint.baseUrlSecondary}/user/${getUserId()}/recent-translations/all");
       if (response is ApiReponseSuccess) {
         return right(RecenltyTransalteModel.fromJson(response.data!));
       } else {

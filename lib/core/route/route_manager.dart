@@ -66,7 +66,11 @@ abstract class RouteManager {
       case ScreenManager.savingView:
         return customPageBuilder(SavingView());
       case ScreenManager.chatingWitAiView:
-        return customPageBuilder(ChatWithAiView());
+        return customPageBuilder(
+          ChatWithAiView(
+            chatId: settings.arguments as int?,
+          ),
+        );
       case ScreenManager.worddetailsview:
         return customPageBuilder(WordDetailsView(
           word: settings.arguments as DictionaryItemModel,

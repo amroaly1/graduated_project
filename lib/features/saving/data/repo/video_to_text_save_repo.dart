@@ -21,7 +21,7 @@ class VideoToTextSaveRepo {
       try {
         var response = await apiHelper.get(
             endpoint:
-                "${ApiEndPoint.baseUrl2}/user/${getUserId()}/translations/with-text");
+                "${ApiEndPoint.baseUrlSecondary}/user/${getUserId()}/translations/with-text");
         if (response is ApiReponseSuccess) {
           return right(VideoToTextSaveModel.fromJson(response.data));
         } else {

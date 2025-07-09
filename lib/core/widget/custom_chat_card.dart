@@ -5,6 +5,7 @@ import 'package:graduate_project/core/resource/font_family_manger.dart';
 import 'package:graduate_project/core/resource/font_size_manager.dart';
 import 'package:graduate_project/core/resource/font_weight_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
+import 'package:intl/intl.dart';
 import 'package:redacted/redacted.dart';
 
 class CustomChatCard extends StatelessWidget {
@@ -13,11 +14,13 @@ class CustomChatCard extends StatelessWidget {
     required this.fromMe,
     required this.isStart,
     required this.message,
+    required this.dateTime,
   });
 
   final bool fromMe;
   final bool isStart;
   final String message;
+  final String dateTime;
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +64,7 @@ class CustomChatCard extends StatelessWidget {
             height: HeightManager.h6,
           ),
           Text(
-            "12:54 PM",
+            DateFormat.jm().format(DateTime.parse(dateTime)),
             style: TextStyleManager.medium20(
               color: ColorManager.gray7,
               fontFamily: FontFamilyManger.avenirLTStd,
@@ -80,12 +83,10 @@ class CustomChatCardLoading extends StatelessWidget {
     super.key,
     required this.fromMe,
     required this.isStart,
-    required this.message,
   });
 
   final bool fromMe;
   final bool isStart;
-  final String message;
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +115,7 @@ class CustomChatCardLoading extends StatelessWidget {
             child: Wrap(
               children: [
                 Text(
-                  message,
+                  "message message message message message message message message message message message message message message message message",
                   style: TextStyleManager.medium20(
                     color: ColorManager.gray7,
                     fontFamily: FontFamilyManger.avenirLTStd,

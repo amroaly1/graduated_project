@@ -13,6 +13,7 @@ import 'package:graduate_project/core/route/screen_manager.dart';
 import 'package:graduate_project/features/home/manager/get_recenly_saved_cubit/get_recently_saved_cubit.dart';
 import 'package:graduate_project/features/home/manager/get_recent_translate/get_recently_translate_cubit.dart';
 import 'package:graduate_project/features/home/manager/home_dictionary/home_dictionary_cubit.dart';
+import 'package:graduate_project/features/home/manager/recentaly_chat_cubit/recentaly_chat_cubit.dart';
 import 'package:graduate_project/features/home/presentation/widget/body_of_card_recentaly_translate.dart';
 import 'package:graduate_project/features/home/presentation/widget/body_of_home_of_recentaly_saved.dart';
 import 'package:graduate_project/features/home/presentation/widget/recentaly_chat.dart';
@@ -32,6 +33,7 @@ class HomeBody extends StatelessWidget {
         di<HomeDictionaryCubit>().init();
         di<GetRecentlyTranslateCubit>().getRecentlyTranslate();
         di<GetRecentlySavedCubit>().getRecentalySaved();
+        di<RecentalyChatCubit>().init();
       },
       child: SafeArea(
         child: SingleChildScrollView(

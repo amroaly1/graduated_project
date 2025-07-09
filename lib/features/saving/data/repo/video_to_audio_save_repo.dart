@@ -21,7 +21,7 @@ class VideoToAudioSaveRepo {
       try {
         var response = await apiHelper.get(
             endpoint:
-                "${ApiEndPoint.baseUrl2}/user/${getUserId()}/translations/with-audio");
+                "${ApiEndPoint.baseUrlSecondary}/user/${getUserId()}/translations/with-audio");
         if (response is ApiReponseSuccess) {
           return right(VideoToAudioSaveModel.fromJson(response.data));
         } else {

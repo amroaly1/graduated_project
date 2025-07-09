@@ -52,7 +52,7 @@ class SavingVideoRepo {
       try {
         var response = await apiHelper.delete(
           endpoint:
-              "${ApiEndPoint.baseUrl2}/user/${getUserId()}/translations/with-text/$trsnlationid",
+              "${ApiEndPoint.baseUrlSecondary}/user/${getUserId()}/translations/with-text/$trsnlationid",
         );
         if (response is ApiReponseSuccess) {
           return right(null);
@@ -76,7 +76,7 @@ class SavingVideoRepo {
       try {
         var response = await apiHelper.delete(
           endpoint:
-              "${ApiEndPoint.baseUrl2}/user/${getUserId()}/translations/with-audio/$trsnlationid",
+              "${ApiEndPoint.baseUrlSecondary}/user/${getUserId()}/translations/with-audio/$trsnlationid",
         );
         if (response is ApiReponseSuccess) {
           return right(null);

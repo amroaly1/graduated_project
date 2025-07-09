@@ -20,7 +20,8 @@ class HomeSearchRepo {
     if (isConnect) {
       try {
         var response = await apiHelper.get(
-            endpoint: "${ApiEndPoint.baseUrl2}/user/${getUserId()}/search",
+            endpoint:
+                "${ApiEndPoint.baseUrlSecondary}/user/${getUserId()}/search",
             queryParameters: {"query": word});
         if (response is ApiReponseSuccess) {
           return right(SearchModel.fromJson(response.data!));

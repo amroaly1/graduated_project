@@ -12,6 +12,13 @@ import 'package:graduate_project/features/auth/login/data/repo/login_repo.dart';
 import 'package:graduate_project/features/auth/login/manager/cubit/login_cubit.dart';
 import 'package:graduate_project/features/auth/signUp/data/repo/sigin_up_repo.dart';
 import 'package:graduate_project/features/auth/signUp/manager/cubit/sigin_up_cubit.dart';
+import 'package:graduate_project/features/chat_with_ai/data/repo/chat_repo.dart';
+import 'package:graduate_project/features/chat_with_ai/data/repo/get_all_chat_repo.dart';
+import 'package:graduate_project/features/chat_with_ai/data/repo/get_search_chat_repo.dart';
+import 'package:graduate_project/features/chat_with_ai/manager/chat_list_view_cubit/chat_list_view_cubit.dart';
+import 'package:graduate_project/features/chat_with_ai/manager/get_all_chat/get_all_chat_cubit.dart';
+import 'package:graduate_project/features/home/data/repo/get_sign_gpt_repo.dart';
+import 'package:graduate_project/features/home/manager/recentaly_chat_cubit/recentaly_chat_cubit.dart';
 import 'package:graduate_project/features/translate/data/repo/chat_repo.dart';
 import 'package:graduate_project/features/translate/manager/chat_cubit/translate_cubit.dart';
 import 'package:graduate_project/core/manager/mic_cubit/mic_cubit.dart';
@@ -209,6 +216,30 @@ Future<void> setUp() async {
       connectInternetHelper: di<ConnectInternetHelper>(),
     ),
   );
+  di.registerSingleton<ChatWitApiRepo>(
+    ChatWitApiRepo(
+      api: di<ApiHelper>(),
+      connectInternetHelper: di<ConnectInternetHelper>(),
+    ),
+  );
+  di.registerSingleton<GetAllChatRepo>(
+    GetAllChatRepo(
+      api: di<ApiHelper>(),
+      connectInternetHelper: di<ConnectInternetHelper>(),
+    ),
+  );
+  di.registerSingleton<GetSearchChatRepo>(
+    GetSearchChatRepo(
+      api: di<ApiHelper>(),
+      connectInternetHelper: di<ConnectInternetHelper>(),
+    ),
+  );
+  di.registerSingleton<GetSignGptRepo>(
+    GetSignGptRepo(
+      apiHelper: di<ApiHelper>(),
+      connectInternetHelper: di<ConnectInternetHelper>(),
+    ),
+  );
 
   di.registerSingleton<EditProfileCubit>(
       EditProfileCubit(di<EditProfileRepo>()));
@@ -250,4 +281,9 @@ Future<void> setUp() async {
   di.registerSingleton<GetRecentlyTranslateCubit>(GetRecentlyTranslateCubit(
     di<GetRecentlyTranslateRepo>(),
   ));
+  di.registerSingleton<ChatListViewCubit>(
+      ChatListViewCubit(di<ChatWitApiRepo>()));
+  di.registerSingleton<GetAllChatCubit>(GetAllChatCubit(di<GetAllChatRepo>()));
+  di.registerSingleton<RecentalyChatCubit>(
+      RecentalyChatCubit(di<GetSignGptRepo>()));
 }

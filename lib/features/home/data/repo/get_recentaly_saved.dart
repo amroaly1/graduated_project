@@ -21,7 +21,7 @@ class GetRecentalySavedRepo {
       // try {
       var response = await apiHelper.get(
           endpoint:
-              "${ApiEndPoint.baseUrl2}/user/${getUserId()}/recent-saves/all");
+              "${ApiEndPoint.baseUrlSecondary}/user/${getUserId()}/recent-saves/all");
       if (response is ApiReponseSuccess) {
         return right(RecentlySaveModel.fromJson(response.data!));
       } else {
