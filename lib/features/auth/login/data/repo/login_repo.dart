@@ -254,6 +254,10 @@ class LoginRepo {
     await Future.wait(
       [
         sharedPreference.saveData(
+          key: SharedPreferenceKeys.isLogin,
+          value: true,
+        ),
+        sharedPreference.saveData(
           key: ApiKeys.userId,
           value: userModel.userId,
         ),

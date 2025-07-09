@@ -51,3 +51,8 @@ class SharedPreferenceHelper {
     return await sharedPreferences.clear();
   }
 }
+
+class SharedPreferenceKeys {
+  static const String onBoarding = "onBoarding";
+  static const String isLogin = "isLogin";
+}

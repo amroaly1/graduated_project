@@ -9,7 +9,7 @@ class OnBoardingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => OnBoardingCubit(),
+      create: (context) => OnBoardingCubit()..init(),
       child: PopScope(
         canPop: false,
         child: const Scaffold(

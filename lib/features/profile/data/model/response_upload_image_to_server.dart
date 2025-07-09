@@ -3,7 +3,7 @@ import 'package:graduate_project/core/network/api_keys.dart';
 class ResponseUploadImageToServer {
   final bool isSuccess;
   final Error error;
-  final Data data;
+  final Data? data;
 
   ResponseUploadImageToServer(
       {required this.isSuccess, required this.error, required this.data});

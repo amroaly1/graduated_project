@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graduate_project/core/resource/color_manager.dart';
 import 'package:graduate_project/core/resource/device_height_width_manager.dart';
@@ -10,6 +11,7 @@ import 'package:graduate_project/core/resource/text_style_manager.dart';
 import 'package:graduate_project/core/widget/default_button.dart';
 import 'package:graduate_project/features/onboarding/data/model/on_boarding_model.dart';
 import 'package:graduate_project/features/onboarding/manager/on_boarding_cubit/on_boarding_cubit.dart';
+import 'package:graduate_project/features/onboarding/manager/on_boarding_cubit/on_boarding_state.dart';
 import 'package:graduate_project/features/onboarding/view/widget/back_ground_of_arrow.dart';
 import 'package:graduate_project/features/onboarding/view/widget/custom_circle_indecator.dart';
 
@@ -61,29 +63,47 @@ class OnBoardingItem extends StatelessWidget {
             SizedBox(height: HeightManager.h29),
             Padding(
               padding: PaddingManager.paddingHorizontal16,
-              child: SvgPicture.asset(
-                item.image,
-                height: DeviceHeightWidthManager.subOfHeight(
-                  context,
-                  HeightOfDesign.h309,
-                ),
-                width: DeviceHeightWidthManager.subOfWidth(
-                  context,
-                  WidthOfDesign.w378,
-                ),
-                // fit: BoxFit.fill,
+              child: BlocBuilder<OnBoardingCubit, OnBoardingState>(
+                builder: (context, state) {
+                  return AnimatedScale(
+                    scale: OnBoardingCubit.get(context).isOut ? 1 : 0,
+                    duration: Durations.medium1,
+                    child: SvgPicture.asset(
+                      item.image,
+                      height: DeviceHeightWidthManager.subOfHeight(
+                        context,
+                        HeightOfDesign.h309,
+                      ),
+                      width: DeviceHeightWidthManager.subOfWidth(
+                        context,
+                        WidthOfDesign.w378,
+                      ),
+                      // fit: BoxFit.fill,
+                    ),
+                  );
+                },
               ),
             ),
             // Spacer(
             //   flex: 2,
             // ),
             SizedBox(height: HeightManager.h10),
-            Text(
-              item.title,
-              style: TextStyleManager.bold28(),
-              textAlign: TextAlign.center,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
+            BlocBuilder<OnBoardingCubit, OnBoardingState>(
+              builder: (context, state) {
+                return AnimatedAlign(
+                  duration: Durations.medium1,
+                  alignment: OnBoardingCubit.get(context).isOut
+                      ? Alignment.center
+                      : Alignment.centerLeft,
+                  child: Text(
+                    item.title,
+                    style: TextStyleManager.bold28(),
+                    textAlign: TextAlign.center,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                );
+              },
             ),
             SizedBox(height: HeightManager.h20),
             Padding(
@@ -95,14 +115,22 @@ class OnBoardingItem extends StatelessWidget {
                     IconManager.startquot,
                     alignment: Alignment.centerLeft,
                   ),
-                  Text(
-                    item.subTitle,
-                    style: TextStyleManager.semiBold16(
-                      color: ColorManager.purple1Color,
-                    ),
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
+                  BlocBuilder<OnBoardingCubit, OnBoardingState>(
+                    builder: (context, state) {
+                      return AnimatedOpacity(
+                        duration: Durations.medium1,
+                        opacity: OnBoardingCubit.get(context).isOut ? 1 : 0,
+                        child: Text(
+                          item.subTitle,
+                          style: TextStyleManager.semiBold16(
+                            color: ColorManager.purple1Color,
+                          ),
+                          textAlign: TextAlign.center,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 3,
+                        ),
+                      );
+                    },
                   ),
                   SvgPicture.asset(
                     IconManager.endquot,

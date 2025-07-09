@@ -9,7 +9,7 @@ abstract class ScreenManager {
   static const String videotoaudioview = "/videotoaudio";
   static const String videototextview = "/videototext";
   static const String worddetailsview = "/worddetailsview";
-  static const String chatView = "/chatView";
+  static const String translateView = "/translateView";
   static const String confirmEmail = "/confirmEmail";
   static const String resetPassowrdView = "/resetPassowrdView";
   static const String dictionarySearchView = "/dictionarySearchView";

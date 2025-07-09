@@ -8,7 +8,7 @@ import 'package:graduate_project/core/resource/text_style_manager.dart';
 import 'package:graduate_project/features/saving/data/model/translation_saving_model.dart';
 import 'package:graduate_project/features/saving/manager/cubit/get_all_data_saving_cubit.dart';
 import 'package:graduate_project/features/saving/manager/translation_saving/trsanlation_saving_cubit.dart';
-import 'package:graduate_project/features/saving/presentation/translatio_details.dart';
+import 'package:graduate_project/features/saving/presentation/translation_details.dart';
 import 'package:intl/intl.dart';
 
 class CustomCardOfTranslation extends StatelessWidget {

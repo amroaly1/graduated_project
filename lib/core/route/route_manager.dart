@@ -72,8 +72,8 @@ abstract class RouteManager {
           word: settings.arguments as DictionaryItemModel,
         ));
 
-      case ScreenManager.chatView:
-        return customPageBuilder(ChatView());
+      case ScreenManager.translateView:
+        return customPageBuilder(TranslateView());
       case ScreenManager.dictionarySearchView:
         return customPageBuilder(DictionarySerachView());
       case ScreenManager.bridgeView:

@@ -13,7 +13,7 @@ import 'package:graduate_project/features/auth/login/manager/cubit/login_cubit.d
 import 'package:graduate_project/features/auth/signUp/data/repo/sigin_up_repo.dart';
 import 'package:graduate_project/features/auth/signUp/manager/cubit/sigin_up_cubit.dart';
 import 'package:graduate_project/features/translate/data/repo/chat_repo.dart';
-import 'package:graduate_project/features/translate/manager/chat_cubit/chat_cubit.dart';
+import 'package:graduate_project/features/translate/manager/chat_cubit/translate_cubit.dart';
 import 'package:graduate_project/core/manager/mic_cubit/mic_cubit.dart';
 import 'package:graduate_project/features/dictionary/data/repo/dictionary_add_favorite_repo.dart';
 import 'package:graduate_project/features/dictionary/data/repo/dictionary_search_repo.dart';
@@ -212,7 +212,7 @@ Future<void> setUp() async {
 
   di.registerSingleton<EditProfileCubit>(
       EditProfileCubit(di<EditProfileRepo>()));
-  di.registerSingleton<ChatCubit>(ChatCubit(repo: di<ChatRepo>()));
+  di.registerSingleton<TranslateCubit>(TranslateCubit(repo: di<ChatRepo>()));
   di.registerSingleton<MicCubit>(MicCubit());
   di.registerSingleton<SavingCubit>(SavingCubit());
   di.registerSingleton<ChangeImageCubit>(ChangeImageCubit());

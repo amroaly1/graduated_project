@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:graduate_project/features/translate/presentation/widget/chat_body.dart';
+import 'package:graduate_project/features/translate/presentation/widget/translate_body.dart';
 
-class ChatView extends StatelessWidget {
-  const ChatView({super.key});
+class TranslateView extends StatelessWidget {
+  const TranslateView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: ChatBody(),
+      body: TranslateBody(),
     );
   }
 }

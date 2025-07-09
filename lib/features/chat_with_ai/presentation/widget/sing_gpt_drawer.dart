@@ -5,6 +5,9 @@ import 'package:graduate_project/core/resource/distance_manager.dart';
 import 'package:graduate_project/core/resource/font_family_manger.dart';
 import 'package:graduate_project/core/resource/font_weight_manager.dart';
 import 'package:graduate_project/core/resource/icon_manager.dart';
+import 'package:graduate_project/core/resource/string_manager.dart';
+import 'package:graduate_project/core/resource/text_style_manager.dart';
+import 'package:graduate_project/core/route/navigation_manager.dart';
 
 class SignGPTDrawer extends StatelessWidget {
   const SignGPTDrawer({super.key});
@@ -144,23 +147,135 @@ class ChatTile extends StatelessWidget {
       padding: const EdgeInsets.only(
         bottom: 9,
       ),
-      child: ListTile(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        tileColor: Colors.white,
+      child: InkWell(
+        onLongPress: () {
+          showAlertDialogUploadVideo(context);
+        },
+        child: ListTile(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          tileColor: Colors.white,
+          title: Text(
+            title,
+            style: const TextStyle(
+              fontSize: 13,
+              color: ColorManager.color1,
+              fontWeight: FontWeightManager.semiBold,
+              fontFamily: FontFamilyManger.avenirLTStd,
+            ),
+          ),
+          onTap: () {
+            // handle chat tap
+          },
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 14, vertical: 0),
+          dense: true,
+        ),
+      ),
+    );
+  }
+
+  Future<dynamic> showAlertDialogUploadVideo(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: WidthManager.w16,
+          vertical: HeightManager.h9,
+        ),
+        actionsPadding: EdgeInsets.only(
+          left: WidthManager.w16,
+          right: HeightManager.h9,
+          bottom: HeightManager.h20,
+        ),
+        titlePadding: EdgeInsets.only(
+          top: HeightManager.h29,
+          left: WidthManager.w16,
+          right: WidthManager.w16,
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(
+            RaduisValueManager.r5,
+          ), // 👈 Rounded corners
+        ),
         title: Text(
-          title,
-          style: const TextStyle(
-            fontSize: 13,
-            color: ColorManager.color1,
-            fontWeight: FontWeightManager.semiBold,
-            fontFamily: FontFamilyManger.avenirLTStd,
+          StringManager.areyousuretoremovethischat,
+          style: TextStyleManager.bold13(
+            color: ColorManager.black,
           ),
         ),
-        onTap: () {
-          // handle chat tap
-        },
-        contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 0),
-        dense: true,
+        content: Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: ColorManager.primaryColor,
+            borderRadius: BorderRadius.circular(
+              RaduisValueManager.r5,
+            ),
+          ),
+          padding: EdgeInsets.symmetric(
+            horizontal: WidthManager.w10,
+            vertical: HeightManager.h10,
+          ),
+          child: Row(
+            children: [
+              Icon(
+                Icons.warning_rounded,
+                color: Colors.white,
+                size: HeightManager.h32,
+              ),
+              SizedBox(
+                width: WidthManager.w6,
+              ),
+              Expanded(
+                child: Text(
+                  StringManager
+                      .thiscahtowillbepermanentlydeletedandcannotberecovered,
+                  style: TextStyleManager.regular11(
+                    color: ColorManager.whight,
+                  ),
+                  maxLines: 2,
+                ),
+              ),
+            ],
+          ),
+        ),
+        actions: [
+          InkWell(
+            onTap: () {
+              NavigationManager.pop(context: context);
+            },
+            child: Text(
+              StringManager.cancel,
+              style: TextStyleManager.regular11(
+                color: ColorManager.gray1,
+              ),
+            ),
+          ),
+          InkWell(
+            onTap: () {
+              NavigationManager.pop(context: context);
+              // TODO : Delete Chat
+            },
+            child: Container(
+              padding: EdgeInsets.symmetric(
+                vertical: HeightManager.h5,
+                horizontal: WidthManager.w12,
+              ),
+              decoration: BoxDecoration(
+                color: ColorManager.primaryColor,
+                borderRadius: BorderRadius.circular(
+                  RaduisValueManager.r8,
+                ),
+              ),
+              child: Text(
+                StringManager.yesdelete,
+                style: TextStyleManager.regular11(
+                  color: ColorManager.whight,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

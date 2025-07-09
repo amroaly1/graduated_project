@@ -11,6 +11,7 @@ import 'package:graduate_project/core/resource/text_style_manager.dart';
 import 'package:graduate_project/core/route/navigation_manager.dart';
 import 'package:graduate_project/core/route/screen_manager.dart';
 import 'package:graduate_project/core/manager/manage_user_data/manager_user_data_cubit.dart';
+import 'package:graduate_project/core/storage/shared_preference_helper.dart';
 import 'package:graduate_project/features/profile/presentation/widget/custom_profile_card.dart';
 import 'package:graduate_project/features/profile/presentation/widget/custom_profile_image.dart';
 
@@ -117,6 +118,12 @@ class CardProfileSection extends StatelessWidget {
             customConfirmBootomNavigationSheet(
               context: context,
               onTapYes: () {
+                SharedPreferenceHelper sharedPreferenceHelper =
+                    SharedPreferenceHelper();
+                sharedPreferenceHelper.saveData(
+                  key: SharedPreferenceKeys.isLogin,
+                  value: false,
+                );
                 NavigationManager.pushNameAndReplaseUnti(
                   context: context,
                   screen: ScreenManager.welcomeView,

@@ -35,8 +35,13 @@ class EditProfileRepo {
         if (response is ApiReponseSuccess) {
           ResponseUploadImageToServer responseUploadImageToServer =
               ResponseUploadImageToServer.fromJson(response.data);
+          if (responseUploadImageToServer.data == null) {
+            return left(
+              responseUploadImageToServer.error.message,
+            );
+          }
           return right(
-            responseUploadImageToServer.data.fileUrl,
+            responseUploadImageToServer.data!.fileUrl,
           );
         } else {
           return left(response.errormessage ?? StringManager.unExperctedError);

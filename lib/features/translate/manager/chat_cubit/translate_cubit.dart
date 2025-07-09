@@ -9,11 +9,11 @@ import 'package:graduate_project/features/translate/data/repo/chat_repo.dart';
 
 part 'chat_state.dart';
 
-class ChatCubit extends Cubit<ChatState> {
-  ChatCubit({required this.repo}) : super(ChatInitial());
+class TranslateCubit extends Cubit<TranslateState> {
+  TranslateCubit({required this.repo}) : super(ChatInitial());
   final ChatRepo repo;
 
-  static ChatCubit get(context) => BlocProvider.of(context);
+  static TranslateCubit get(context) => BlocProvider.of(context);
 
   TextEditingController controller = TextEditingController();
   ChatModel? chatModel;

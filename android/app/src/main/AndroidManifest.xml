@@ -21,7 +21,7 @@
         </intent>
     </queries>
     <application
-        android:label="graduate_project"
+        android:label="HandTalk"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <meta-data

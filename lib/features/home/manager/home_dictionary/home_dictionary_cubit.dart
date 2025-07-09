@@ -26,7 +26,7 @@ class HomeDictionaryCubit extends Cubit<HomeDictionaryState> {
         videoController.value.isCompleted) {
       videoController.seekTo(Duration.zero);
       if (!isClosed) {
-        // emit(ShowWordInitialVideoChangePlayOrStop());
+        emit(ShowWordInitialVideoChangePlayOrStop());
       }
     }
   }
@@ -59,7 +59,7 @@ class HomeDictionaryCubit extends Cubit<HomeDictionaryState> {
       ..addListener(_videoListener)
       ..initialize().then((_) {
         if (!isClosed) {
-          videoController.play();
+          videoController.pause();
 
           emit(ShowWordInitialVideoInitilal());
         }

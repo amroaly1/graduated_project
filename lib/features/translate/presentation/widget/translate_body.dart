@@ -10,20 +10,20 @@ import 'package:graduate_project/core/resource/icon_manager.dart';
 import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
 import 'package:graduate_project/core/widget/custom_chat_text_field_send.dart';
-import 'package:graduate_project/features/translate/manager/chat_cubit/chat_cubit.dart';
+import 'package:graduate_project/features/translate/manager/chat_cubit/translate_cubit.dart';
 import 'package:graduate_project/core/manager/mic_cubit/mic_cubit.dart';
 import 'package:graduate_project/features/home/manager/home_cubit/cubit/home_cubit.dart';
 import 'package:graduate_project/features/home/manager/home_cubit/cubit/home_state.dart';
 
-class ChatBody extends StatelessWidget {
-  const ChatBody({super.key});
+class TranslateBody extends StatelessWidget {
+  const TranslateBody({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider.value(
-          value: di<ChatCubit>(),
+          value: di<TranslateCubit>(),
         ),
         BlocProvider.value(
           value: di<MicCubit>(),
@@ -58,8 +58,9 @@ class ChatBody extends StatelessWidget {
                         icon: IconManager.asl,
                       ),
                       InkWell(
-                        onTap: ChatCubit.get(context).addToFavoriteOrRemove,
-                        child: BlocConsumer<ChatCubit, ChatState>(
+                        onTap:
+                            TranslateCubit.get(context).addToFavoriteOrRemove,
+                        child: BlocConsumer<TranslateCubit, TranslateState>(
                           listener: (context, state) {
                             if (state is ChatAddToFavoriteOrRemoveFailing) {
                               showSnackBar(context, message: state.errMessage);
@@ -67,9 +68,11 @@ class ChatBody extends StatelessWidget {
                           },
                           builder: (context, state) {
                             return Icon(
-                              ChatCubit.get(context).chatModel == null
+                              TranslateCubit.get(context).chatModel == null
                                   ? Icons.bookmark_outline
-                                  : ChatCubit.get(context).chatModel!.isSaved ==
+                                  : TranslateCubit.get(context)
+                                              .chatModel!
+                                              .isSaved ==
                                           true
                                       ? Icons.bookmark
                                       : Icons.bookmark_outline,
@@ -84,7 +87,7 @@ class ChatBody extends StatelessWidget {
                 ),
               ),
             ),
-            Expanded(child: BlocBuilder<ChatCubit, ChatState>(
+            Expanded(child: BlocBuilder<TranslateCubit, TranslateState>(
               builder: (context, state) {
                 if (state is ChatInitial) {
                   return SizedBox();
@@ -96,17 +99,17 @@ class ChatBody extends StatelessWidget {
                 }
                 return Container(
                   alignment: Alignment.center,
-                  child: ChatCubit.get(context).imageBytes == null
+                  child: TranslateCubit.get(context).imageBytes == null
                       ? SizedBox()
-                      : Image.memory(ChatCubit.get(context).imageBytes!),
+                      : Image.memory(TranslateCubit.get(context).imageBytes!),
                 );
               },
             )),
             Padding(
               padding: EdgeInsets.only(bottom: HeightManager.h8),
               child: CustomChatTextFieldSend(
-                controller: ChatCubit.get(context).controller,
-                onTapSend: ChatCubit.get(context).chat,
+                controller: TranslateCubit.get(context).controller,
+                onTapSend: TranslateCubit.get(context).chat,
               ),
             ),
             BlocBuilder<HomeCubit, HomeState>(

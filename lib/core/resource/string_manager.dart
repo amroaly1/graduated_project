@@ -242,8 +242,12 @@ abstract class StringManager {
       "If you want to translate another video?";
   static const String areyousuretoremovethisvideo =
       "Are you sure to remove this video ?";
+  static const String areyousuretoremovethischat =
+      "Are you sure to remove this Chat ?";
   static const String thisvideowillbepermanentlydeletedandcannotberecovered =
       "This video will be permanently deleted and cannot be recovered.";
+  static const String thiscahtowillbepermanentlydeletedandcannotberecovered =
+      "This Chat will be permanently deleted and cannot be recovered.";
 
   //
   static const String noresultsfound = "No results found";

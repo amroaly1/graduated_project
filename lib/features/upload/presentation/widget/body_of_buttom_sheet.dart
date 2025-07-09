@@ -7,8 +7,8 @@ import 'package:graduate_project/core/resource/string_manager.dart';
 import 'package:graduate_project/core/resource/text_style_manager.dart';
 import 'package:graduate_project/features/upload/manager/upload_cubit/upload_cubit.dart';
 
-class BodyOfBoyyomSheet extends StatelessWidget {
-  const BodyOfBoyyomSheet({
+class BodyOfButtomSheet extends StatelessWidget {
+  const BodyOfButtomSheet({
     super.key,
   });
 

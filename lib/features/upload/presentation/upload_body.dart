@@ -124,7 +124,7 @@ class UploadBody extends StatelessWidget {
                         builder: (context) {
                           return BlocProvider.value(
                             value: di<UploadCubit>(),
-                            child: BodyOfBoyyomSheet(),
+                            child: BodyOfButtomSheet(),
                           );
                         },
                       );

@@ -1,27 +1,27 @@
-part of 'chat_cubit.dart';
+part of 'translate_cubit.dart';
 
-sealed class ChatState {}
+sealed class TranslateState {}
 
-final class ChatInitial extends ChatState {}
+final class ChatInitial extends TranslateState {}
 
-final class ChatLoading extends ChatState {}
+final class ChatLoading extends TranslateState {}
 
-final class ChatSuccess extends ChatState {}
+final class ChatSuccess extends TranslateState {}
 
-final class ChatFailing extends ChatState {
+final class ChatFailing extends TranslateState {
   final String errMessage;
   ChatFailing({required this.errMessage});
 }
 
-final class ChatAddOrRemoveFavorite extends ChatState {}
+final class ChatAddOrRemoveFavorite extends TranslateState {}
 
-final class ChatAddToFavoriteOrRemoveFailing extends ChatState {
+final class ChatAddToFavoriteOrRemoveFailing extends TranslateState {
   final String errMessage;
   ChatAddToFavoriteOrRemoveFailing({required this.errMessage});
 }
 
-final class ChatAddToFavoriteOrRemoveSuccess extends ChatState {}
+final class ChatAddToFavoriteOrRemoveSuccess extends TranslateState {}
 
-final class ChatMicISDisabled extends ChatState {}
+final class ChatMicISDisabled extends TranslateState {}
 
 // final class ChatMicAddText extends ChatState {}
