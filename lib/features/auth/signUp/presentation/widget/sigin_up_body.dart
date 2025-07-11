@@ -126,13 +126,6 @@ class _SiginUpBodyState extends State<SiginUpBody> {
                       );
               },
             ),
-            // SizedBox(height: HeightManager.h24),
-            // SocialAuthSection(
-            //   title: StringManager.orRegisterWith,
-            //   onTapFaceBook: () {},
-            //   onTapGoogle: () {},
-            //   onTapApple: () {},
-            // ),
             SizedBox(
               height: HeightManager.h29,
             ),

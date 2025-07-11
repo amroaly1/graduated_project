@@ -81,8 +81,6 @@ class EditProfileCubit extends Cubit<EditProfileState> {
   }) async {
     emit(EditProfileLoading());
 
-    // TODO : Upload Image
-
     if (image != null) {
       bool isUpload = await uploadImageToServer(image);
       if (!isUpload) {
@@ -91,8 +89,6 @@ class EditProfileCubit extends Cubit<EditProfileState> {
         return;
       }
     }
-
-    // TODO : Change First Name ,  Last Name , Image Url
 
     bool isEdit = await editProfile();
     if (!isEdit) {

@@ -53,7 +53,10 @@ class ChatWitAiBodyView extends StatelessWidget {
                         index: index,
                         child: CustomChatCard(
                           isStart: index == 0,
-                          fromMe: index % 2 == 0,
+                          fromMe: ChatListViewCubit.get(context)
+                                  .messages[index]
+                                  .role ==
+                              "user",
                           message: ChatListViewCubit.get(context)
                               .messages[index]
                               .content,
@@ -82,7 +85,10 @@ class ChatWitAiBodyView extends StatelessWidget {
                       }
                       return CustomChatCard(
                         isStart: index == 0,
-                        fromMe: index % 2 == 0,
+                        fromMe: ChatListViewCubit.get(context)
+                                .messages[index]
+                                .role ==
+                            "user",
                         message: ChatListViewCubit.get(context)
                             .messages[index]
                             .content,
@@ -99,21 +105,31 @@ class ChatWitAiBodyView extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(0),
             // padding: EdgeInsets.only(bottom: HeightManager.h11),
-            child: CustomChatTextFieldSend(
-              // TODO : use this function to communitcate with api
-              onTapSend: () {
-                ChatListViewCubit.get(context).addMessage();
+            child: BlocBuilder<ChatListViewCubit, ChatListViewState>(
+              builder: (context, state) {
+                return CustomChatTextFieldSend(
+                  onTapSend: state is ChatListViewAddItemLoading ||
+                          state is ChatListViewLoading
+                      ? null
+                      : () {
+                          ChatListViewCubit.get(context).addMessage();
+                        },
+                  onChanged: (text) {
+                    // log("${ChatListViewCubit.get(context).textController.text}");
+                    // log("text : $text");
+                  },
+                  controller: ChatListViewCubit.get(context).textController,
+                );
               },
-
-              onChanged: (text) {
-                // log("${ChatListViewCubit.get(context).textController.text}");
-                // log("text : $text");
-              },
-              //TODO : give this controller
-              controller: ChatListViewCubit.get(context).textController,
             ),
           ),
-          // BlocBuilder<HomeCubit, HomeState>(
+        ],
+      ),
+    );
+  }
+}
+
+// BlocBuilder<HomeCubit, HomeState>(
           //   builder: (context, state) {
           //     return SizedBox(
           //       height: HomeCubit.get(context).isShowBottomNavigationBar
@@ -122,11 +138,6 @@ class ChatWitAiBodyView extends StatelessWidget {
           //     );
           //   },
           // ),
-        ],
-      ),
-    );
-  }
-}
 
 // class ChatWithAiBodyMessages extends StatefulWidget {
 //   const ChatWithAiBodyMessages({

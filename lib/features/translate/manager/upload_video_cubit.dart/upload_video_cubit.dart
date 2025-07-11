@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:async';
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduate_project/core/network/api_end_point.dart';
@@ -39,9 +40,10 @@ class UploadVideoCubit extends Cubit<UploadVideoState> {
 
     try {
       // Open new socket connection
-      _channel = IOWebSocketChannel.connect(
-        '${ApiEndPoint.webSoket}${uploadVideoRepo.getUserId()}',
-      );
+
+      final socket = await WebSocket.connect(
+          '${ApiEndPoint.webSoket}${uploadVideoRepo.getUserId()}');
+      _channel = IOWebSocketChannel(socket);
 
       // Start listening to the socket
       _listenToSocket();
@@ -58,6 +60,7 @@ class UploadVideoCubit extends Cubit<UploadVideoState> {
       );
     } catch (e) {
       emit(UploadVideoErrorState(errMessage: e.toString()));
+      emit(UploadVideoErrorState(errMessage: "Connect Webosket is Error"));
     }
   }
 

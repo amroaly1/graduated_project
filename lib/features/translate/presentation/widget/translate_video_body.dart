@@ -166,8 +166,17 @@ class TranslateVideoBody extends StatelessWidget {
                                         returnaudio: true,
                                       ),
                                     ),
+                              state is UploadVideoErrorState
+                                  ? Text(
+                                      state.errMessage,
+                                      style: TextStyleManager.semiBold10(
+                                        color: ColorManager.red,
+                                        height: 0,
+                                      ),
+                                    )
+                                  : SizedBox(),
                               SizedBox(
-                                height: HeightManager.h20,
+                                height: HeightManager.h10,
                               ),
                             ],
                           ),

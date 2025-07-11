@@ -44,7 +44,9 @@ class CustomChatCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(
                 RaduisValueManager.r10,
               ),
-              color: ColorManager.primaryColorlight1,
+              color: fromMe
+                  ? ColorManager.primaryColorlight1
+                  : ColorManager.primaryColorlight,
             ),
             child: Wrap(
               children: [
@@ -63,13 +65,18 @@ class CustomChatCard extends StatelessWidget {
           SizedBox(
             height: HeightManager.h6,
           ),
-          Text(
-            DateFormat.jm().format(DateTime.parse(dateTime)),
-            style: TextStyleManager.medium20(
-              color: ColorManager.gray7,
-              fontFamily: FontFamilyManger.avenirLTStd,
-              fontWeight: FontWeightManager.semiBold,
-              size: FontSizeManager.s11,
+          Padding(
+            padding: fromMe
+                ? const EdgeInsets.only(left: 5.0)
+                : const EdgeInsets.only(right: 5.0),
+            child: Text(
+              DateFormat.jm().format(DateTime.parse(dateTime)),
+              style: TextStyleManager.medium20(
+                color: ColorManager.gray7,
+                fontFamily: FontFamilyManger.avenirLTStd,
+                fontWeight: FontWeightManager.semiBold,
+                size: FontSizeManager.s11,
+              ),
             ),
           ),
         ],

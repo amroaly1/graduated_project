@@ -51,7 +51,7 @@ class ChatListViewCubit extends Cubit<ChatListViewState> {
     log("From Chat Cubit : ${textController.text}");
     if (textController.text.isNotEmpty) {
       messages.add(Messages(
-          role: "",
+          role: "user",
           content: textController.text,
           timestamp: DateTime.now().toIso8601String()));
 
@@ -77,7 +77,7 @@ class ChatListViewCubit extends Cubit<ChatListViewState> {
     response.fold((error) {
       messages.add(
         Messages(
-          role: "",
+          role: "assistant",
           content: error,
           timestamp: DateTime.now().toIso8601String(),
         ),
@@ -86,7 +86,7 @@ class ChatListViewCubit extends Cubit<ChatListViewState> {
     }, (r) {
       messages.add(
         Messages(
-          role: "",
+          role: "assistant",
           content: removeDoubleAsterisks(r.response),
           timestamp: r.timestamp,
         ),

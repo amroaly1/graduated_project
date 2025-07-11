@@ -12,6 +12,7 @@ import 'package:graduate_project/features/auth/login/data/repo/login_repo.dart';
 import 'package:graduate_project/features/auth/login/manager/cubit/login_cubit.dart';
 import 'package:graduate_project/features/auth/signUp/data/repo/sigin_up_repo.dart';
 import 'package:graduate_project/features/auth/signUp/manager/cubit/sigin_up_cubit.dart';
+import 'package:graduate_project/features/bridge/data/repo/get_all_bridge_chat_repo.dart';
 import 'package:graduate_project/features/signGPT/data/repo/chat_repo.dart';
 import 'package:graduate_project/features/signGPT/data/repo/get_all_chat_repo.dart';
 import 'package:graduate_project/features/signGPT/data/repo/get_search_chat_repo.dart';
@@ -236,6 +237,12 @@ Future<void> setUp() async {
   );
   di.registerSingleton<GetSignGptRepo>(
     GetSignGptRepo(
+      apiHelper: di<ApiHelper>(),
+      connectInternetHelper: di<ConnectInternetHelper>(),
+    ),
+  );
+  di.registerSingleton<GetAllBridgeChatRepo>(
+    GetAllBridgeChatRepo(
       apiHelper: di<ApiHelper>(),
       connectInternetHelper: di<ConnectInternetHelper>(),
     ),

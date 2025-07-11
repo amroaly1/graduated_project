@@ -106,7 +106,6 @@ class TitleOfBoxOfVideoToText extends StatelessWidget {
               child: InkWell(
                 splashColor: Colors.grey.shade400,
                 onTap: () async {
-                  // TODO : but text in it
                   await Clipboard.setData(
                       ClipboardData(text: videoToTextModel.text));
 

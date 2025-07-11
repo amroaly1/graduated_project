@@ -139,6 +139,14 @@ class RecentlyChat extends StatelessWidget {
                                         .signGPTHomeResponse
                                         ?.chatId);
                               }
+                              if (RecentalyChatCubit.get(context)
+                                      .currentIndex ==
+                                  0) {
+                                NavigationManager.push(
+                                  context: context,
+                                  screen: ScreenManager.bridgeChatView,
+                                );
+                              }
                             },
                             child: Text(
                               "View Full Chat",
@@ -193,52 +201,40 @@ class RecentlyChat extends StatelessWidget {
                           ),
                         );
                       }
-                      if (RecentalyChatCubit.get(context).currentIndex == 1 &&
-                          RecentalyChatCubit.get(context).signGPTHomeResponse !=
-                              null) {
+                      if (RecentalyChatCubit.get(context)
+                          .messages[
+                              RecentalyChatCubit.get(context).currentIndex]
+                          .isEmpty) {
                         return Expanded(
-                          child: SingleChildScrollView(
-                            child: Column(
-                              children: [
-                                CustomChatCard(
-                                  fromMe: true,
-                                  message: RecentalyChatCubit.get(context)
-                                      .signGPTHomeResponse!
-                                      .userPrompt,
-                                  time: RecentalyChatCubit.get(context)
-                                      .signGPTHomeResponse!
-                                      .userTimestamp,
-                                ),
-                                CustomChatCard(
-                                  fromMe: false,
-                                  message: RecentalyChatCubit.get(context)
-                                      .signGPTHomeResponse!
-                                      .assistantResponse,
-                                  time: RecentalyChatCubit.get(context)
-                                      .signGPTHomeResponse!
-                                      .assistantTimestamp,
-                                ),
-                              ],
-                            ),
+                          child: Center(
+                            child: Text(RecentalyChatCubit.get(context).error[
+                                RecentalyChatCubit.get(context).currentIndex]),
                           ),
                         );
                       }
                       return Expanded(
-                        child: SingleChildScrollView(
-                          child: Column(
-                            children: [
-                              CustomChatCard(
-                                fromMe: true,
-                                message: "Hello bro, what about you ?",
-                                time: "2025-07-09T17:42:20.549531",
-                              ),
-                              CustomChatCard(
-                                fromMe: false,
-                                message: "I’m Good bro, what about you also ?",
-                                time: "2025-07-09T17:42:20.549531",
-                              ),
-                            ],
-                          ),
+                        child: ListView.builder(
+                          itemCount: RecentalyChatCubit.get(context)
+                              .messages[
+                                  RecentalyChatCubit.get(context).currentIndex]
+                              .length,
+                          itemBuilder: (context, index) {
+                            return CustomChatCard(
+                              fromMe: RecentalyChatCubit.get(context)
+                                      .messages[RecentalyChatCubit.get(context)
+                                          .currentIndex][index]
+                                      .role ==
+                                  "user",
+                              message: RecentalyChatCubit.get(context)
+                                  .messages[RecentalyChatCubit.get(context)
+                                      .currentIndex][index]
+                                  .content,
+                              time: RecentalyChatCubit.get(context)
+                                  .messages[RecentalyChatCubit.get(context)
+                                      .currentIndex][index]
+                                  .timestamp,
+                            );
+                          },
                         ),
                       );
                     },
